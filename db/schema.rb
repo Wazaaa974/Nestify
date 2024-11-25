@@ -10,14 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_25_150509) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_25_151324) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "package_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["package_id"], name: "index_favorites_on_package_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "packages", force: :cascade do |t|
+    t.string "name"
+    t.float "budget"
+    t.float "min"
+    t.float "max"
+    t.bigint "room_id", null: false
+    t.bigint "style_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_packages_on_room_id"
+    t.index ["style_id"], name: "index_packages_on_style_id"
+  end
 
   create_table "product_categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "product_packages", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "package_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["package_id"], name: "index_product_packages_on_package_id"
+    t.index ["product_id"], name: "index_product_packages_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -60,6 +91,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_25_150509) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "favorites", "packages"
+  add_foreign_key "favorites", "users"
+  add_foreign_key "packages", "rooms"
+  add_foreign_key "packages", "styles"
+  add_foreign_key "product_packages", "packages"
+  add_foreign_key "product_packages", "products"
   add_foreign_key "products", "product_categories"
   add_foreign_key "products", "rooms"
   add_foreign_key "products", "styles"
