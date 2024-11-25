@@ -1,0 +1,2 @@
+class UserPackagesController < ApplicationController
+end
