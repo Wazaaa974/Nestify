@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :packages, only: [:index, :new, :create, :show]
-  resources :dasboards, only: [:index]
+  resources :dashboards, only: [:index]
   resources :user_packages, only: [:index, :new, :create, :show, :edit, :destroy]
 
   resources :packages do
