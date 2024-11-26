@@ -1,6 +1,6 @@
 .card {
   width: 300px; /* Taille de la card */
-  background-color: #D9D9D9;
+  background-color: $grey;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre noire */
   overflow: hidden; /* Contenu reste dans les bords arrondis */
@@ -21,21 +21,21 @@
   .price {
     font-size: 24px;
     font-weight: bold;
-    color: #343232;
+    color: $dark-grey;
     margin-bottom: 10px;
   }
 
   .package-name {
     font-size: 18px;
     font-weight: bold;
-    color: #343232;
+    color: $dark-grey;
     margin-bottom: 10px;
     text-align: center;
   }
 
   .description {
     font-size: 14px;
-    color: #343232;
+    color: $dark-grey;
     text-align: center;
     margin-bottom: 15px;
   }
@@ -44,14 +44,14 @@
     text-align: center;
 
     button {
-      background-color: #92CAD7;
-      color: #343232;
+      background-color: $blue;
+      color: $dark-grey;
       border: none;
       padding: 10px 20px;
       font-size: 16px;
       border-radius: 10px;
       cursor: pointer;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7); 
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
     }
   }
 
