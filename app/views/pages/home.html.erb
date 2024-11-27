@@ -11,18 +11,52 @@
 
 <%# bouton %>
 
-<div class="container mt-4 mb-4 d-flex justify-content-center">
-    <a class="rounded-shadow-button" href="#">Je créé mon nid</a>
+<div class="container mt-4 mb-2 d-flex justify-content-center">
+    <%= link_to "Je crée mon nid", new_package_path, class:"rounded-shadow-button" %>
 </div>
 
 <%# images doubles en colonnes %>
-
-<div class="images-home">
-  <div class="images-home-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-    Breakfast
+<div class="container position-relative">
+  <div class="mb-4 mt-3 row row-cols-2 g-3 ">
+    <div class="col">
+      <div class="images-home">
+          <div class="images-home-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= Cloudinary::Utils.cloudinary_url("kyle-nieber-CYAzazB9RQ4-unsplash_m57rzq") %>')">
+          </div>
+        </div>
+      </div>
+    <div class="col">
+      <div class="images-home">
+        <div class="images-home-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= Cloudinary::Utils.cloudinary_url("steph-wilson-MhsCRIaVQW0-unsplash_xvh7fx") %>')">
+        </div>
+      </div>
+    </div>
   </div>
+  <p class= "text-center" style="position: relative; top: -10px;"> "Nestify: votre assistant déco personnel"</p>
+  <div class="rectangle">
+    <div class="carre" style="background-color:blue;"></div>
+  </div>
+</div>
 
-  <div class="images-home-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
-    Lunch
+
+<div class="container mt-4">
+  <h1 class= "text-center"> Le concept </h1>
+    <div class="text-center mt-3">
+    <i class="fa-solid fa-clock fs-4" style="color: #92cad7;"></i>
+      <p>Gagnez du temps dans votre recherche d’aménagement.</p>
+    <i class="fa-solid fa-wallet fs-4" style="color: #ffe7b8;"></i>
+      <p>Respectez votre budget sans compromis sur le style.</p>
+    <i class="fa-solid fa-heart fs-4" style="color: #8abecb;"></i>
+      <p>Enregistrez vos coups de coeur et personnalisez à l’infini.</p>
+   <i class="fa-solid fa-comments fs-4" style="color: #ffe7b8;"></i>
+    <p>Bénéficiez de recommandations personnalisées grâce à Nesty, qui comprend vos envies.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="images-trois-home mb-4" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= Cloudinary::Utils.cloudinary_url("timothy-buck-psrloDbaZc8-unsplash_ma9il9") %>')">
+    </div>
+     <h1 class= "text-center" style="position: relative; top: -10px;"> Les packages tendances </h1>
+  <div class="rectangle-yellow">
+    <div class="carre" style="background-color:yellow;"></div>
   </div>
 </div>
