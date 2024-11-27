@@ -8,10 +8,12 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+require "csv"
 
 puts "Destruction current database"
 
 User.destroy_all
+
 Style.destroy_all
 Room.destroy_all
 Product.destroy_all
@@ -52,6 +54,12 @@ furniture = ProductCategory.create!(name: "Furniture")
 decor = ProductCategory.create!(name: "Decor")
 
 # Products
+filepath = "lit_chambre.csv"
+CSV.foreach(filepath, headers: :first_row) do |row|
+  puts "#{row['name']} #{row['description']} #{row['price']}"
+end
+
+
 sofa = Product.create!(
   name: "Comfy Sofa",
   description: "A modern and comfortable sofa.",
