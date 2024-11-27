@@ -12,13 +12,13 @@ require "csv"
 
 puts "Destruction current database"
 
-User.destroy_all
-
+ProductPackage.destroy_all
+Product.destroy_all
+Proposal.destroy_all
+Package.destroy_all
 Style.destroy_all
 Room.destroy_all
-Product.destroy_all
-Package.destroy_all
-ProductPackage.destroy_all
+User.destroy_all
 
 puts "Seed creation"
 
@@ -44,19 +44,44 @@ user2 = User.create!(
 # Styles
 modern = Style.create!(name: "modern")
 classic = Style.create!(name: "classic")
+contemporain = Style.create!(name: "contemporain")
+industriel = Style.create!(name: "industriel")
+vintage = Style.create!(name: "vintage")
+classic_chic = Style.create!(name: "classic_chic")
+bord_de_mer = Style.create!(name: "bord_de_mer")
+tropical = Style.create!(name: "tropical")
+campagne = Style.create!(name: "campagne")
+minimaliste = Style.create!(name: "minimaliste")
+scandinave = Style.create!(name: "scandinave")
+boheme = Style.create!(name: "boheme")
+zen_asiatique = Style.create!(name: "zen_asiatique")
+antique = Style.create!(name: "antique")
+baroque = Style.create!(name: "baroque")
 
 # Rooms
 living_room = Room.create!(name: "Living Room")
 bedroom = Room.create!(name: "Bedroom")
 
 # Product Categories
-furniture = ProductCategory.create!(name: "Furniture")
+lit = ProductCategory.create!(name: "lit")
 decor = ProductCategory.create!(name: "Decor")
+
+# puts "#{row['name']} #{row['description']} #{row['price']}"
 
 # Products
 filepath = "lit_chambre.csv"
 CSV.foreach(filepath, headers: :first_row) do |row|
-  puts "#{row['name']} #{row['description']} #{row['price']}"
+  puts "#{modern[:name]}"
+  Product.create!(
+  name: "#{row['name']}",
+  description: "#{row['description']}",
+  price: row['price'],
+  url: "#{row['url']}",
+  shop: "#{row['shop']}",
+  product_category_id: lit.id,
+  style_id: row['style'],
+  room_id: bedroom.id
+)
 end
 
 
@@ -96,7 +121,7 @@ package1 = Package.create!(
 product_package1 = ProductPackage.create!(product_id: sofa.id, package_id: package1.id)
 
 # Favorites
-favorite1 = Favorite.create!(user_id: user1.id, package_id: package1.id)
-favorite2 = Favorite.create!(user_id: user2.id, package_id: package1.id)
+proposal1 = Proposal.create!(user_id: user1.id, package_id: package1.id, favorite: true)
+proposal2 = Proposal.create!(user_id: user2.id, package_id: package1.id, favorite: false)
 
 puts "Database seeded successfully!"
