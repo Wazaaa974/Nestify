@@ -10,3 +10,33 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7); // Ombre noire fixe
   text-decoration: none;
 }
+
+.btn-nul {
+
+  background-color: $grey;
+  color: $dark-grey;
+}
+
+.btn-aime {
+
+  background-color: $yellow;
+  color:  $dark-grey;
+}
+
+.btn-passionne {
+
+  background-color: $blue;
+  color:  $dark-grey;
+}
+ .btn-validate {
+
+  background-color: $blue;
+  color:  $dark-grey;
+
+ }
+ .btn-valider {
+
+  background-color: $blue;
+  color:  $dark-grey;
+
+ }
