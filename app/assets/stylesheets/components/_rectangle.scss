@@ -1,26 +1,27 @@
 .rectangle{
   position: absolute; /* Positionne le rectangle par rapport au conteneur parent */
-  bottom: 0%; /* Ajustez selon le placement souhaité */
+  bottom: -10%; /* Ajustez selon le placement souhaité */
   left: 0;
   right: 0;
   width: auto;
-  height: 160px;
+  height: 180px;
   text-decoration: none;
   text-align: center;
   font-weight: bold;
   background-color: $grey ;
   padding: 5px;
   z-index: -1;
-  box-shadow: rgba(65, 65, 65, 0.16) 0px 3px 6px, rgba(102, 102, 102, 0.23) 0px 3px 6px;
+  box-shadow: rgba(65, 65, 65, 0.1) 0px 3px 6px, rgba(102, 102, 102, 0.2) 0px 3px 6px;
 }
 
 .rectangle-yellow{
   position: absolute; /* Positionne le rectangle par rapport au conteneur parent */
-  bottom: 0%; /* Ajustez selon le placement souhaité */
+ /* Ajustez selon le placement souhaité */
+  bottom: -75%;
   left: 0;
   right: 0;
   width: auto;
-  height: 160px;
+  height: 470px;
   text-decoration: none;
   text-align: center;
   font-weight: bold;

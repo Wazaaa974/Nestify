@@ -45,13 +45,13 @@
 
     button {
       background-color: $blue;
-      color: $dark-grey;
+      color: $white;
       border: none;
       padding: 10px 20px;
       font-size: 16px;
       border-radius: 10px;
       cursor: pointer;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     }
   }
 

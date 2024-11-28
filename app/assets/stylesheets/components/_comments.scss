@@ -1,0 +1,43 @@
+.comments-category {
+  background-size: cover;
+  background-color: $blue;
+  background-position: center;
+  // height: 180px;
+  color: $dark-grey;
+  font-size: 16px;
+  border-radius: 10px;
+  height: 150px;
+  width: 200px;
+  display: inline-block;
+  margin-right: 14px;
+  text-wrap: wrap;
+  flex: 0 0 auto; /* Empêche les éléments de se redimensionner */
+  min-width: 150px; /* Largeur minimale */ /* Hauteur */
+  background-color: $blue; /* Couleur de fond */
+  display: flex; /* Pour centrer le contenu */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  // p {
+  //   margin-top: revert;
+  //   margin-bottom: revert;
+}
+
+.comments {
+  // display: grid;
+  // grid-template-columns: 1fr 1fr 1fr
+  display: flex; /* Active Flexbox */
+  overflow-x: auto; /* Scroll horizontal activé */
+  white-space: nowrap; /* Empêche les éléments de revenir à la ligne */
+  gap: 10px; /* Espacement entre les éléments */
+  padding: 10px;
+
+}
+
+.comments-quote{
+  font-weight: 800;
+  position:absolute;
+  font-size: 35px;
+  top: 0;
+  left: 5px;
+}

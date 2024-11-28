@@ -1,0 +1,27 @@
+.mobile-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #fff; /* Couleur de fond */
+  padding: 10px 20px;
+  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1); /* Ombre douce */
+  border-top: 1px solid #ddd; /* Ligne de séparation */
+}
+
+.footer-icon {
+  flex: 1; /* Permet aux icônes de s'espacer également */
+  text-align: center;
+}
+
+.footer-picto {
+  width: 24px; /* Taille des pictogrammes */
+  height: 24px;
+}
+
+.footer-logo {
+  width: 40px; /* Taille du logo */
+  height: auto;
+}
