@@ -1,12 +1,46 @@
 .rounded-shadow-button {
   background-color: $blue;
-  color: $dark-grey;
+  color: white;
   border: none;
   padding: 10px 20px;
   font-size: 16px;
   font-weight: 500;
-  border-radius: 10px; // Coins arrondis
+  border-radius: 25px; // Coins arrondis
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7); // Ombre noire fixe
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // Ombre noire fixe
   text-decoration: none;
 }
+.fa-feather-pointed{
+  margin-right: 10px;
+}
+
+.btn-nul {
+
+  background-color: $grey;
+  color: $dark-grey;
+}
+
+.btn-aime {
+
+  background-color: $yellow;
+  color:  $dark-grey;
+}
+
+.btn-passionne {
+
+  background-color: $blue;
+  color:  $dark-grey;
+}
+ .btn-validate {
+
+  background-color: $blue;
+  color:  $dark-grey;
+
+ }
+ .btn-valider {
+
+  background-color: $blue;
+  color:  $dark-grey;
+
+ }
+
