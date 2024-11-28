@@ -1,11 +1,17 @@
 <footer class="mobile-footer">
   <div class="footer-icon">
-    <img src="path_to_home_icon.svg" alt="Home" class="footer-picto">
+  <%= link_to root_path do %>
+    <i class="footer-picto fa-solid fa-house-chimney" style="color: #92cad7;"></i>
+    <% end %>
   </div>
+
   <div class="footer-icon">
-    <img src="path_to_heart_icon.svg" alt="Favorites" class="footer-picto">
+     <%= link_to dashboards_path do %>
+    <i class="footer-picto fa-solid fa-heart" style="color: #ffe7b8;"></i>
+    <% end %>
   </div>
+
   <div class="footer-icon">
-    <img src="path_to_logo_image.svg" alt="Logo" class="footer-logo">
+  <img src="<%= Cloudinary::Utils.cloudinary_url("freepik-export-20241102225506weBX_gecbsc") %>" alt="Petit oiseau" class="footer-bird">
   </div>
 </footer>

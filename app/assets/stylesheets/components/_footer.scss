@@ -16,12 +16,27 @@
   text-align: center;
 }
 
-.footer-picto {
-  width: 24px; /* Taille des pictogrammes */
-  height: 24px;
+// .footer-picto {
+//   font-size: 25px;
+// }
+
+.fa-house-chimney {
+  font-size: 25px;
 }
 
+.fa-heart {
+  font-size: 28px;
+}
+
+// .fa-solid {
+//   width: 50px;
+// }
+
 .footer-logo {
-  width: 40px; /* Taille du logo */
-  height: auto;
+  width: 20px; /* Taille du logo */
+  // height: auto;
+}
+
+.footer-bird {
+  width: 50px !important;
 }
