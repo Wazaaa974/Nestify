@@ -1,0 +1,63 @@
+
+
+<!-- Question Section -->
+<div class="container mt-4">
+  <h1></h1>
+    <!-- First Card -->
+    <div class="card mb-4">
+
+        <img src="<%= image_path("image2.jpg") %>" class="card-img-top" alt="Question Image">
+        <div class="card-body text-center">
+            <h1>Question</h1>
+            <h2>Quelle pièce veux-tu meubler et decorer ?</h2>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <input type="checkbox" class="form-check-input me-2"> Salon
+            </li>
+            <li class="list-group-item">
+                <input type="checkbox" class="form-check-input me-2"> Chambre
+            </li>
+            <li class="list-group-item">
+                <input type="checkbox" class="form-check-input me-2"> Salle de Bain
+            </li>
+            <li class="list-group-item">
+                <input type="checkbox" class="form-check-input me-2"> Cuisine
+            </li>
+        </ul>
+        <div class="card-body text-center">
+            <button class="btn btn-primary" style="border-radius: 10px;">Valider</button>
+        </div>
+    </div>
+
+    <!-- Second Card -->
+   <div class="card">
+    <img src="your-image.jpg" class="card-img-top" alt="Question Image">
+    <div class="card-body text-center">
+        <h1>Budget</h1>
+        <h2>Quel est le budget que tu veux allouer à ton projet déco ?</h2>
+
+      <!-- Pièce 1 -->
+<div class="room">
+    <div class="room-title">Pièce 1</div>
+    <div class="d-flex justify-content-evenly align-items-center mb-3">
+        <button class="btn plus">-</button>
+        <input type="text" class="budget-input" placeholder="Budget" disabled>
+        <button class="btn minus">+</button>
+    </div>
+</div>
+
+<!-- Pièce 2 -->
+<div class="room">
+    <div class="room-title">Pièce 2</div>
+    <div class="d-flex justify-content-evenly align-items-center mb-3">
+        <button class="btn plus">-</button>
+        <input type="text" class="budget-input" placeholder="Budget" disabled>
+        <button class="btn minus">+</button>
+    </div>
+</div>
+
+<!-- Bouton Valider -->
+<div style="margin-top: 10px;">
+    <button class="btn btn-primary" style="border-radius: 10px;">Valider</button>
+</div>
