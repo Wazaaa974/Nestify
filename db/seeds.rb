@@ -71,15 +71,16 @@ decor = ProductCategory.create!(name: "Decor")
 # Products
 filepath = "lit_chambre.csv"
 CSV.foreach(filepath, headers: :first_row) do |row|
-  puts "#{modern[:name]}"
+  style = Style.find_by(name: row['style'])
+  style = modern if style.nil?
   Product.create!(
   name: "#{row['name']}",
   description: "#{row['description']}",
-  price: row['price'],
+  price: row['price'].to_f,
   url: "#{row['url']}",
   shop: "#{row['shop']}",
   product_category_id: lit.id,
-  style_id: row['style'],
+  style_id: style.id,
   room_id: bedroom.id
 )
 end
@@ -91,7 +92,7 @@ sofa = Product.create!(
   price: 499.99,
   url: "http://example.com/sofa",
   shop: "Furniture Store",
-  product_category_id: furniture.id,
+  product_category_id: decor.id,
   style_id: modern.id,
   room_id: living_room.id
 )
