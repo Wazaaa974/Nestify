@@ -64,6 +64,10 @@ bedroom = Room.create!(name: "Bedroom")
 
 # Product Categories
 lit = ProductCategory.create!(name: "lit")
+table_chevet = ProductCategory.create!(name: "table_chevet")
+armoire = ProductCategory.create!(name: "armoire")
+tapis = ProductCategory.create!(name: "tapis")
+miroir = ProductCategory.create!(name: "miroir")
 decor = ProductCategory.create!(name: "Decor")
 
 # puts "#{row['name']} #{row['description']} #{row['price']}"
@@ -84,7 +88,6 @@ CSV.foreach(filepath, headers: :first_row) do |row|
   room_id: bedroom.id
 )
 end
-
 
 sofa = Product.create!(
   name: "Comfy Sofa",
@@ -108,18 +111,91 @@ lamp = Product.create!(
   room_id: bedroom.id
 )
 
+
+filepath = "table_chambre.csv"
+CSV.foreach(filepath, headers: :first_row, col_sep: ';') do |row|
+  style = Style.find_by(name: row['style'])
+  style = modern if style.nil?
+  Product.create!(
+  name: "#{row['name']}",
+  description: "#{row['description']}",
+  price: row['price'].to_f,
+  url: "#{row['url']}",
+  shop: "#{row['shop']}",
+  product_category_id: table_chevet.id,
+  style_id: style.id,
+  room_id: bedroom.id
+)
+end
+
+filepath = "armoire_chambre.csv"
+CSV.foreach(filepath, headers: :first_row, col_sep: ';') do |row|
+  style = Style.find_by(name: row['style'])
+  style = modern if style.nil?
+  Product.create!(
+  name: "#{row['name']}",
+  description: "#{row['description']}",
+  price: row['price'].to_f,
+  url: "#{row['url']}",
+  shop: "#{row['shop']}",
+  product_category_id: armoire.id,
+  style_id: style.id,
+  room_id: bedroom.id
+)
+end
+
+
+filepath = "tapis_chambre.csv"
+CSV.foreach(filepath, headers: :first_row, col_sep: ';') do |row|
+  style = Style.find_by(name: row['style'])
+  style = modern if style.nil?
+  Product.create!(
+  name: "#{row['name']}",
+  description: "#{row['description']}",
+  price: row['price'].to_f,
+  url: "#{row['url']}",
+  shop: "#{row['shop']}",
+  product_category_id: tapis.id,
+  style_id: style.id,
+  room_id: bedroom.id
+)
+end
+
+filepath = "miroir_chambre.csv"
+CSV.foreach(filepath, headers: :first_row, col_sep: ';') do |row|
+  style = Style.find_by(name: row['style'])
+  style = modern if style.nil?
+  Product.create!(
+  name: "#{row['name']}",
+  description: "#{row['description']}",
+  price: row['price'].to_f,
+  url: "#{row['url']}",
+  shop: "#{row['shop']}",
+  product_category_id: miroir.id,
+  style_id: style.id,
+  room_id: bedroom.id
+)
+end
+
+
 # Packages
 package1 = Package.create!(
   name: "Modern Living Room Package",
   budget: 1000.0,
   min: 800.0,
   max: 1200.0,
-  room_id: living_room.id,
+  room_id: bedroom.id,
   style_id: modern.id
 )
 
+lit_moderne = Product.find_by(style: modern, room: bedroom)
+
 # Product Packages
-product_package1 = ProductPackage.create!(product_id: sofa.id, package_id: package1.id)
+product_package_modern_lit = ProductPackage.create!(product: lit_moderne , package_id: package1.id)
+product_package_modern_table_chevet = ProductPackage.create!(product_id: sofa.id, package_id: package1.id)
+product_package_modern_armoire = ProductPackage.create!(product_id: sofa.id, package_id: package1.id)
+product_package_modern_tapis = ProductPackage.create!(product_id: sofa.id, package_id: package1.id)
+product_package_modern_miroir = ProductPackage.create!(product_id: sofa.id, package_id: package1.id)
 
 # Favorites
 proposal1 = Proposal.create!(user_id: user1.id, package_id: package1.id, favorite: true)
