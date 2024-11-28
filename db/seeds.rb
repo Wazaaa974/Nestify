@@ -188,14 +188,18 @@ package1 = Package.create!(
   style_id: modern.id
 )
 
-lit_moderne = Product.find_by(style: modern, room: bedroom)
+lit_moderne = Product.find_by(style: modern, room: bedroom, product_category: lit)
+table_chevet_moderne = Product.find_by(style: modern, room: bedroom, product_category: table_chevet)
+armoire_moderne = Product.find_by(style: modern, room: bedroom, product_category: armoire)
+tapis_moderne = Product.find_by(style: modern, room: bedroom, product_category: tapis)
+miroir_moderne = Product.find_by(style: modern, room: bedroom, product_category: miroir)
 
 # Product Packages
 product_package_modern_lit = ProductPackage.create!(product: lit_moderne , package_id: package1.id)
-product_package_modern_table_chevet = ProductPackage.create!(product_id: sofa.id, package_id: package1.id)
-product_package_modern_armoire = ProductPackage.create!(product_id: sofa.id, package_id: package1.id)
-product_package_modern_tapis = ProductPackage.create!(product_id: sofa.id, package_id: package1.id)
-product_package_modern_miroir = ProductPackage.create!(product_id: sofa.id, package_id: package1.id)
+product_package_modern_table_chevet = ProductPackage.create!(product: table_chevet_moderne, package_id: package1.id)
+product_package_modern_armoire = ProductPackage.create!(product: armoire_moderne, package_id: package1.id)
+product_package_modern_tapis = ProductPackage.create!(product: tapis_moderne, package_id: package1.id)
+product_package_modern_miroir = ProductPackage.create!(product: miroir_moderne, package_id: package1.id)
 
 # Favorites
 proposal1 = Proposal.create!(user_id: user1.id, package_id: package1.id, favorite: true)
