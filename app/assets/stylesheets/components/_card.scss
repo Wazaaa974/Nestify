@@ -1,6 +1,6 @@
 .card {
-  width: 300px; /* Taille de la card */
-  background-color: $grey;
+  width: 100%; /* Taille de la card */
+  background-color: white;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre noire */
   overflow: hidden; /* Contenu reste dans les bords arrondis */
@@ -51,8 +51,52 @@
       font-size: 16px;
       border-radius: 10px;
       cursor: pointer;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
     }
   }
 
 }
+/* Superposition translucide */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.4); /* Légère opacité */
+  z-index: 1;
+  border-radius: 15px;
+}
+
+/* Texte sur l'image */
+.text-on-image {
+  position: relative;
+  z-index: 2;
+  color: #333; /* Texte sombre */
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.card-subtitle {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+/* Corps des cartes */
+.card-body {
+  background: white;
+  padding: 1rem;
+  border-top: 1px solid #ddd;
+  border-radius: 0 0 15px 15px;
+}
+
+/* List group item styling */
+.list-group-item {
+  border: none;
+  background: #f8f9fa;
+}
+
