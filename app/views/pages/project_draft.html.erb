@@ -4,7 +4,7 @@
   <%= form_with url: packages_path, method: :post, local: true do |f| %>
 
     <!-- Première Carte -->
-    <div class="card mb-4 position-relative rounded shadow">
+    <div class="card-package mb-4 position-relative rounded shadow">
       <div class="card-image blurred-image" style="background-image:url('<%= Cloudinary::Utils.cloudinary_url("radoslav-bali-rtWu9kJ6TC0-unsplash_sfybvn") %>'); background-size: cover; background-position: center; height: 250px; border-radius: 15px;">
         <div class="text-on-image text-center position-relative">
           <h1 class="card-title">Question</h1>
@@ -26,7 +26,7 @@
     </div>
 
     <!-- Deuxième Carte -->
-    <div class="card mb-4 position-relative rounded shadow second-card">
+    <div class="card-package mb-4 position-relative rounded shadow second-card">
       <div class="card-image blurred-image" style="background-image:url('<%= Cloudinary::Utils.cloudinary_url("cameron-smith-CTxNVSiWZBw-unsplash_e1kdub") %>'); background-size: cover; background-position: center; height: 250px; border-radius: 15px;">
         <div class="text-on-image text-center position-relative">
           <h1 class="card-title">Question</h1>
@@ -59,7 +59,7 @@
     </div>
 
     <!-- Troisième Carte -->
-    <div class="card mb-4 position-relative rounded shadow third-card">
+    <div class="card-package mb-4 position-relative rounded shadow third-card">
       <div class="card-image blurred-image" style="background-image:url('<%= Cloudinary::Utils.cloudinary_url("bailey-alexander-cYeCxtKpTTQ-unsplash_zdcd9j") %>'); background-size: cover; background-position: center; height: 250px; border-radius: 15px;">
         <div class="text-on-image text-center position-relative">
           <h1 class="card-title">Budget</h1>
