@@ -13,13 +13,14 @@
 
 .navbar-logo {
  width: 70px;
+ 
 }
 
 .navbar-center {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1; /* Pour garantir qu'il reste visible si nécessaire */
+  z-index: 10; /* Pour garantir qu'il reste visible si nécessaire */
 }
 
 .navbar.sticky-top {
@@ -57,7 +58,7 @@ body {
 }
 
 .navbar .fa-search:hover {
-  color: #555555; /* Change la couleur lors du survol (hover) */
+  color: $blue; /* Change la couleur lors du survol (hover) */
 }
 
 /* Positionner la barre de recherche sous le logo */
@@ -76,4 +77,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.navbar-toggler {
+  border: none; /* Supprime la bordure */
+  outline: none; /* Optionnel : supprime les contours lors de la sélection */
+  box-shadow: none; /* Supprime les ombres éventuelles */
+}
+
+.navbar-toggler:focus {
+  border: none; /* Retirer la bordure sur le focus */
+  outline: none; /* Retirer l'effet de focus visible */
+  box-shadow: none; /* Retirer l'ombre portée sur le focus */
 }
