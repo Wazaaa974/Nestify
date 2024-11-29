@@ -77,6 +77,7 @@ filepath = "lit_chambre_style.csv"
 CSV.foreach(filepath, headers: :first_row) do |row|
   style = Style.find_by(name: row['style'])
   style = modern if style.nil?
+  puts "#{row['name']}"
   Product.create!(
   name: "#{row['name']}",
   description: "#{row['description']}",
