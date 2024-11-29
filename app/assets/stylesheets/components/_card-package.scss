@@ -74,11 +74,13 @@
   z-index: 2;
   color: #333; /* Texte sombre */
   text-align: center;
+
 }
 
 .card-title {
   font-size: 1.8rem;
   font-weight: bold;
+  margin-top: 60px;
 }
 
 .card-subtitle {
@@ -97,5 +99,5 @@
 /* List group item styling */
 .list-group-item {
   border: none;
-  background: #f8f9fa;
+  background: transparent;
 }
