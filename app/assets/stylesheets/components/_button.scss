@@ -15,35 +15,49 @@
 }
 
 .btn-nul {
-
   background-color: $grey;
   color: $dark-grey;
 }
 
 .btn-nul:hover{
-  background-color: $light-grey;
+  background-color: $light-grey !important;
+  border-color: $grey !important;
 }
 
 .btn-aime {
-
   background-color: $yellow;
   color:  $dark-grey;
 }
 
-.btn-passionne {
+.btn-aime:hover{
+  background-color: #fef9e7 !important;
+  border-color: $yellow !important;
+}
 
+.btn-passionne {
   background-color: $blue;
   color:  $dark-grey;
 }
+
+.btn-passionne:hover{
+  background-color: #d4e6f1 !important;
+  border-color: $blue !important;
+}
+
  .btn-validate {
 
   background-color: $blue;
   color:  $dark-grey;
+  border-radius: 25px; // Coins arrondis
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // Ombre noire fixe
+  color: white;
 
  }
  .btn-valider {
 
   background-color: $blue;
   color:  $dark-grey;
-
+  border-radius: 25px; // Coins arrondis
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // Ombre noire fixe
+  color: white;
  }
