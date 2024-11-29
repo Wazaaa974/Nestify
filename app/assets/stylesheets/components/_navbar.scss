@@ -12,32 +12,31 @@
 }
 
 .navbar-logo {
- width: 70px;
+  width: 70px;
 }
 
 .navbar-center {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1; /* Pour garantir qu'il reste visible si nécessaire */
+  z-index: 1;
+  /* Pour garantir qu'il reste visible si nécessaire */
 }
 
 .navbar.sticky-top {
-  top: 0; /* S'assurer que la navbar est bien fixée en haut */
-  z-index: 1030; /* Au-dessus des autres éléments */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre pour l'effet sticky */
-}
-
-/* Si le body a des marges ou padding indésirables, ajustez */
-body {
-  margin-top: 0;
-  padding-top: 0;  /* Assurez-vous qu'il n'y a pas d'espace ajouté par le body */
+  top: 0;
+  /* S'assurer que la navbar est bien fixée en haut */
+  z-index: 1030;
+  /* Au-dessus des autres éléments */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Ombre pour l'effet sticky */
 }
 
 /* Pour s'assurer que l'input et le bouton de recherche sont bien alignés */
 
 #searchBar input {
-  width: 200px; /* Ajustez la largeur en fonction de vos préférences */
+  width: 200px;
+  /* Ajustez la largeur en fonction de vos préférences */
   margin-right: 10px;
 }
 
@@ -52,23 +51,29 @@ body {
 }
 
 .navbar .fa-search {
-  font-size: 1.5rem; /* Augmente la taille de l'icône, ajustez selon votre préférence */
-  color: #333333; /* Gris foncé */
+  font-size: 1.5rem;
+  /* Augmente la taille de l'icône, ajustez selon votre préférence */
+  color: #333333;
+  /* Gris foncé */
 }
 
 .navbar .fa-search:hover {
-  color: #555555; /* Change la couleur lors du survol (hover) */
+  color: #555555;
+  /* Change la couleur lors du survol (hover) */
 }
 
 /* Positionner la barre de recherche sous le logo */
 #searchBar {
   position: absolute;
-  top: 55px;  /* Ajustez cette valeur selon la hauteur de votre navbar */
+  top: 55px;
+  /* Ajustez cette valeur selon la hauteur de votre navbar */
   left: 0;
   right: 0;
   background-color: white;
-  z-index: 1040; /* S'assurer que la barre de recherche est au-dessus du contenu */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère pour la barre de recherche */
+  z-index: 1040;
+  /* S'assurer que la barre de recherche est au-dessus du contenu */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  /* Ombre légère pour la barre de recherche */
   padding: 10px 20px;
 }
 
