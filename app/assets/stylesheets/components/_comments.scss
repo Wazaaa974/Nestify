@@ -1,6 +1,6 @@
 .comments-category {
   background-size: cover;
-  background-color: $blue;
+  background-color: white;
   background-position: center;
   // height: 180px;
   color: $dark-grey;
@@ -13,11 +13,11 @@
   text-wrap: wrap;
   flex: 0 0 auto; /* Empêche les éléments de se redimensionner */
   min-width: 150px; /* Largeur minimale */ /* Hauteur */
-  background-color: $blue; /* Couleur de fond */
   display: flex; /* Pour centrer le contenu */
   align-items: center;
   justify-content: center;
   text-align: center;
+  box-shadow: rgba(65, 65, 65, 0.1) 0px 3px 6px, rgba(102, 102, 102, 0.2) 0px 3px 6px;
   // p {
   //   margin-top: revert;
   //   margin-bottom: revert;
@@ -34,10 +34,15 @@
 
 }
 
-.comments-quote{
-  font-weight: 800;
-  position:absolute;
-  font-size: 35px;
-  top: 0;
-  left: 5px;
+.container-comments {
+  padding-bottom: 80px;
+}
+
+
+.quote-icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 24px;
+  color: $blue; /* Couleur primaire */
 }
