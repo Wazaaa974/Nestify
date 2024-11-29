@@ -11,5 +11,10 @@ export default class extends Controller {
     this.secondQuestionTarget.classList.add("d-none")
     this.thirdQuestionTarget.classList.remove("d-none")
   }
+  /* displayRoute() {
+
+    this.thirdQuestionTarget.classList.add("d-none")
+    this.routeTarget.classList.remove("d-none")
+  } */
 
   }
