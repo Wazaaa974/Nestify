@@ -1,7 +1,7 @@
 <div class="container mt-4">
 
   <!-- Formulaire unique -->
-  <%= form_with url: packages_path, method: :post, local: true, data: { controller: "package-form"} do |f| %>
+  <%= form_with url: packages_path, method: :get, local: true, data: { controller: "package-form"} do |f| %>
 
     <!-- Première Carte -->
     <div class="card-package mb-4 position-relative rounded shadow" data-package-form-target="firstQuestion">
@@ -35,7 +35,7 @@
 
     <!-- Deuxième Carte -->
     <div class="card-package mb-4 position-relative rounded shadow second-card d-none" data-package-form-target="secondQuestion">
-      <div class="card-image blurred-image" style="background-image:url('<%= Cloudinary::Utils.cloudinary_url("cameron-smith-CTxNVSiWZBw-unsplash_e1kdub") %>'); background-size: cover; background-position: center; height: 250px; border-radius: 15px; position: relative; overflow: hidden;">
+      <div class="card-image blurred-image" style="background-image:url('<%= Cloudinary::Utils.cloudinary_url("cameron-smith-CTxNVSiWZBw-unsplash_e1kdub") %>'); background-size: cover; background-position: center; height: 250px; border-radius: 1Opx; position: relative; overflow: hidden;">
           <div style="position: absolute;
               top: 0;
               left: 0;
@@ -69,14 +69,14 @@
           </li>
         </ul>
         <div class="text-center mt-3">
-          <%= f.submit "Valider", class: "btn btn-valider", data: {action: "click->package-form#displayThirdQuestion"} %>
+         <span class="btn btn-valider" data-action="click->package-form#displayThirdQuestion">Valider</span>
         </div>
       </div>
     </div>
 
     <!-- Troisième Carte -->
     <div class="card-package mb-4 position-relative rounded shadow third-card d-none" data-package-form-target="thirdQuestion">
-      <div class="card-image blurred-image" style="background-image:url('<%= Cloudinary::Utils.cloudinary_url("bailey-alexander-cYeCxtKpTTQ-unsplash_zdcd9j") %>'); background-size: cover; background-position: center; height: 250px; border-radius: 15px;position: relative; overflow: hidden;">
+      <div class="card-image blurred-image" style="background-image:url('<%= Cloudinary::Utils.cloudinary_url("bailey-alexander-cYeCxtKpTTQ-unsplash_zdcd9j") %>'); background-size: cover; background-position: center; height: 250px; border-radius: 10px;position: relative; overflow: hidden;">
           <div style="position: absolute;
               top: 0;
               left: 0;
