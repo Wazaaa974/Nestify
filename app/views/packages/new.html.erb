@@ -93,9 +93,28 @@
       </div>
       <div class="card-body mx-15">
 
-    <p> La pièce </p>
+<p> La pièce </p>
 
-    <div class="slider-container mr-25">
+<div class="wrapper">
+  <div class= "values">
+    <span id="range1"> 0 </span>
+    <span> &dash; </span>
+    <span id="range2"> 5000 </span>
+  </div>
+
+   <div class="container wrapper-container">
+        <div class= "slider-track">
+          <input type="range" min="0" max="5000" value="1500" id="slider-1" oninput="slideOne()">
+          <input type="range" min="0" max="5000" value="3000" id="slider-2" oninput="slideTwo()">
+        </div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+
+    <%# <div class="slider-container mr-25">
         <span id="min-value">0</span>
             <div class="slider">
                 <input type="range" id="min-slider" min="0" max="5000" value="0" class="z-0">
@@ -103,11 +122,8 @@
             </div>
             <span id="max-value">5000</span>
         </div>
-        <script src="script.js"></script>
 
-
-
-
+ %>
 
 
         <div class="text-center mt-3">
@@ -116,4 +132,3 @@
       </div>
     </div>
   <% end %>
-</div>
