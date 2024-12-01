@@ -62,6 +62,7 @@ baroque = Style.create!(name: "baroque")
 living_room = Room.create!(name: "Living Room")
 bedroom = Room.create!(name: "Bedroom")
 
+
 # Product Categories
 lit = ProductCategory.create!(name: "lit")
 table_chevet = ProductCategory.create!(name: "table_chevet")
@@ -74,10 +75,9 @@ decor = ProductCategory.create!(name: "Decor")
 
 # Products
 filepath = "lit_chambre_style.csv"
-CSV.foreach(filepath, headers: :first_row) do |row|
+CSV.foreach(filepath, headers: :first_row, col_sep: ";") do |row|
   style = Style.find_by(name: row['style'])
   style = modern if style.nil?
-  puts "#{row['name']}"
   Product.create!(
   name: "#{row['name']}",
   description: "#{row['description']}",
@@ -208,13 +208,13 @@ armoire_moderne = Product.find_by(style: modern, room: bedroom, product_category
 tapis_moderne = Product.find_by(style: modern, room: bedroom, product_category: tapis)
 miroir_moderne = Product.find_by(style: modern, room: bedroom, product_category: miroir)
 
+
+
 lit_vintage = Product.find_by(style: vintage, room: bedroom, product_category: lit)
 table_chevet_vintage = Product.find_by(style: vintage, room: bedroom, product_category: table_chevet)
 armoire_vintage = Product.find_by(style: vintage, room: bedroom, product_category: armoire)
 tapis_vintage = Product.find_by(style: vintage, room: bedroom, product_category: tapis)
 miroir_vintage = Product.find_by(style: vintage, room: bedroom, product_category: miroir)
-
-
 
 
 # Product Packages
@@ -224,16 +224,16 @@ product_package_modern_armoire = ProductPackage.create!(product: armoire_moderne
 product_package_modern_tapis = ProductPackage.create!(product: tapis_moderne, package_id: package_modern.id)
 product_package_modern_miroir = ProductPackage.create!(product: miroir_moderne, package_id: package_modern.id)
 
-# product_package_vintage_lit = ProductPackage.create!(product: lit_vintage , package_id: package_vintage.id)
-# product_package_vintage_table_chevet = ProductPackage.create!(product: table_chevet_vintage, package_id: package_vintage.id)
-# product_package_vintage_armoire = ProductPackage.create!(product: armoire_vintage, package_id: package_vintage.id)
-# product_package_vintage_tapis = ProductPackage.create!(product: tapis_vintage, package_id: package_vintage.id)
-# product_package_vintage_miroir = ProductPackage.create!(product: miroir_vintage, package_id: package_vintage.id)
+product_package_vintage_lit = ProductPackage.create!(product: lit_vintage , package_id: package_vintage.id)
+product_package_vintage_table_chevet = ProductPackage.create!(product: table_chevet_vintage, package_id: package_vintage.id)
+product_package_vintage_armoire = ProductPackage.create!(product: armoire_vintage, package_id: package_vintage.id)
+product_package_vintage_tapis = ProductPackage.create!(product: tapis_vintage, package_id: package_vintage.id)
+product_package_vintage_miroir = ProductPackage.create!(product: miroir_vintage, package_id: package_vintage.id)
 
 
 
 # Favorites
 proposal1 = Proposal.create!(user_id: user1.id, package_id: package_modern.id, favorite: true)
-# proposal2 = Proposal.create!(user_id: user2.id, package_id: package_vintage.id, favorite: true)
+proposal2 = Proposal.create!(user_id: user2.id, package_id: package_vintage.id, favorite: true)
 
 puts "Database seeded successfully!"
