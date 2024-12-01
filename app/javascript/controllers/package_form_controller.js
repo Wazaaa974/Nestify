@@ -18,3 +18,27 @@ export default class extends Controller {
   } */
 
   }
+
+  const minSlider = document.getElementById('min-slider');
+  const maxSlider = document.getElementById('max-slider');
+  const minValue = document.getElementById('min-value');
+  const maxValue = document.getElementById('max-value');
+
+  minSlider.addEventListener('input', updateValues);
+  maxSlider.addEventListener('input', updateValues);
+
+  function updateValues() {
+      const min = parseInt(minSlider.value);
+      const max = parseInt(maxSlider.value);
+
+      if (min > max) {
+          if (this === minSlider) {
+              maxSlider.value = min;
+          } else {
+              minSlider.value = max;
+          }
+      }
+
+      minValue.textContent = minSlider.value;
+      maxValue.textContent = maxSlider.value;
+  }
