@@ -91,26 +91,23 @@
           <h2 class="card-subtitle">Quel est le budget que tu veux allouer à ton projet déco ?</h2>
         </div>
       </div>
-      <div class="card-body">
-        <div class="room1">
-          <%# <div class="room-title text-center mb-2"> Pièce 1</div>
-          <div class="d-flex justify-content-evenly align-items-center mb-3">
-            <button type="button" class="btn btn-secondary minus">-</button>
-            <%= f.number_field :budget_salon, class: "budget-input text-center", placeholder: "Budget (€)", value: 0 %>
-            <%# <button type="button" class="btn btn-secondary plus">+</button>
-          </div>
-        </div> %>
+      <div class="card-body mx-15">
 
-    <div class="slider-container">
+    <p> La pièce </p>
+
+    <div class="slider-container mr-25">
         <span id="min-value">0</span>
             <div class="slider">
-                <input type="range" id="min-slider" min="0" max="5000" value="0">
-                <input type="range" id="max-slider" min="0" max="5000" value="5000">
+                <input type="range" id="min-slider" min="0" max="5000" value="0" class="z-0">
+                <input type="range" id="max-slider" min="0" max="5000" value="5000" class="z-0">
             </div>
             <span id="max-value">5000</span>
         </div>
         <script src="script.js"></script>
-    </body>
+
+
+
+
 
 
         <div class="text-center mt-3">
