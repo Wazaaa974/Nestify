@@ -92,7 +92,7 @@
 .card-body {
   background: white;
   padding: 1rem;
-  border-top: 1px solid #ddd;
+  // border-top: 1px solid #ddd;
   border-radius: 0 0 15px 15px;
 }
 
@@ -129,52 +129,52 @@
 
 
 
-.slider-container {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  font-family: Arial, sans-serif;
-  margin: 10px;
-}
+// .slider-container {
+//   display: flex;
+//   align-items: center;
+//   gap: 15px;
+//   font-family: Arial, sans-serif;
+//   margin: 10px;
+// }
 
-.slider {
-  position: relative;
-  width: 200px;
-  height: 5px;
-  z-index: 10;
-}
+// .slider {
+//   position: relative;
+//   width: 200px;
+//   height: 5px;
+//   z-index: 10;
+// }
 
-.slider input {
-  position: absolute;
-  pointer-events: none;
-  width: 100%;
-  height: 5px;
-  appearance: none;
-  background: transparent;
-  z-index: 10;
-}
+// .slider input {
+//   position: absolute;
+//   pointer-events: none;
+//   width: 100%;
+//   height: 5px;
+//   appearance: none;
+//   background: transparent;
+//   z-index: 10;
+// }
 
-.slider input::-webkit-slider-thumb {
-  pointer-events: all;
-  appearance: none;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background: $blue;
-  cursor: pointer;
-  z-index: 10;
-}
+// .slider input::-webkit-slider-thumb {
+//   pointer-events: all;
+//   appearance: none;
+//   width: 15px;
+//   height: 15px;
+//   border-radius: 50%;
+//   background: $blue;
+//   cursor: pointer;
+//   z-index: 10;
+// }
 
-.slider input::-moz-range-thumb {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background: $blue;
-  cursor: pointer;
-}
+// .slider input::-moz-range-thumb {
+//   width: 15px;
+//   height: 15px;
+//   border-radius: 50%;
+//   background: $blue;
+//   cursor: pointer;
+// }
 
-.slider input[type="range"]::-webkit-slider-runnable-track {
-  background: #ddd;
-  height: 5px;
-  border-radius: 2.5px;
-}
+// .slider input[type="range"]::-webkit-slider-runnable-track {
+//   background: #ddd;
+//   height: 5px;
+//   border-radius: 2.5px;
+// }

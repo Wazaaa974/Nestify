@@ -1,0 +1,124 @@
+*,
+*:before,
+*:after{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  position: relative;
+  width: 95vmin;
+  padding: 50px 40px 20px 40px;
+  place-items: center;
+}
+
+.wrapper-container {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  border-radius: 10px;
+}
+
+input[type="range"]{
+ -webkit-appearance: none;
+ -moz-appearance: none;
+ appearance: none;
+ width: 100%;
+ outline: none;
+ position: absolute;
+ margin: auto;
+ top: 0;
+ bottom: 0;
+ background-color: transparent;
+ pointer-events: none;
+}
+
+.slider-track{
+ width: 90%; //problème quand on met 100%
+ height: 5px;
+ background-color: $light-grey;
+ position: absolute;
+ margin: auto;
+ top: 0;
+ bottom: 0;
+ border-radius: 5px;
+}
+
+input[type="range"]::-webkit-slider-runnable-track{
+  -webkit-appearance: none;
+  height: 5px;
+}
+
+input[type="range"]::-moz-range-track{
+  -moz-appearance: none;
+  height: 5px;
+}
+
+input[type="range"]::-ms-track{
+  appearance: none;
+  height: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  height: 1em;
+  width: 1em;
+  background-color: $blue;
+  cursor: pointer;
+  border-radius: 25px;
+  margin-top: -5px;
+  pointer-events: auto;
+}
+
+input[type="range"]::-moz-range-thumb{
+  -webkit-appearance: none;
+  height: 1em;
+  width: 1em;
+  cursor: pointer;
+  border-radius: 25px;
+  background-color: $blue;
+  pointer-events: auto;
+}
+
+input[type="range"]::-ms-thumb{
+  appearance: none;
+  height: 1em;
+  width: 1em;
+  cursor: pointer;
+  border-radius: 25px;
+  background-color: $blue;
+  pointer-events: auto;
+}
+
+input[type="range"]:active::-webkit-slider-thumb{
+  background-color: white;
+  border: 3px solid $blue;
+}
+
+.values{
+  background-color: $yellow;
+  width: 32%;
+  position: relative;
+  margin: auto;
+  padding: 10px 4px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 300;
+  font-size: 16px;
+  color: $dark-grey;
+}
+
+.values:before{
+content: "";
+position: absolute;
+height: 0;
+width: 0;
+border-top: 15px solid $yellow;
+border-left: 15px solid transparent;
+border-right: 15px solid transparent;
+margin: auto;
+bottom: -14px;
+left: 0;
+right: 0;
+}
