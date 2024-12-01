@@ -53,9 +53,9 @@
       <div class="card-body">
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
-            <%= f.check_box :salon, class: "form-check-input me-2" %>
+            <%= f.check_box :salon, { class: "form-check-input me-2", data: { action: "change->package-form#displaySlider" } }, '1', '0' %>
             <%= f.label :salon, "Salon", class: "form-check-label" %>
-          </li>
+</li>
           <li class="list-group-item">
             <%= f.check_box :chambre, class: "form-check-input me-2" %>
             <%= f.label :chambre, "Chambre", class: "form-check-label" %>
@@ -70,7 +70,7 @@
           </li>
         </ul>
         <div class="text-center mt-3">
-         <span class="btn btn-valider mt-3" data-action="click->package-form#displayThirdQuestion">Valider</span>
+         <span class="btn btn-valider mt-3" data-action="click->package-form#displayThirdQuestion"<%=data-action="click->package-form#displaySlider" if params[:salon] == '1'%>>Valider</span>
         </div>
       </div>
     </div>
@@ -93,23 +93,33 @@
       </div>
       <div class="card-body mx-15">
 
-<p> La pièce </p>
 
-<div class="wrapper">
-  <div class= "values">
-    <span id="range1"> 0 </span>
-    <span> &dash; </span>
-    <span id="range2"> 5000 </span>
-  </div>
+<%# <% if params[:salon] == '1' %>
+  <%# <p>The box is checked</p>
+<% else %>
+  <%# <p>The box Salon is not checked</p>
+<% end %>
 
-   <div class="container wrapper-container">
-        <div class= "slider-track">
-          <input type="range" min="0" max="5000" value="1500" id="slider-1" oninput="slideOne()">
-          <input type="range" min="0" max="5000" value="3000" id="slider-2" oninput="slideTwo()">
-        </div>
+
+<div id="slider-container-chambre" data-package-form-target="slider" class = "d-none">
+  <div class="wrapper">
+    <h3>Budget Salon</h3>
+    <div class="values">
+      <span id="range1">0</span>
+      <span>&dash;</span>
+      <span id="range2">5000</span>
     </div>
 
+    <div class="container wrapper-container">
+      <div class="slider-track">
+        <input type="range" min="0" max="5000" value="1500" step="50" id="slider-1" oninput="slideOne()">
+        <input type="range" min="0" max="5000" value="3000" step="50" id="slider-2" oninput="slideTwo()">
+      </div>
+    </div>
+  </div>
 </div>
+
+
 
 <%= javascript_include_tag 'script', defer: true %>
 
