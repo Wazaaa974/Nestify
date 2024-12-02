@@ -23,7 +23,8 @@
   <% @package.products.each do |product| %>
     <div class="card-product">
       <div class="card-product-image">
-        <%# <%= cl_image_tag @product.photo.key, class: "main-image" %>
+        <%# <%= cl_image_tag product.photo.key, class: "main-image" %>
+        <%# <% raise %>
         <img src="https://medias.maisonsdumonde.com/image/upload/ar_1:1,c_fill,f_auto,q_auto,w_354/v1/img/lit-180x200-beige-1000-8-6-187212_3.jpg"/>
       </div>
         <div class="card-product-infos">
@@ -32,7 +33,7 @@
           <% end %>
           <div class="price"> <%= sprintf('%.2f',product.price) %>€ </div>
           <h2 class="product-name"> <%= product.name.first(30) ? product.name.first(29) + "..." : product.name %> </h2>
-          <p class="text-description"> <%= product.description.first(70) ? product.description.first(69) + "..." : product.description %> <a href=<%= product.url%>>Voir plus</a></p>
+          <p class="text-description"> <%= product.description.first(70) ? product.description.first(69) + "..." : product.description %> <a href=<%= product.url %>>Voir plus</a></p>
           <p class="shop-name mt-3"> <strong> <%= product.shop %> </strong></p>
          <%# bouton remplacer/update ajouter lien %>
           <i class="fa-solid fa-arrows-rotate"></i>
