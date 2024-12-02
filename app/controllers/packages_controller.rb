@@ -1,13 +1,12 @@
 class PackagesController < ApplicationController
   def index
     @packages = Package.all
-    @package = 1
   end
 
   def create
     @package = Package.new(package_params)
     @package.save
-    redirect_to package_path(@package)
+    redirect_to package_path
   end
 
   def new
@@ -18,7 +17,7 @@ class PackagesController < ApplicationController
     @package = Package.find(params[:id])
       @sum = 0
       @package.products.each do |product|
-        @sum = @sum + product.price
+        @sum += product.price
       end
   end
 
