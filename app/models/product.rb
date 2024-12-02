@@ -4,5 +4,5 @@ class Product < ApplicationRecord
   belongs_to :room
   has_many :product_packages
 
-  has_one_attached 
+  has_one_attached :photo
 end
