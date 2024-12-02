@@ -53,11 +53,11 @@
       <div class="card-body">
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
-            <%= f.check_box :salon, { class: "form-check-input me-2", data: { action: "change->package-form#displaySlider" } }, '1', '0' %>
+            <%= f.check_box :salon, { class: "form-check-input me-2", data: { action: "change->package-form#displaySliderSalon" } }, '1', '0' %>
             <%= f.label :salon, "Salon", class: "form-check-label" %>
           </li>
           <li class="list-group-item">
-            <%= f.check_box :chambre, class: "form-check-input me-2" %>
+            <%= f.check_box :chambre, { class: "form-check-input me-2", data: { action: "change->package-form#displaySliderChambre" } }, '1', '0' %>
             <%= f.label :chambre, "Chambre", class: "form-check-label" %>
           </li>
           <li class="list-group-item">
@@ -101,7 +101,7 @@
 <% end %>
 
 
-<div id="slider-container-chambre" data-package-form-target="slider" class = "d-none">
+<div id="slider-container-chambre" data-package-form-target="sliderSalon" class = "d-none">
   <div class="wrapper">
     <h3>Budget Salon</h3>
     <div class="values">
@@ -120,16 +120,35 @@
 </div>
 
 
-    <%# <div class="slider-container mr-25">
-        <span id="min-value">0</span>
-            <div class="slider">
-                <input type="range" id="min-slider" min="0" max="5000" value="0" class="z-0">
-                <input type="range" id="max-slider" min="0" max="5000" value="5000" class="z-0">
-            </div>
-            <span id="max-value">5000</span>
-        </div>
+<div id="slider-container-chambre" data-package-form-target="sliderChambre" class = "d-none">
+  <div class="wrapper">
+    <h3>Budget Chambre</h3>
+    <div class="values">
+      <span id="range1">0</span>
+      <span>&dash;</span>
+      <span id="range2">5000</span>
+    </div>
 
- %>
+    <div class="container wrapper-container">
+      <div class="slider-track">
+        <input type="range" min="0" max="5000" value="1500" step="50" id="slider-1" oninput="slideOne()">
+        <input type="range" min="0" max="5000" value="3000" step="50" id="slider-2" oninput="slideTwo()">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
 
         <div class="text-center mt-3">
           <%= f.submit "Valider", class: "btn btn-validate mt-3" %>

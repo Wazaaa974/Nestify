@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="package-form"
 export default class extends Controller {
-  static targets = ["firstQuestion", "secondQuestion", "thirdQuestion", "slider", "sliderChambre"]
+  static targets = ["firstQuestion", "secondQuestion", "thirdQuestion", "sliderSalon", "sliderChambre"]
 
   // Function to show the second question
   displaySecondQuestion() {
@@ -16,16 +16,30 @@ export default class extends Controller {
     this.thirdQuestionTarget.classList.remove("d-none");
   }
 
-  // Function to display the slider when a checkbox is checked
-  displaySlider(event) {
+  // Function to display the slider when Salon checkbox is checked
+  displaySliderSalon(event) {
     const isChecked = event.target.checked;
     if (isChecked) {
-      this.sliderTarget.classList.remove("d-none");
+      this.sliderSalonTarget.classList.remove("d-none");
       this.initializeSliders(); // Initialize sliders when they become visible
     } else {
-      this.sliderTarget.classList.add("d-none");
+      this.sliderSalonTarget.classList.add("d-none");
     }
   }
+
+  // Function to display the slider when Chambre checkbox is checked
+  displaySliderChambre(event) {
+    const isChecked = event.target.checked;
+    if (isChecked) {
+      this.sliderChambreTarget.classList.remove("d-none");
+      this.initializeSliders(); // Initialize sliders when they become visible
+    } else {
+      this.sliderChambreTarget.classList.add("d-none");
+    }
+  }
+
+
+
 
   // Initialize sliders
   initializeSliders() {
