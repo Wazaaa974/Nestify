@@ -18,6 +18,7 @@
 
   <div id="cardCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
+      <%@packages.each do |package| %>
       <!-- Card 1 -->
       <div class="carousel-item active">
         <div class="card mx-auto style-package-index" style="max-width: 300px;">
@@ -27,11 +28,10 @@
             class="card-img-top picture-card-index"
           />
           <div class="card-body-index d-flex flex-column">
-            <h5 class="card-title-index">Nid douillet so cosy</h5>
-            <p class="card-text-index">Un cocon chaleureux pour des nuits paisibles.</p>
-            <div class="price-index mb-2"><strong> Prix : 1100€ </strong></div>
+            <h5 class="card-title-index"><%=package.name%> </h5>
+            <p class="card-text-index"><%=package.description%> </p>
+            <div class="price-index mb-2"><strong> Prix : <%=@sum%>€ </strong></div>
             <%# <% <button class="btn rounded-shadow-button">Voir le pack</button> %>
-            <%@packages.each do |package| %>
             <%= link_to package_path(package.id), class: "btn rounded-shadow-button mt-3" do %>
              Voir le package
             <% end %>
