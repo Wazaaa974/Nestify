@@ -15,8 +15,4 @@ Rails.application.routes.draw do
   resources :dashboards, only: [:index]
   resources :user_packages, only: [:index, :new, :create, :show, :edit, :delete]
 
-  resources :packages do
-    resources :user_packages, only: [:create]
-  end
-
 end
