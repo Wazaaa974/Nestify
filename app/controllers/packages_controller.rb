@@ -1,6 +1,7 @@
 class PackagesController < ApplicationController
   def index
     @packages = Package.all
+    @package = 1
   end
 
   def create
