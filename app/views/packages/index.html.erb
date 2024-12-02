@@ -17,10 +17,9 @@
 <hr class = "custom-hr">
 
   <div id="cardCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <%@packages.each do |package| %>
-      <!-- Card 1 -->
-      <div class="carousel-item active">
+  <div class="carousel-inner">
+    <% @packages.each_with_index do |package, index| %>
+      <div class="carousel-item <%= 'active' if index == 0 %>">
         <div class="card mx-auto style-package-index" style="max-width: 300px;">
           <img
             src="https://medias.maisonsdumonde.com/image/upload/ar_1:1,c_fill,f_auto,q_auto,w_354/v1/img/lit-180x200-beige-1000-8-6-187212_3.jpg"
@@ -28,74 +27,27 @@
             class="card-img-top picture-card-index"
           />
           <div class="card-body-index d-flex flex-column">
-            <h5 class="card-title-index"><%=package.name%> </h5>
-            <p class="card-text-index"><%=package.description%> </p>
-            <div class="price-index mb-2"><strong> Prix : Tres cher € </strong></div>
-            <%# <% <button class="btn rounded-shadow-button">Voir le pack</button> %>
+            <h5 class="card-title-index"><%= package.name %></h5>
+            <p class="card-text-index"><%= package.description %></p>
+            <div class="price-index mb-2">
+              <strong>Prix : Très cher €</strong>
+            </div>
             <%= link_to package_path(package.id), class: "btn rounded-shadow-button mt-3" do %>
-             Voir le package
+              Voir le package
             <% end %>
-            <% end %>
-               <%# <%= link_to package_path(package), class: "btn rounded-shadow-button mt-3" do %>
-              <%# Voir le package %>
-             <%# <% end %>
           </div>
         </div>
       </div>
-
-      <!-- Card 2 -->
-      <div class="carousel-item">
-        <div class="card mx-auto style-package-index" style="max-width: 300px;">
-          <img
-            src="https://medias.maisonsdumonde.com/images/ar_1:1,c_pad,f_auto,q_auto,w_354/v1/mkp/M23025442_3/lit-adulte-avec-tete-de-lit-capitonnee-en-velours-beige-sable-160x200.jpg"
-            alt="Vintage is the new cosy"
-            class="card-img-top picture-card-index"
-          />
-          <div class="card-body-index d-flex flex-column">
-            <h5 class="card-title-index">Vintage is the new cosy</h5>
-            <p class="card-text-index">
-              Élégance rétro avec une touche de modernité.
-            </p>
-            <div class="price-index mb-2"><strong> Prix : 1250€ </strong></div>
-             <%# <%= link_to package_path(@package), class: "btn rounded-shadow-button mt-3" do %>
-            <%# Voir le package %>
-            <%# <% end %>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="carousel-item">
-        <div class="card mx-auto style-package-index" style="max-width: 300px;">
-          <img
-            src="https://medias.maisonsdumonde.com/image/upload/ar_1:1,c_fill,f_auto,q_auto,w_354/v1/img/lit-140x190-en-pin-blanc-avec-sommier-a-lattes-1000-13-16-129740_4.jpg"
-            alt="Industrial is new gen"
-            class="card-img-top picture-card-index"
-          />
-          <div class="card-body-index d-flex flex-column">
-            <h5 class="card-title-index">Industrial is new gen</h5>
-            <p class="card-text-index">
-              Design urbain pour une ambiance contemporaine.
-            </p>
-            <div class="price-index mb-2"><strong> Prix : 980€ </strong></div>
-             <%# <%= link_to package_path(@package), class: "btn rounded-shadow-button mt-3" do %>
-            <%# Voir le package %>
-            <%# <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Carousel Controls -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#cardCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Précédent</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#cardCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Suivant</span>
-    </button>
+    <% end %>
   </div>
-
-
+  <!-- Carousel Controls -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#cardCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Précédent</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#cardCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Suivant</span>
+  </button>
+</div>
 </div>
