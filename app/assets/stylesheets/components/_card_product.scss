@@ -1,11 +1,13 @@
 .card-product {
   display: flex;
   overflow: hidden;
-  height: 160px;
+  height: 180px;
   background: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   position: relative;
+  margin-top: 20px;
+
 }
 
 .card-product-image {
@@ -25,7 +27,7 @@
 .card-product-infos {
   flex: 1;
   padding: 16px;
-  margin-top: 19px;
+  margin-top: 27px;
 }
 
 .card-product h2 {
@@ -44,31 +46,114 @@
 
 .price {
   position: absolute;
-  top: 31px;
-  right: 25px;
-  font-size: 16px;
+  top: 39px;
+  right: 20px;
+  font-size: 17px;
   font-weight: 600;
+  text-wrap: wrap;
 }
 
 .fa-trash {
   position: absolute;
-  top: 8px;
+  top: 9px;
   right: 10px;
   font-size: 13px;
+
 }
 
 .fa-arrows-rotate{
   position: absolute;
-  top: 138px;
+  top: 155px;
   right: 10px;
   font-size: 15px;
 }
 
-.budget {
+.card-product-infos {
+  .fa-trash,
+  .fa-arrows-rotate {
+    color: #c1c1c1; // Couleur par défaut
+    transition: color 0.3s ease; // Ajout d'une transition fluide
+    cursor: pointer; // Curseur pointeur pour indiquer que c'est cliquable
+  }
+
+  .fa-trash:hover {
+    color: $blue; // Rouge (par exemple pour la suppression)
+  }
+
+  .fa-arrows-rotate:hover {
+    color: $blue; // Bleu (par exemple pour l'action de remplacement)
+  }
+}
+
+.description {
   position: relative;
 }
 
 .btn-show {
   position: absolute;
-  left: 280px;
+  left: 310px;
+  top: 322px;
+  background-color: $yellow;
+  border: none;
+  padding: 10px 15px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 25px; // Coins arrondis
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // Ombre noire fixe
+  text-decoration: none;
+
+
+  .heart-icon {
+    color: #ffffff;
+    transition: color 0.3s ease;
+  }
+}
+
+.btn-show:hover {
+  background-color: white;
+}
+
+.btn-show:hover .heart-icon {
+  color: $yellow;
+}
+
+.btn-add-product{
+  background-color: $blue;
+  border: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 25px; // Coins arrondis
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // Ombre noire fixe
+  text-decoration: none;
+  margin-bottom: 10px;
+
+  .fa-plus {
+    color: #ffffff;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+}
+
+.btn-add-product:hover {
+  background-color: white;
+}
+
+.btn-add-product:hover .fa-plus {
+  color: $blue;
+}
+
+.shop-name {
+  color: $dark-grey;
+}
+
+.text-description {
+  text-wrap: wrap;
+  // text-overflow: ellipsis;
+}
+
+.product-name {
+  padding-right: 60px;
 }
