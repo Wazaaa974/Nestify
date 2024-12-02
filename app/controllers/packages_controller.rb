@@ -1,11 +1,6 @@
 class PackagesController < ApplicationController
   def index
     @packages = Package.all
-    @package = Package.find(params[:id])
-    @sum = 0
-    @package.products.each do |product|
-      @sum += product.price
-    end
   end
 
   def create
