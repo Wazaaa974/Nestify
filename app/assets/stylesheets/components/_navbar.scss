@@ -94,3 +94,18 @@
   outline: none; /* Retirer l'effet de focus visible */
   box-shadow: none; /* Retirer l'ombre portée sur le focus */
 }
+
+
+
+.fa-user {
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $dark-grey;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.fa-user:hover  {
+  color: $blue;
+  transform: scale(1.1);
+}
