@@ -248,23 +248,26 @@ bedroom = Room.create!(name: "chambre")
 
 
 
+
+# ---------------------------- Code implemente par Romain ----------------------------
+
 # Product Categories
 
 # Chambre
 lit = ProductCategory.create!(name: "lit")
 table_chevet = ProductCategory.create!(name: "table chevet")
 armoire = ProductCategory.create!(name: "armoire")
-tapis = ProductCategory.create!(name: "tapis")
-tableau = ProductCategory.create!(name: "tableau")
+tapis_chambre = ProductCategory.create!(name: "tapis chambre")
+miroir_chambre = ProductCategory.create!(name: "miroir chambre")
+
 
 # Salon
 canape = ProductCategory.create!(name: "canape")
 fauteuil = ProductCategory.create!(name: "fauteuil")
 table_basse = ProductCategory.create!(name: "table basse")
-meuble_tv = ProductCategory.create!(name: "meuble TV")
-bibliotheque = ProductCategory.create!(name: "bibliotheque")
-tapis_salon = ProductCategory.create!(name: "tapis")
-
+tabeau = ProductCategory.create!(name: "tableau")
+lampe = ProductCategory.create!(name: "lampe")
+tapis_salon = ProductCategory.create!(name: "tapis salon")
 
 # Salle de bain
 meuble_vasque = ProductCategory.create!(name: "meuble vasque")
@@ -273,79 +276,80 @@ porte_serviette = ProductCategory.create!(name: "porte-serviette")
 panier_linge = ProductCategory.create!(name: "panier à linge")
 tapis_bain = ProductCategory.create!(name: "tapis de bain")
 
+
 ROOM_STYLES_PRODUCTS = {
  salon: {
    moderne: [
      { product_category: canape, style: modern },
      { product_category: fauteuil, style: modern },
      { product_category: table_basse, style: modern },
-     { product_category: meuble_tv, style: modern },
-     { product_category: bibliotheque, style: modern },
+     { product_category: tableau, style: modern },
+     { product_category: lampe, style: modern },
      { product_category: tapis_salon, style: modern }
    ],
-   classique: [
+   industriel: [
      { product_category: canape, style: classic },
      { product_category: fauteuil, style: classic },
      { product_category: table_basse, style: classic },
-     { product_category: meuble_tv, style: classic },
-     { product_category: bibliotheque, style: classic },
+     { product_category: tableau, style: classic },
+     { product_category: lampe, style: classic },
      { product_category: tapis_salon, style: classic }
    ],
-   contemporain: [
+   vintage: [
      { product_category: canape, style: contemporain },
      { product_category: fauteuil, style: contemporain },
      { product_category: table_basse, style: contemporain },
-     { product_category: meuble_tv, style: contemporain },
-     { product_category: bibliotheque, style: contemporain },
+     { product_category: tableau, style: contemporain },
+     { product_category: lampe, style: contemporain },
      { product_category: tapis_salon, style: contemporain }
    ]
  },
-#  chambre: {
-#    moderne: [
-#      { product_category: lit, style: modern },
-#      { product_category: table_chevet, style: modern },
-#      { product_category: armoire, style: modern },
-#      { product_category: tapis, style: modern },
-#      { product_category: tableau, style: modern }
-#    ],
-#    classique: [
-#      { product_category: lit, style: classic },
-#      { product_category: table_chevet, style: classic },
-#      { product_category: armoire, style: classic },
-#      { product_category: tapis, style: classic },
-#      { product_category: tableau, style: classic }
-#    ],
-#    contemporain: [
-#      { product_category: lit, style: contemporain },
-#      { product_category: table_chevet, style: contemporain },
-#      { product_category: armoire, style: contemporain },
-#      { product_category: tapis, style: contemporain },
-#      { product_category: tableau, style: contemporain }
-#    ]
-#  },
-#  salle_de_bain: {
-#    moderne: [
-#      { product_category: meuble_vasque, style: modern },
-#      { product_category: armoire_toilette, style: modern },
-#      { product_category: porte_serviette, style: modern },
-#      { product_category: panier_linge, style: modern },
-#      { product_category: tapis_bain, style: modern }
-#    ],
-#    classique: [
-#      { product_category: meuble_vasque, style: classic },
-#      { product_category: armoire_toilette, style: classic },
-#      { product_category: porte_serviette, style: classic },
-#      { product_category: panier_linge, style: classic },
-#      { product_category: tapis_bain, style: classic }
-#    ],
-#    contemporain: [
-#      { product_category: meuble_vasque, style: contemporain },
-#      { product_category: armoire_toilette, style: contemporain },
-#      { product_category: porte_serviette, style: contemporain },
-#      { product_category: panier_linge, style: contemporain },
-#      { product_category: tapis_bain, style: contemporain }
-#    ]
-#  }
+ chambre: {
+   moderne: [
+     { product_category: lit, style: modern },
+     { product_category: table_chevet, style: modern },
+     { product_category: armoire, style: modern },
+     { product_category: tapis, style: modern },
+     { product_category: miroir_chambre, style: modern }
+   ],
+   industriel: [
+     { product_category: lit, style: classic },
+     { product_category: table_chevet, style: classic },
+     { product_category: armoire, style: classic },
+     { product_category: tapis, style: classic },
+     { product_category: miroir_chambre, style: classic }
+   ],
+   vintage: [
+     { product_category: lit, style: contemporain },
+     { product_category: table_chevet, style: contemporain },
+     { product_category: armoire, style: contemporain },
+     { product_category: tapis, style: contemporain },
+     { product_category: miroir_chambre, style: contemporain }
+   ]
+ },
+ salle_de_bain: {
+   moderne: [
+     { product_category: miroir_salle_de_bain, style: modern },
+     { product_category: armoire_toilette, style: modern },
+     { product_category: porte_serviette, style: modern },
+     { product_category: panier_linge, style: modern },
+     { product_category: tapis_bain, style: modern }
+   ],
+   industriel: [
+     { product_category: miroir_salle_de_bain, style: classic },
+     { product_category: armoire_toilette, style: classic },
+     { product_category: porte_serviette, style: classic },
+     { product_category: panier_linge, style: classic },
+     { product_category: tapis_bain, style: classic }
+   ],
+   vintage: [
+     { product_category: miroir_salle_de_bain, style: contemporain },
+     { product_category: armoire_toilette, style: contemporain },
+     { product_category: porte_serviette, style: contemporain },
+     { product_category: panier_linge, style: contemporain },
+     { product_category: tapis_bain, style: contemporain }
+   ]
+ }
 }
 
 ROOM_STYLES_PRODUCTS.each do |room_key, room_styles|

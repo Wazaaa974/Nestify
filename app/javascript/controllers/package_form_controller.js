@@ -36,7 +36,7 @@ export default class extends Controller {
     const displayValTwo = document.getElementById("range2");
     const sliderTrack = document.querySelector(".slider-track");
     const sliderMaxValue = sliderOne.max;
-    const minGap = 0;
+    const minGap = 300;
 
     function slideOne() {
       if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap) {
