@@ -11,9 +11,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  resources :packages, only: [:index, :create, :show, :new]
+  resources :packages, only: [:index, :create, :show, :new, :delete]
   resources :dashboards, only: [:index]
-  resources :user_packages, only: [:index, :new, :create, :show, :edit, :destroy]
+  resources :user_packages, only: [:index, :new, :create, :show, :edit, :delete]
 
   resources :packages do
     resources :user_packages, only: [:create]
