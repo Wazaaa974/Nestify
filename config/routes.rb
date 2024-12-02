@@ -19,8 +19,4 @@ Rails.application.routes.draw do
   resources :dashboards, only: [:index]
   resources :user_packages, only: [:index, :new, :create, :show, :edit, :destroy]
 
-  resources :users, only: [] do
-      patch :update_avatar, on: :member
-  end
-
 end
