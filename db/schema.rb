@@ -42,6 +42,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_02_092007) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "package_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["package_id"], name: "index_favorites_on_package_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
   create_table "packages", force: :cascade do |t|
     t.string "name"
     t.float "budget"
@@ -121,13 +130,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_02_092007) do
     t.integer "age"
     t.string "first_name"
     t.string "last_name"
-    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "favorites", "packages"
+  add_foreign_key "favorites", "users"
   add_foreign_key "packages", "rooms"
   add_foreign_key "packages", "styles"
   add_foreign_key "product_packages", "packages"

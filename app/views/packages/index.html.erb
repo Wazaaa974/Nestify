@@ -30,10 +30,15 @@
             <h5 class="card-title-index">Nid douillet so cosy</h5>
             <p class="card-text-index">Un cocon chaleureux pour des nuits paisibles.</p>
             <div class="price-index mb-2"><strong> Prix : 1100€ </strong></div>
-            <% <button class="btn rounded-shadow-button">Voir le pack</button> %>
-             <%# <%= link_to package_path(package), class: "btn rounded-shadow-button mt-3" do %>
-            <%# Voir le package %>
-            <%# <% end %>
+            <%# <% <button class="btn rounded-shadow-button">Voir le pack</button> %>
+            <%@packages.each do |package| %>
+            <%= link_to package_path(package.id), class: "btn rounded-shadow-button mt-3" do %>
+             Voir le package
+            <% end %>
+            <% end %>
+               <%# <%= link_to package_path(package), class: "btn rounded-shadow-button mt-3" do %>
+              <%# Voir le package %>
+             <%# <% end %>
           </div>
         </div>
       </div>
@@ -52,7 +57,9 @@
               Élégance rétro avec une touche de modernité.
             </p>
             <div class="price-index mb-2"><strong> Prix : 1250€ </strong></div>
-            <% <button class="btn rounded-shadow-button">Voir le pack</button> %>
+             <%# <%= link_to package_path(@package), class: "btn rounded-shadow-button mt-3" do %>
+            <%# Voir le package %>
+            <%# <% end %>
           </div>
         </div>
       </div>
@@ -71,7 +78,9 @@
               Design urbain pour une ambiance contemporaine.
             </p>
             <div class="price-index mb-2"><strong> Prix : 980€ </strong></div>
-            <% <button class="btn rounded-shadow-button">Voir le pack</button> %>
+             <%# <%= link_to package_path(@package), class: "btn rounded-shadow-button mt-3" do %>
+            <%# Voir le package %>
+            <%# <% end %>
           </div>
         </div>
       </div>
