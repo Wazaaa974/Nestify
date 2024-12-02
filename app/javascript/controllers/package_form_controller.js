@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="package-form"
 export default class extends Controller {
-  static targets = ["firstQuestion", "secondQuestion", "thirdQuestion", "slider", "sliderChambre"]
+  static targets = ["firstQuestion", "secondQuestion", "thirdQuestion", "sliderSalon", "sliderChambre", "sliderSdb", "sliderCuisine"]
 
   // Function to show the second question
   displaySecondQuestion() {
@@ -16,25 +16,62 @@ export default class extends Controller {
     this.thirdQuestionTarget.classList.remove("d-none");
   }
 
-  // Function to display the slider when a checkbox is checked
-  displaySlider(event) {
+  // Function to display the slider when Salon checkbox is checked
+  displaySliderSalon(event) {
     const isChecked = event.target.checked;
+    const room = "salon"
     if (isChecked) {
-      this.sliderTarget.classList.remove("d-none");
-      this.initializeSliders(); // Initialize sliders when they become visible
+      this.sliderSalonTarget.classList.remove("d-none");
+      this.initializeSliders(room); // Initialize sliders when they become visible
     } else {
-      this.sliderTarget.classList.add("d-none");
+      this.sliderSalonTarget.classList.add("d-none");
     }
   }
 
+  // Function to display the slider when Chambre checkbox is checked
+  displaySliderChambre(event) {
+    const isChecked = event.target.checked;
+    const room = "chambre"
+    if (isChecked) {
+      this.sliderChambreTarget.classList.remove("d-none");
+      this.initializeSliders(room); // Initialize sliders when they become visible
+    } else {
+      this.sliderChambreTarget.classList.add("d-none");
+    }
+  }
+
+ // Function to display the slider when Salle de bain checkbox is checked
+ displaySliderSdb(event) {
+  const isChecked = event.target.checked;
+  const room = "sdb"
+  if (isChecked) {
+    this.sliderSdbTarget.classList.remove("d-none");
+    this.initializeSliders(room); // Initialize sliders when they become visible
+  } else {
+    this.sliderSdbTarget.classList.add("d-none");
+  }
+}
+
+ // Function to display the slider when Cuisine checkbox is checked
+ displaySliderCuisine(event) {
+  const isChecked = event.target.checked;
+  const room = "cuisine"
+  if (isChecked) {
+    this.sliderCuisineTarget.classList.remove("d-none");
+    this.initializeSliders(room); // Initialize sliders when they become visible
+  } else {
+    this.sliderSdbCuisine.classList.add("d-none");
+  }
+}
+
   // Initialize sliders
-  initializeSliders() {
+  initializeSliders(room) {
     // Reassign slider elements dynamically
-    const sliderOne = document.getElementById("slider-1");
-    const sliderTwo = document.getElementById("slider-2");
-    const displayValOne = document.getElementById("range1");
-    const displayValTwo = document.getElementById("range2");
-    const sliderTrack = document.querySelector(".slider-track");
+    const sliderOne = document.getElementById(`slider-${room}-1`);
+    const sliderTwo = document.getElementById(`slider-${room}-2`);
+    const displayValOne = document.getElementById(`range-${room}-1`);
+    const displayValTwo = document.getElementById(`range-${room}-2`);
+    const sliderTrack = document.querySelector(`.slider-${room}-track`);
     const sliderMaxValue = sliderOne.max;
     const minGap = 300;
 
