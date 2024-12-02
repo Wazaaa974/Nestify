@@ -43,20 +43,20 @@ user2 = User.create!(
 
 # Styles
 modern = Style.create!(name: "modern")
-classic = Style.create!(name: "classic")
-contemporain = Style.create!(name: "contemporain")
+# classic = Style.create!(name: "classic")
+# contemporain = Style.create!(name: "contemporain")
 industriel = Style.create!(name: "industriel")
 vintage = Style.create!(name: "vintage")
-classic_chic = Style.create!(name: "classic_chic")
-bord_de_mer = Style.create!(name: "bord_de_mer")
-tropical = Style.create!(name: "tropical")
-campagne = Style.create!(name: "campagne")
-minimaliste = Style.create!(name: "minimaliste")
+# classic_chic = Style.create!(name: "classic_chic")
+# bord_de_mer = Style.create!(name: "bord_de_mer")
+# tropical = Style.create!(name: "tropical")
+# campagne = Style.create!(name: "campagne")
+# minimaliste = Style.create!(name: "minimaliste")
 scandinave = Style.create!(name: "scandinave")
 boheme = Style.create!(name: "boheme")
-zen_asiatique = Style.create!(name: "zen_asiatique")
-antique = Style.create!(name: "antique")
-baroque = Style.create!(name: "baroque")
+# zen_asiatique = Style.create!(name: "zen_asiatique")
+# antique = Style.create!(name: "antique")
+# baroque = Style.create!(name: "baroque")
 
 # Rooms
 living_room = Room.create!(name: "Living Room")
@@ -202,6 +202,11 @@ package_vintage = Package.create!(
 
 
 
+
+
+
+
+
 lit_moderne = Product.find_by(style: modern, room: bedroom, product_category: lit)
 table_chevet_moderne = Product.find_by(style: modern, room: bedroom, product_category: table_chevet)
 armoire_moderne = Product.find_by(style: modern, room: bedroom, product_category: armoire)
@@ -235,5 +240,137 @@ product_package_vintage_miroir = ProductPackage.create!(product: miroir_vintage,
 # Favorites
 proposal1 = Proposal.create!(user_id: user1.id, package_id: package_modern.id, favorite: true)
 proposal2 = Proposal.create!(user_id: user2.id, package_id: package_vintage.id, favorite: true)
+
+
+# Rooms
+living_room = Room.create!(name: "salon")
+bedroom = Room.create!(name: "chambre")
+
+
+
+# Product Categories
+
+# Chambre
+lit = ProductCategory.create!(name: "lit")
+table_chevet = ProductCategory.create!(name: "table chevet")
+armoire = ProductCategory.create!(name: "armoire")
+tapis = ProductCategory.create!(name: "tapis")
+tableau = ProductCategory.create!(name: "tableau")
+
+# Salon
+canape = ProductCategory.create!(name: "canape")
+fauteuil = ProductCategory.create!(name: "fauteuil")
+table_basse = ProductCategory.create!(name: "table basse")
+meuble_tv = ProductCategory.create!(name: "meuble TV")
+bibliotheque = ProductCategory.create!(name: "bibliotheque")
+tapis_salon = ProductCategory.create!(name: "tapis")
+
+
+# Salle de bain
+meuble_vasque = ProductCategory.create!(name: "meuble vasque")
+armoire_toilette = ProductCategory.create!(name: "armoire de toilette")
+porte_serviette = ProductCategory.create!(name: "porte-serviette")
+panier_linge = ProductCategory.create!(name: "panier à linge")
+tapis_bain = ProductCategory.create!(name: "tapis de bain")
+
+ROOM_STYLES_PRODUCTS = {
+ salon: {
+   moderne: [
+     { product_category: canape, style: modern },
+     { product_category: fauteuil, style: modern },
+     { product_category: table_basse, style: modern },
+     { product_category: meuble_tv, style: modern },
+     { product_category: bibliotheque, style: modern },
+     { product_category: tapis_salon, style: modern }
+   ],
+   classique: [
+     { product_category: canape, style: classic },
+     { product_category: fauteuil, style: classic },
+     { product_category: table_basse, style: classic },
+     { product_category: meuble_tv, style: classic },
+     { product_category: bibliotheque, style: classic },
+     { product_category: tapis_salon, style: classic }
+   ],
+   contemporain: [
+     { product_category: canape, style: contemporain },
+     { product_category: fauteuil, style: contemporain },
+     { product_category: table_basse, style: contemporain },
+     { product_category: meuble_tv, style: contemporain },
+     { product_category: bibliotheque, style: contemporain },
+     { product_category: tapis_salon, style: contemporain }
+   ]
+ },
+#  chambre: {
+#    moderne: [
+#      { product_category: lit, style: modern },
+#      { product_category: table_chevet, style: modern },
+#      { product_category: armoire, style: modern },
+#      { product_category: tapis, style: modern },
+#      { product_category: tableau, style: modern }
+#    ],
+#    classique: [
+#      { product_category: lit, style: classic },
+#      { product_category: table_chevet, style: classic },
+#      { product_category: armoire, style: classic },
+#      { product_category: tapis, style: classic },
+#      { product_category: tableau, style: classic }
+#    ],
+#    contemporain: [
+#      { product_category: lit, style: contemporain },
+#      { product_category: table_chevet, style: contemporain },
+#      { product_category: armoire, style: contemporain },
+#      { product_category: tapis, style: contemporain },
+#      { product_category: tableau, style: contemporain }
+#    ]
+#  },
+#  salle_de_bain: {
+#    moderne: [
+#      { product_category: meuble_vasque, style: modern },
+#      { product_category: armoire_toilette, style: modern },
+#      { product_category: porte_serviette, style: modern },
+#      { product_category: panier_linge, style: modern },
+#      { product_category: tapis_bain, style: modern }
+#    ],
+#    classique: [
+#      { product_category: meuble_vasque, style: classic },
+#      { product_category: armoire_toilette, style: classic },
+#      { product_category: porte_serviette, style: classic },
+#      { product_category: panier_linge, style: classic },
+#      { product_category: tapis_bain, style: classic }
+#    ],
+#    contemporain: [
+#      { product_category: meuble_vasque, style: contemporain },
+#      { product_category: armoire_toilette, style: contemporain },
+#      { product_category: porte_serviette, style: contemporain },
+#      { product_category: panier_linge, style: contemporain },
+#      { product_category: tapis_bain, style: contemporain }
+#    ]
+#  }
+}
+
+ROOM_STYLES_PRODUCTS.each do |room_key, room_styles|
+  room_styles.each do |style_key, products|
+    products.each do |product_hash|
+
+      product_category = product_hash[:product_category]
+      style = product_hash[:style]
+      room_name = room_key.to_s
+
+      search = "#{product_category.name} #{room_name} #{style_key.name}"
+
+      GetProductsService.new(search: search.parameterize, product_category: product_category, style: style, room: Room.find_by(name: room_key.to_s)).call
+    end
+  end
+end
+
+
+
+
+
+
+
+
+
+
 
 puts "Database seeded successfully!"
