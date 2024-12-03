@@ -231,11 +231,11 @@ miroir_vintage = Product.find_by(style: vintage, room: bedroom, product_category
 
 
 
-canape_moderne = Product.find_by(style: modern, room: living_room, product_category: canape)
-table_basse_moderne = Product.find_by(style: modern, room: living_room, product_category: table_basse)
-fauteuil_moderne = Product.find_by(style: modern, room: living_room, product_category: fauteuil)
-tableau_moderne = Product.find_by(style: modern, room: living_room, product_category: tableau)
-lampe_moderne = Product.find_by(style: modern, room: living_room, product_category: lampe)
+# canape_moderne = Product.find_by(style: modern, room: living_room, product_category: canape)
+# table_basse_moderne = Product.find_by(style: modern, room: living_room, product_category: table_basse)
+# fauteuil_moderne = Product.find_by(style: modern, room: living_room, product_category: fauteuil)
+# tableau_moderne = Product.find_by(style: modern, room: living_room, product_category: tableau)
+# lampe_moderne = Product.find_by(style: modern, room: living_room, product_category: lampe)
 
 
 
@@ -252,11 +252,11 @@ product_package_vintage_armoire = ProductPackage.create!(product: armoire_vintag
 product_package_vintage_tapis = ProductPackage.create!(product: tapis_vintage, package_id: package_vintage.id)
 product_package_vintage_miroir = ProductPackage.create!(product: miroir_vintage, package_id: package_vintage.id)
 
-product_package_modern_canape = ProductPackage.create!(product: canape_moderne , package_id: package_modern_salon.id)
-product_package_modern_table_basse = ProductPackage.create!(product: table_basse_moderne, package_id: package_modern_salon.d)
-product_package_modern_fauteuil = ProductPackage.create!(product: fauteuil_moderne, package_id: package_modern_salon.id)
-product_package_modern_tableau = ProductPackage.create!(product: tableau_moderne, package_id: package_modern_salon.id)
-product_package_modern_lampe = ProductPackage.create!(product: lampe_moderne, package_id: package_modern_salon.id)
+# product_package_modern_canape = ProductPackage.create!(product: canape_moderne , package_id: package_modern_salon.id)
+# product_package_modern_table_basse = ProductPackage.create!(product: table_basse_moderne, package_id: package_modern_salon.d)
+# product_package_modern_fauteuil = ProductPackage.create!(product: fauteuil_moderne, package_id: package_modern_salon.id)
+# product_package_modern_tableau = ProductPackage.create!(product: tableau_moderne, package_id: package_modern_salon.id)
+# product_package_modern_lampe = ProductPackage.create!(product: lampe_moderne, package_id: package_modern_salon.id)
 
 
 # Favorites
