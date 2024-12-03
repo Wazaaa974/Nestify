@@ -10,9 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_03_141620) do
+
+ActiveRecord::Schema[7.1].define(version: 2024_12_03_110227) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "vector"
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -40,6 +42,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_03_141620) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "package_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["package_id"], name: "index_favorites_on_package_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "packages", force: :cascade do |t|
@@ -83,6 +94,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_03_141620) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "google_shopping_id"
+    t.vector "embedding", limit: 1536
     t.index ["product_category_id"], name: "index_products_on_product_category_id"
     t.index ["room_id"], name: "index_products_on_room_id"
     t.index ["style_id"], name: "index_products_on_style_id"
@@ -267,6 +279,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_03_141620) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "favorites", "packages"
+  add_foreign_key "favorites", "users"
   add_foreign_key "packages", "rooms"
   add_foreign_key "packages", "styles"
   add_foreign_key "product_packages", "packages"
