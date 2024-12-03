@@ -61,7 +61,7 @@ boheme = Style.create!(name: "boheme")
 # Rooms
 living_room = Room.create!(name: "Living Room")
 bedroom = Room.create!(name: "Bedroom")
-
+bathroom = Room.create!(name: "Bathroom")
 
 # Product Categories
 lit = ProductCategory.create!(name: "lit")
@@ -183,7 +183,6 @@ end
 package_modern = Package.create!(
   name: "Modern Bedroom Package",
   description: "Une jolie chambre moderne pour faire des singeries",
-  budget: 1000.0,
   min: 800.0,
   max: 1200.0,
   room_id: bedroom.id,
@@ -193,7 +192,6 @@ package_modern = Package.create!(
 package_vintage = Package.create!(
   name: "Vintage Bedroom Package",
   description: "Une jolie chambre pour faire des singeries en vintage",
-  budget: 1000.0,
   min: 800.0,
   max: 1200.0,
   room_id: bedroom.id,
