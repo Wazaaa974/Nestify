@@ -234,7 +234,7 @@ product_package_modern_miroir = ProductPackage.create!(product: miroir_moderne, 
 product_package_vintage_lit = ProductPackage.create!(product: lit_vintage , package_id: package_vintage.id)
 product_package_vintage_table_chevet = ProductPackage.create!(product: table_chevet_vintage, package_id: package_vintage.id)
 product_package_vintage_armoire = ProductPackage.create!(product: armoire_vintage, package_id: package_vintage.id)
-product_package_vintage_tapis = ProductPackage.create!(product: tapis_vintage, package_id: package_vintage.id)
+# product_package_vintage_tapis = ProductPackage.create!(product: tapis_vintage, package_id: package_vintage.id)
 product_package_vintage_miroir = ProductPackage.create!(product: miroir_vintage, package_id: package_vintage.id)
 
 
