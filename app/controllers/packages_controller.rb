@@ -25,6 +25,14 @@ class PackagesController < ApplicationController
     else
       @package_sdb = "nul"
     end
+    if params[:cuisine] == "1"
+      @cuisine = "Cuisine"
+      @room_cuisine = Room.find_by(name: "Kitchen")
+      @package_cuisine = Package.where("min > ? AND max < ?", package_params[:budget_cuisine_min].to_i, package_params[:budget_cuisine_max].to_i).where(room_id: @room_cuisine.id)
+      @package_cuisine = "Sorry no results are matching this query" if @package_cuisine.empty?
+    else
+      @package_cuisine = "nul"
+    end
   end
 
   def create

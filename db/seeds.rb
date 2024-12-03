@@ -62,6 +62,7 @@ boheme = Style.create!(name: "boheme")
 living_room = Room.create!(name: "Living Room")
 bedroom = Room.create!(name: "Bedroom")
 bathroom = Room.create!(name: "Bathroom")
+kitchen = Room.create!(name: "Kitchen")
 
 # Product Categories
 lit = ProductCategory.create!(name: "lit")
