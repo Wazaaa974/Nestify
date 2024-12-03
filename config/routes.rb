@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   end
 
   resources :dashboards, only: [:index]
-
   resources :user_packages, only: [:index, :new, :create, :show, :edit, :destroy]
+  resources :questions, only: [:index, :create]
+
 end
