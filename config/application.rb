@@ -1,6 +1,6 @@
 require_relative "boot"
-
 require "rails/all"
+
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Nestify
   class Application < Rails::Application
+    config.active_job.queue_adapter = :solid_queue
     config.action_controller.raise_on_missing_callback_actions = false if Rails.version >= "7.1.0"
     config.generators do |generate|
       generate.assets false
