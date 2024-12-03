@@ -61,15 +61,21 @@ boheme = Style.create!(name: "boheme")
 # Rooms
 living_room = Room.create!(name: "Living Room")
 bedroom = Room.create!(name: "Bedroom")
-
+bathroom = Room.create!(name: "Bathroom")
+kitchen = Room.create!(name: "Kitchen")
 
 # Product Categories
 lit = ProductCategory.create!(name: "lit")
 table_chevet = ProductCategory.create!(name: "table_chevet")
+table_basse = ProductCategory.create!(name: "table_basse")
 armoire = ProductCategory.create!(name: "armoire")
 tapis = ProductCategory.create!(name: "tapis")
 miroir = ProductCategory.create!(name: "miroir")
+lampe = ProductCategory.create!(name: "lampe")
+fauteuil = ProductCategory.create!(name: "fauteuil")
+tableau = ProductCategory.create!(name: "teableau")
 decor = ProductCategory.create!(name: "Decor")
+canape = ProductCategory.create!(name: "canape")
 
 # puts "#{row['name']} #{row['description']} #{row['price']}"
 
@@ -183,7 +189,6 @@ end
 package_modern = Package.create!(
   name: "Modern Bedroom Package",
   description: "Une jolie chambre moderne pour faire des singeries",
-  budget: 1000.0,
   min: 800.0,
   max: 1200.0,
   room_id: bedroom.id,
@@ -193,19 +198,20 @@ package_modern = Package.create!(
 package_vintage = Package.create!(
   name: "Vintage Bedroom Package",
   description: "Une jolie chambre pour faire des singeries en vintage",
-  budget: 1000.0,
   min: 800.0,
   max: 1200.0,
   room_id: bedroom.id,
   style_id: vintage.id
 )
 
-
-
-
-
-
-
+package_modern_salon = Package.create!(
+  name: "Modern Living room Package",
+  description: "Une jolie chambre moderne pour faire des singeries",
+  min: 800.0,
+  max: 1200.0,
+  room_id: living_room.id,
+  style_id: modern.id
+)
 
 
 
@@ -224,6 +230,15 @@ tapis_vintage = Product.find_by(style: vintage, room: bedroom, product_category:
 miroir_vintage = Product.find_by(style: vintage, room: bedroom, product_category: miroir)
 
 
+
+# canape_moderne = Product.find_by(style: modern, room: living_room, product_category: canape)
+# table_basse_moderne = Product.find_by(style: modern, room: living_room, product_category: table_basse)
+# fauteuil_moderne = Product.find_by(style: modern, room: living_room, product_category: fauteuil)
+# tableau_moderne = Product.find_by(style: modern, room: living_room, product_category: tableau)
+# lampe_moderne = Product.find_by(style: modern, room: living_room, product_category: lampe)
+
+
+
 # Product Packages
 product_package_modern_lit = ProductPackage.create!(product: lit_moderne , package_id: package_modern.id)
 product_package_modern_table_chevet = ProductPackage.create!(product: table_chevet_moderne, package_id: package_modern.id)
@@ -237,6 +252,11 @@ product_package_vintage_armoire = ProductPackage.create!(product: armoire_vintag
 # product_package_vintage_tapis = ProductPackage.create!(product: tapis_vintage, package_id: package_vintage.id)
 product_package_vintage_miroir = ProductPackage.create!(product: miroir_vintage, package_id: package_vintage.id)
 
+# product_package_modern_canape = ProductPackage.create!(product: canape_moderne , package_id: package_modern_salon.id)
+# product_package_modern_table_basse = ProductPackage.create!(product: table_basse_moderne, package_id: package_modern_salon.d)
+# product_package_modern_fauteuil = ProductPackage.create!(product: fauteuil_moderne, package_id: package_modern_salon.id)
+# product_package_modern_tableau = ProductPackage.create!(product: tableau_moderne, package_id: package_modern_salon.id)
+# product_package_modern_lampe = ProductPackage.create!(product: lampe_moderne, package_id: package_modern_salon.id)
 
 
 # Favorites
@@ -354,20 +374,11 @@ ROOM_STYLES_PRODUCTS = {
 #  }
 }
 
+
+
  #methode pour faire le call api
 # GetProductsService.new(ROOM_STYLES_PRODUCTS).call
 
 
 #methode pour parser et creer des instances de produits
 GetProductsService.new(ROOM_STYLES_PRODUCTS).parse_json_data
-
-
-
-
-
-
-
-
-
-
-puts "Database seeded successfully!"
