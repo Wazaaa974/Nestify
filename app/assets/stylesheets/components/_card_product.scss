@@ -58,7 +58,6 @@
   top: 9px;
   right: 10px;
   font-size: 13px;
-
 }
 
 .fa-arrows-rotate{
@@ -156,4 +155,54 @@
 
 .product-name {
   padding-right: 60px;
+}
+
+.btn-retour{
+  position: absolute;
+  color: white;
+  left: 13px;
+  top: 314px;
+  background-color: $blue;
+  border: none;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 25px; // Coins arrondis
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // Ombre noire fixe
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px; /* Ajustez la hauteur selon vos besoins */
+  line-height: normal; /* Empêche le texte de se décaler */
+}
+
+.btn-retour:hover {
+  background-color: white;
+  color: $blue;
+}
+
+.btn-dashboard{
+  position: absolute;
+  color: white;
+  left: 140px;
+  top: 314px;
+  background-color: $blue;
+  border: none;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 25px; // Coins arrondis
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // Ombre noire fixe
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px; /* Ajustez la hauteur selon vos besoins */
+  line-height: normal; /* Empêche le texte de se décaler */
+}
+
+.btn-dashboard:hover {
+  background-color: white;
+  color: $blue;
 }
