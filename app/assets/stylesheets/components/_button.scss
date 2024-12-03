@@ -10,6 +10,26 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // Ombre noire fixe
   text-decoration: none;
 }
+
+.fa-feather-pointed {
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+
+.rounded-shadow-button:hover {
+background-color: white;
+color: $blue;
+}
+
+.rounded-shadow-button:hover .fa-feather-pointed {
+color: $blue;
+}
+
+
+
+
+
 .fa-feather-pointed{
   margin-right: 10px;
 }
@@ -44,20 +64,57 @@
   border-color: $blue !important;
 }
 
- .btn-validate {
+//  .btn-validate {
 
-  background-color: $blue;
-  color:  $dark-grey;
-  border-radius: 25px; // Coins arrondis
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // Ombre noire fixe
-  color: white;
+//   background-color: $blue;
+//   color:  $dark-grey;
+//   border-radius: 25px; // Coins arrondis
+//   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // Ombre noire fixe
+//   color: white;
 
- }
+//  }
+//  .btn-valider {
+
+//   background-color: $blue;
+//   color:  $dark-grey;
+//   border-radius: 25px; // Coins arrondis
+//   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // Ombre noire fixe
+//   color: white;
+//  }
+
+
  .btn-valider {
-
   background-color: $blue;
-  color:  $dark-grey;
-  border-radius: 25px; // Coins arrondis
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // Ombre noire fixe
   color: white;
- }
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 25px; // Coins arrondis
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // Ombre noire fixe
+  text-decoration: none;
+}
+
+.btn-valider:hover {
+  background-color: white;
+  color: $blue;
+  }
+
+  .btn-validate {
+    background-color: $blue;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 25px; // Coins arrondis
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // Ombre noire fixe
+    text-decoration: none;
+  }
+
+  .btn-validate:hover {
+    background-color: white;
+    color: $blue;
+    }

@@ -43,20 +43,20 @@ user2 = User.create!(
 
 # Styles
 modern = Style.create!(name: "modern")
-classic = Style.create!(name: "classic")
-contemporain = Style.create!(name: "contemporain")
+# classic = Style.create!(name: "classic")
+# contemporain = Style.create!(name: "contemporain")
 industriel = Style.create!(name: "industriel")
 vintage = Style.create!(name: "vintage")
-classic_chic = Style.create!(name: "classic_chic")
-bord_de_mer = Style.create!(name: "bord_de_mer")
-tropical = Style.create!(name: "tropical")
-campagne = Style.create!(name: "campagne")
-minimaliste = Style.create!(name: "minimaliste")
+# classic_chic = Style.create!(name: "classic_chic")
+# bord_de_mer = Style.create!(name: "bord_de_mer")
+# tropical = Style.create!(name: "tropical")
+# campagne = Style.create!(name: "campagne")
+# minimaliste = Style.create!(name: "minimaliste")
 scandinave = Style.create!(name: "scandinave")
 boheme = Style.create!(name: "boheme")
-zen_asiatique = Style.create!(name: "zen_asiatique")
-antique = Style.create!(name: "antique")
-baroque = Style.create!(name: "baroque")
+# zen_asiatique = Style.create!(name: "zen_asiatique")
+# antique = Style.create!(name: "antique")
+# baroque = Style.create!(name: "baroque")
 
 # Rooms
 living_room = Room.create!(name: "Living Room")
@@ -182,6 +182,7 @@ end
 # Packages
 package_modern = Package.create!(
   name: "Modern Bedroom Package",
+  description: "Une jolie chambre moderne pour faire des singeries",
   budget: 1000.0,
   min: 800.0,
   max: 1200.0,
@@ -191,12 +192,18 @@ package_modern = Package.create!(
 
 package_vintage = Package.create!(
   name: "Vintage Bedroom Package",
+  description: "Une jolie chambre pour faire des singeries en vintage",
   budget: 1000.0,
   min: 800.0,
   max: 1200.0,
   room_id: bedroom.id,
   style_id: vintage.id
 )
+
+
+
+
+
 
 
 
@@ -235,5 +242,132 @@ product_package_vintage_miroir = ProductPackage.create!(product: miroir_vintage,
 # Favorites
 proposal1 = Proposal.create!(user_id: user1.id, package_id: package_modern.id, favorite: true)
 proposal2 = Proposal.create!(user_id: user2.id, package_id: package_vintage.id, favorite: true)
+
+
+# Rooms
+living_room = Room.create!(name: "salon")
+bedroom = Room.create!(name: "chambre")
+
+
+
+
+# ---------------------------- Code implemente par Romain ----------------------------
+
+# Product Categories
+
+# Chambre
+lit = ProductCategory.create!(name: "lit")
+table_chevet = ProductCategory.create!(name: "table chevet")
+armoire = ProductCategory.create!(name: "armoire")
+tapis_chambre = ProductCategory.create!(name: "tapis chambre")
+miroir_chambre = ProductCategory.create!(name: "miroir chambre")
+
+
+# Salon
+canape = ProductCategory.create!(name: "canape")
+fauteuil = ProductCategory.create!(name: "fauteuil")
+table_basse = ProductCategory.create!(name: "table basse")
+tableau = ProductCategory.create!(name: "tableau")
+lampe = ProductCategory.create!(name: "lampe")
+tapis_salon = ProductCategory.create!(name: "tapis salon")
+
+# Salle de bain
+meuble_vasque = ProductCategory.create!(name: "meuble vasque")
+armoire_toilette = ProductCategory.create!(name: "armoire de toilette")
+porte_serviette = ProductCategory.create!(name: "porte-serviette")
+panier_linge = ProductCategory.create!(name: "panier à linge")
+tapis_bain = ProductCategory.create!(name: "tapis de bain")
+
+
+ROOM_STYLES_PRODUCTS = {
+ salon: {
+   moderne: [
+     { product_category: canape.name, style: modern.name },
+     { product_category: fauteuil.name, style: modern.name },
+     { product_category: table_basse.name, style: modern.name },
+     { product_category: tableau.name, style: modern.name },
+     { product_category: lampe.name, style: modern.name },
+     { product_category: tapis_salon.name, style: modern.name }
+      ]},
+  #  industriel: [
+  #    { product_category: canape, style: classic },
+  #    { product_category: fauteuil, style: classic },
+  #    { product_category: table_basse, style: classic },
+  #    { product_category: tableau, style: classic },
+  #    { product_category: lampe, style: classic },
+  #    { product_category: tapis_salon, style: classic }
+  #  ],
+  #  vintage: [
+  #    { product_category: canape, style: contemporain },
+  #    { product_category: fauteuil, style: contemporain },
+  #    { product_category: table_basse, style: contemporain },
+  #    { product_category: tableau, style: contemporain },
+  #    { product_category: lampe, style: contemporain },
+  #    { product_category: tapis_salon, style: contemporain }
+  #  ]
+#  },
+#  chambre: {
+#    moderne: [
+#      { product_category: lit, style: modern },
+#      { product_category: table_chevet, style: modern },
+#      { product_category: armoire, style: modern },
+#      { product_category: tapis, style: modern },
+#      { product_category: miroir_chambre, style: modern }
+#    ],
+#    industriel: [
+#      { product_category: lit, style: classic },
+#      { product_category: table_chevet, style: classic },
+#      { product_category: armoire, style: classic },
+#      { product_category: tapis, style: classic },
+#      { product_category: miroir_chambre, style: classic }
+#    ],
+#    vintage: [
+#      { product_category: lit, style: contemporain },
+#      { product_category: table_chevet, style: contemporain },
+#      { product_category: armoire, style: contemporain },
+#      { product_category: tapis, style: contemporain },
+#      { product_category: miroir_chambre, style: contemporain }
+#    ]
+#  },
+#  salle_de_bain: {
+#    moderne: [
+#      { product_category: miroir_salle_de_bain, style: modern },
+#      { product_category: armoire_toilette, style: modern },
+#      { product_category: porte_serviette, style: modern },
+#      { product_category: panier_linge, style: modern },
+#      { product_category: tapis_bain, style: modern }
+#    ],
+#    industriel: [
+#      { product_category: miroir_salle_de_bain, style: classic },
+#      { product_category: armoire_toilette, style: classic },
+#      { product_category: porte_serviette, style: classic },
+#      { product_category: panier_linge, style: classic },
+#      { product_category: tapis_bain, style: classic }
+#    ],
+#    vintage: [
+#      { product_category: miroir_salle_de_bain, style: contemporain },
+#      { product_category: armoire_toilette, style: contemporain },
+#      { product_category: porte_serviette, style: contemporain },
+#      { product_category: panier_linge, style: contemporain },
+#      { product_category: tapis_bain, style: contemporain }
+#    ]
+#  }
+}
+
+ #methode pour faire le call api
+# GetProductsService.new(ROOM_STYLES_PRODUCTS).call
+
+
+#methode pour parser et creer des instances de produits
+GetProductsService.new(ROOM_STYLES_PRODUCTS).parse_json_data
+
+
+
+
+
+
+
+
+
 
 puts "Database seeded successfully!"

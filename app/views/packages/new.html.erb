@@ -53,24 +53,24 @@
       <div class="card-body">
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
-            <%= f.check_box :salon, class: "form-check-input me-2" %>
+            <%= f.check_box :salon, { class: "form-check-input me-2", data: { action: "change->package-form#displaySliderSalon" } }, '1', '0' %>
             <%= f.label :salon, "Salon", class: "form-check-label" %>
           </li>
           <li class="list-group-item">
-            <%= f.check_box :chambre, class: "form-check-input me-2" %>
+            <%= f.check_box :chambre, { class: "form-check-input me-2", data: { action: "change->package-form#displaySliderChambre" } }, '1', '0' %>
             <%= f.label :chambre, "Chambre", class: "form-check-label" %>
           </li>
           <li class="list-group-item">
-            <%= f.check_box :salle_de_bain, class: "form-check-input me-2" %>
+            <%= f.check_box :salle_de_bain,{ class: "form-check-input me-2", data: { action: "change->package-form#displaySliderSdb" } }, '1', '0' %>
             <%= f.label :salle_de_bain, "Salle de Bain", class: "form-check-label" %>
           </li>
           <li class="list-group-item">
-            <%= f.check_box :cuisine, class: "form-check-input me-2" %>
+            <%= f.check_box :cuisine,{ class: "form-check-input me-2", data: { action: "change->package-form#displaySliderCuisine" } }, '1', '0' %>
             <%= f.label :cuisine, "Cuisine", class: "form-check-label" %>
           </li>
         </ul>
         <div class="text-center mt-3">
-         <span class="btn btn-valider mt-3" data-action="click->package-form#displayThirdQuestion">Valider</span>
+         <span class="btn btn-valider mt-3" data-action="click->package-form#displayThirdQuestion"<%=data-action="click->package-form#displaySliderSalon" if params[:salon] == '1'%>>Valider</span>
         </div>
       </div>
     </div>
@@ -93,39 +93,90 @@
       </div>
       <div class="card-body mx-15">
 
-<p> La pièce </p>
 
-<div class="wrapper">
-  <div class= "values">
-    <span id="range1"> 0 </span>
-    <span> &dash; </span>
-    <span id="range2"> 5000 </span>
-  </div>
+<%# <% if params[:salon] == '1' %>
+  <%# <p>The box is checked</p>
+<% else %>
+  <%# <p>The box Salon is not checked</p>
+<% end %>
 
-   <div class="container wrapper-container">
-        <div class= "slider-track">
-          <input type="range" min="0" max="5000" value="1500" id="slider-1" oninput="slideOne()">
-          <input type="range" min="0" max="5000" value="3000" id="slider-2" oninput="slideTwo()">
-        </div>
+
+<div id="slider-container-chambre" data-package-form-target="sliderSalon" class = "d-none">
+  <div class="wrapper">
+    <h5>Budget Salon</h5>
+    <div class="values">
+      <span id="range-salon-1">0</span>
+      <span>&dash;</span>
+      <span id="range-salon-2">5000</span>
     </div>
 
+    <div class="container wrapper-container">
+      <div class="slider-salon-track">
+        <input type="range" min="0" max="5000" value="0" step="50" id="slider-salon-1" oninput="slideOne()">
+        <input type="range" min="0" max="5000" value="5000" step="50" id="slider-salon-2" oninput="slideTwo()">
+      </div>
+    </div>
+  </div>
 </div>
 
-<%= javascript_include_tag 'script', defer: true %>
 
-    <%# <div class="slider-container mr-25">
-        <span id="min-value">0</span>
-            <div class="slider">
-                <input type="range" id="min-slider" min="0" max="5000" value="0" class="z-0">
-                <input type="range" id="max-slider" min="0" max="5000" value="5000" class="z-0">
-            </div>
-            <span id="max-value">5000</span>
-        </div>
+<div id="slider-container-chambre" data-package-form-target="sliderChambre" class = "d-none">
+  <div class="wrapper">
+    <h5>Budget Chambre</h5>
+    <div class="values">
+      <span id="range-chambre-1">0</span>
+      <span>&dash;</span>
+      <span id="range-chambre-2">5000</span>
+    </div>
 
- %>
+    <div class="container wrapper-container">
+      <div class="slider-chambre-track">
+        <input type="range" min="0" max="5000" value="0" step="50" id="slider-chambre-1" oninput="slideOne()">
+        <input type="range" min="0" max="5000" value="5000" step="50" id="slider-chambre-2" oninput="slideTwo()">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="slider-container-sdb" data-package-form-target="sliderSdb" class = "d-none">
+  <div class="wrapper">
+    <h5>Budget Salle de bain</h5>
+    <div class="values">
+      <span id="range-sdb-1">0</span>
+      <span>&dash;</span>
+      <span id="range-sdb-2">5000</span>
+    </div>
+
+    <div class="container wrapper-container">
+      <div class="slider-sdb-track">
+        <input type="range" min="0" max="5000" value="0" step="50" id="slider-sdb-1" oninput="slideOne()">
+        <input type="range" min="0" max="5000" value="5000" step="50" id="slider-sdb-2" oninput="slideTwo()">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="slider-container-cuisine" data-package-form-target="sliderCuisine" class = "d-none">
+  <div class="wrapper">
+    <h5>Budget Cuisine</h5>
+    <div class="values">
+      <span id="range-cuisine-1">0</span>
+      <span>&dash;</span>
+      <span id="range-cuisine-2">5000</span>
+    </div>
+
+    <div class="container wrapper-container">
+      <div class="slider-cuisine-track">
+        <input type="range" min="0" max="5000" value="0" step="50" id="slider-cuisine-1" oninput="slideOne()">
+        <input type="range" min="0" max="5000" value="5000" step="50" id="slider-cuisine-2" oninput="slideTwo()">
+      </div>
+    </div>
+  </div>
+</div>
 
         <div class="text-center mt-3">
-          <%= f.submit "Valider", class: "btn btn-validate mt-3" %>
+            <%= f.submit "Valider", class: "btn btn-validate mt-3" %>
         </div>
       </div>
     </div>

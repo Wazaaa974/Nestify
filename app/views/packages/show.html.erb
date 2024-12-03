@@ -1,58 +1,51 @@
 <div class="container">
 
   <div class="text-center mt-3">
-    <h1>Le package Nid douillet so cosy</h1>
+    <h1><%= @package.name %></h1>
   </div>
 
-  <div class="text-center mt-3">
+  <div class="text-center mt-3 mb-5">
     <p>
-      Dans ce package vous sont proposés les produits phares et essentiels à une ambiance cozy et chaleureuse, sereine et apaisante. Vous pouvez personnaliser votre package en ajoutant, remplaçant ou supprimant des produits. C'est votre univers, c'est vous qui décidez !
+      Dans ce package vous sont proposés les produits essentiels à une ambiance qui vous ressemble. Vous pouvez personnaliser votre package en ajoutant, remplaçant ou supprimant des produits. C'est votre univers, c'est vous qui décidez !
     </p>
   </div>
 
   <div>
-  <%# remplacer le prix par logique budget automatique %>
-    <h3 class="budget mt-4">Budget total : 1500€</h3>
+    <h3 class="budget mt-4">Budget total : <%= @sum.round %>€ </h3>
     <%# mettre le lien du bouton vers dashboard %>
-      <button class="btn rounded-shadow-button btn-show"> Valider</button>
+     <%= link_to dashboards_path, class: "btn btn-show" do %>
+    <i class="footer-picto fa-solid fa-heart heart-icon"></i>
+    <% end %>
   </div>
-
-  <div class="mb-3">
-    <h1 class="mt-4">Chambre</h1>
-  </div>
-
-
 
   <hr class = "custom-hr">
 
-  <div class="card-product">
-    <div class="card-product-image">
-      <img src="https://medias.maisonsdumonde.com/image/upload/ar_1:1,c_fill,f_auto,q_auto,w_354/v1/img/lit-180x200-beige-1000-8-6-187212_3.jpg"/>
+  <% @package.products.each do |product| %>
+    <div class="card-product">
+      <div class="card-product-image">
+        <%# <%= cl_image_tag product.photo.key, class: "main-image" %>
+        <%# <% raise %>
+        <img src="https://medias.maisonsdumonde.com/image/upload/ar_1:1,c_fill,f_auto,q_auto,w_354/v1/img/lit-180x200-beige-1000-8-6-187212_3.jpg"/>
+      </div>
+        <div class="card-product-infos">
+          <%= link_to package_path(@package, product_id: product.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+          <i class="fa-solid fa-trash"> </i>
+          <% end %>
+          <div class="price"> <%= sprintf('%.2f',product.price) %>€ </div>
+          <h2 class="product-name"> <%= product.name.first(30) ? product.name.first(29) + "..." : product.name %> </h2>
+          <p class="text-description"> <%= product.description.first(70) ? product.description.first(69) + "..." : product.description %> <a href=<%= product.url %>>Voir plus</a></p>
+          <p class="shop-name mt-3"> <strong> <%= product.shop %> </strong></p>
+         <%# bouton remplacer/update ajouter lien %>
+          <i class="fa-solid fa-arrows-rotate"></i>
+        </div>
     </div>
-    <div class="card-product-infos">
-    <%# bouton supprimer ajouter lien  %>
-    <i class="fa-solid fa-trash" style="color: #343232;"></i>
-    <div class="price">299€</div>
-      <h2>Lit Fergus</h2>
-      <p>Créez un cocon chaleureux et confortable avec le lit 180x200 Fergus ! Avec son revêtement doux... <a href="#">Voir plus</a></p>
-    <%# bouton remplacer ajouter lien %>
-    <i class="fa-solid fa-arrows-rotate" style="color: #343232;"></i>
-    </div>
-  </div>
+  <% end %>
 
-<div class="card-product mt-3">
-    <div class="card-product-image">
-      <img src="https://medias.maisonsdumonde.com/images/ar_1:1,c_pad,f_auto,q_auto,w_354/v1/mkp/M22168570_2/table-de-chevet-2-tiroirs-en-manguier-massif-et-marbre-blanc.jpg"/>
-    </div>
-    <div class="card-product-infos">
-    <%# bouton supprimer ajouter lien  %>
-    <i class="fa-solid fa-trash" style="color: #343232;"></i>
-    <div class="price">150€</div>
-      <h2>Table de nuit Grace</h2>
-      <p>La collection Grace trouve sa place dans un intérieur chic avec sa structure en manguier massif... <a href="#">Voir plus</a></p>
-    <%# bouton remplacer ajouter lien %>
-    <i class="fa-solid fa-arrows-rotate" style="color: #343232;"></i>
-    </div>
-  </div>
 
+  <div class= "d-flex justify-content-center align-items-center">
+  <%# ajouter un produit %>
+    <%= link_to packages_path, class: "btn btn-add-product mt-4" do %>
+      <i class="fa-solid fa-plus"></i>
+    <% end %>
+  </div>
 </div>

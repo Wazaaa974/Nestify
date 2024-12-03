@@ -1,12 +1,12 @@
 class PackagesController < ApplicationController
   def index
-    # @packages = Package.all
+    @packages = Package.all
   end
 
   def create
     @package = Package.new(package_params)
     @package.save
-    redirect_to package_path(@package)
+    redirect_to package_path
   end
 
   def new
@@ -14,7 +14,29 @@ class PackagesController < ApplicationController
   end
 
   def show
-    # @package = Package.find(params[:id])
+    @package = Package.find(params[:id])
+      @sum = 0
+      @package.products.each do |product|
+        @sum += product.price
+      end
+  end
+
+  def edit
+    @package = Package.find(params[:id])
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    @package = Package.find(params[:id])
+    @product = Product.find(params[:id])
+     @package.update(package_params)
+    redirect_to package_path(@package)
+  end
+
+  def destroy
+    @product_packages = ProductPackage.find_by(package: params[:id], product_id: params[:product_id])
+    # No need for app/views/restaurants/destroy.html.erb
+    redirect_to package_path(Package.find(params[:id])), status: :see_other if @product_packages.destroy
   end
 
   def build_package(min, max, room_user)
@@ -34,6 +56,6 @@ class PackagesController < ApplicationController
 private
 
   def package_params
-    params.require(:package).permit(:name, :budget, :min, :max)
+    params.require(:package).permit(:id, :name, :budget, :min, :max)
   end
 end
