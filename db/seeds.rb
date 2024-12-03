@@ -374,20 +374,11 @@ ROOM_STYLES_PRODUCTS = {
 #  }
 }
 
+
+
  #methode pour faire le call api
 # GetProductsService.new(ROOM_STYLES_PRODUCTS).call
 
 
 #methode pour parser et creer des instances de produits
 GetProductsService.new(ROOM_STYLES_PRODUCTS).parse_json_data
-
-
-
-
-
-
-
-
-
-
-puts "Database seeded successfully!"
