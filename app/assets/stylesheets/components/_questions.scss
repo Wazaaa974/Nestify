@@ -8,7 +8,7 @@
   flex-grow: 1;
 
   h1 {
-    border-bottom: 1px solid $gray-200;
+    border-bottom: 1px solid $light-grey;
     margin-bottom: 0;
     padding: 1rem;
   }
@@ -24,7 +24,8 @@
     flex-direction: column;
   }
 
-  .user-question, .ai-answer {
+  .user-question,
+  .ai-answer {
     border-radius: 1rem;
     margin-bottom: 1rem;
     padding: 0.5rem;
@@ -36,16 +37,16 @@
   .user-question {
     align-self: flex-start;
     background: $blue;
-    color: $light-gray;
+    color: white;
   }
 
   .ai-answer {
     align-self: flex-end;
-    background: $gray-200;
+    background: $light-grey;
   }
 
   #new_question {
-    border-top: 1px solid $gray-200;
+    border-top: 1px solid white;
     padding: 1rem;
 
     .form-group {
