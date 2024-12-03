@@ -4,5 +4,4 @@ class Package < ApplicationRecord
   has_many :proposals
   has_many :product_packages
   has_many :products, through: :product_packages
-
 end

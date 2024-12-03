@@ -4,7 +4,7 @@ class PackagesController < ApplicationController
     if params[:chambre] == "1"
       @chambre = "Chambre"
       @room_chambre = Room.find_by(name: "Bedroom")
-      @package_chambre = Package.where("min > ? AND max < ?", package_params[:budget_chambre_min].to_i, package_params[:budget_chambre_max].to_i).where(room_id: @room_chambre.id)
+      @package_chambre = Package.where("budget BETWEEN ? AND ?", package_params[:budget_chambre_min].to_i, package_params[:budget_chambre_max].to_i).where(room_id: @room_chambre.id)
       @package_chambre = "Sorry no results are matching this query" if @package_chambre.empty?
     else
       @chambre = "nul"
@@ -12,7 +12,7 @@ class PackagesController < ApplicationController
     if params[:salon] == "1"
       @salon = "Salon"
       @room_salon = Room.find_by(name: "Living Room")
-      @package_salon = Package.where("min > ? AND max < ?", package_params[:budget_salon_min].to_i, package_params[:budget_salon_max].to_i).where(room_id: @room_salon.id)
+      @package_salon = Package.where("budget BETWEEN ? AND ?", package_params[:budget_salon_min].to_i, package_params[:budget_salon_max].to_i).where(room_id: @room_salon.id)
       @package_salon = "Sorry no results are matching this query" if @package_salon.empty?
     else
       @salon = "nul"
@@ -20,7 +20,7 @@ class PackagesController < ApplicationController
     if params[:salle_de_bain] == "1"
       @salle_de_bain = "Salle de bain"
       @room_sdb = Room.find_by(name: "Bathroom")
-      @package_sdb = Package.where("min > ? AND max < ?", package_params[:budget_sdb_min].to_i, package_params[:budget_sdb_max].to_i).where(room_id: @room_sdb.id)
+      @package_sdb = Package.where("budget BETWEEN ? AND ?", package_params[:budget_sdb_min].to_i, package_params[:budget_sdb_max].to_i).where(room_id: @room_sdb.id)
       @package_sdb = "Sorry no results are matching this query" if @package_sdb.empty?
     else
       @package_sdb = "nul"
@@ -28,7 +28,7 @@ class PackagesController < ApplicationController
     if params[:cuisine] == "1"
       @cuisine = "Cuisine"
       @room_cuisine = Room.find_by(name: "Kitchen")
-      @package_cuisine = Package.where("min > ? AND max < ?", package_params[:budget_cuisine_min].to_i, package_params[:budget_cuisine_max].to_i).where(room_id: @room_cuisine.id)
+      @package_cuisine = Package.where("budget BETWEEN ? AND ?", package_params[:budget_cuisine_min].to_i, package_params[:budget_cuisine_max].to_i).where(room_id: @room_cuisine.id)
       @package_cuisine = "Sorry no results are matching this query" if @package_cuisine.empty?
     else
       @package_cuisine = "nul"
