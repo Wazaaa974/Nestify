@@ -8,7 +8,8 @@
       <% if current_user.photo.attached? %>
         <%= cl_image_tag current_user.photo.key, class: "user-avatar", transformation: { dpr:"auto", responsive: true, width:"auto", crop:"scale", gravity: :face} %>
       <% else %>
-        <i class="fa-solid fa-user-circle fa-user" ></i>
+        <%= image_tag "thomas.jpeg", class: "avatar" %>
+        <%# <i class="fa-solid fa-user-circle fa-user" ></i> %>
       <% end %>
     <% end %>
   <% else %>
