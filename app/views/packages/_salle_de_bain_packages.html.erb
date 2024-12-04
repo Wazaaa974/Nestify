@@ -12,19 +12,15 @@
           <% package_sdb.each_with_index do |package, index| %>
             <div class="carousel-item <%= 'active' if index == 0 %>">
               <div class="card mx-auto style-package-index" style="max-width: 300px;">
-                <img
-                  src="https://medias.maisonsdumonde.com/image/upload/ar_1:1,c_fill,f_auto,q_auto,w_354/v1/img/lit-180x200-beige-1000-8-6-187212_3.jpg"
-                  alt="Nid douillet"
-                  class="card-img-top picture-card-index"
-                />
+                <%= cl_image_tag package.products.first.photo.key, class:"card-img-top picture-card-index"%>
                 <div class="card-body-index d-flex flex-column">
                   <h5 class="card-title-index"><%= package.name %></h5>
                   <p class="card-text-index"><%= package.description %></p>
                   <div class="price-index mb-2">
-                    <strong>Prix : <%= package.budget %>€</strong>
+                    <strong>Prix : <%= package.budget.round %>€</strong>
                   </div>
                   <%= link_to package_path(package.id), class: "btn rounded-shadow-button mt-3" do %>
-                    Voir le package
+                    Voir le pack
                   <% end %>
                 </div>
               </div>

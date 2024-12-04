@@ -32,3 +32,4 @@ class DashboardsController < ApplicationController
     redirect_to dashboards_path, status: :see_other if @proposal_to_destroy
   end
 end
+
