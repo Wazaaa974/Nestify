@@ -7,7 +7,7 @@
         </div>
           <div class="card-product-infos">
             <%= link_to package_path(package, product_id: product.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-            <i class="fa-solid fa-trash"> </i>
+            <i class="fa-solid fa-trash trash-product"> </i>
             <% end %>
             <div class="price"> <%= sprintf('%.2f',product.price) %>€ </div>
             <h2 class="product-name"> <%= product.name.first(30) ? product.name.first(29) + "..." : product.name %> </h2>

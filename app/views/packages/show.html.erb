@@ -22,7 +22,6 @@
    <%= render 'shared/favorite_button', proposal: @proposal %>
 </div>
 
-
   <div class ="mt-4">
     <h3 id = "package-<%= @package.id%>-budget" class="budget"> Budget total : <%= @sum.round %>€ </h3>
     <%= turbo_stream_from "package-#{@package.id}-budget" %>
@@ -30,7 +29,6 @@
   </div>
 
   <hr class = "custom-hr">
-
 
   <div id = "packages" >
     <% @package.products.each do |product| %>
