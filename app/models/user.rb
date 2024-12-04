@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :proposals
   has_many :favorite_proposals, -> { favorite }, :class_name => 'Proposal'
   has_many :favorite_packages, :source => :package, :through => :favorite_proposals
+  has_one_attached :avatar
+
 end
