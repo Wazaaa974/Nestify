@@ -1,11 +1,11 @@
 <div class="container">
 
-  <div class="text-center mt-3">
+  <div class="text-package text-center mt-3">
     <h1><%= @package.name %></h1>
   </div>
 
   <div class="text-center mt-3 mb-5">
-    <p class= "mb-3">
+    <p>
       Dans ce package vous sont proposés les produits essentiels à une ambiance qui vous ressemble. Vous pouvez personnaliser votre package en ajoutant, remplaçant ou supprimant des produits. C'est votre univers, c'est vous qui décidez !
     </p>
   </div>
@@ -17,19 +17,17 @@
   </div>
 
  <div>
-    <%= link_to packages_path, class: "btn btn-dashboard" do %>
-      Dashboard
+    <%= link_to dashboards_path, class: "btn btn-dashboard" do %>
+      Favoris
     <% end %>
   </div>
 
 
-  <div>
-    <h3 id = "package-<%= @package.id%>-budget" class="budget mt-8">Budget total : <%= @sum.round %>€ </h3>
+  <div >
+    <h3 id = "package-<%= @package.id%>-budget" class="budget"> Budget total : <%= @sum.round %>€ </h3>
     <%= turbo_stream_from "package-#{@package.id}-budget" %>
     <%# mettre le lien du bouton pour enregistrer en favoris avec alerte %>
-     <%= link_to dashboards_path, class: "btn btn-show" do %>
-    <i class="footer-picto fa-solid fa-heart heart-icon"></i>
-    <% end %>
+     <%= render 'shared/favorite_button', proposal: @proposal %>
   </div>
 
   <hr class = "custom-hr">

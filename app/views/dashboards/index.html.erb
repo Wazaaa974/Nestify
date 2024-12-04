@@ -1,10 +1,25 @@
-<h1>Index du dashboard </h1>
-<%= render 'shared/project-new' %>
-<div class="container chatbot">
-  <h1>Chat with us</h1>
-  <div id="questions">
-    <%= render @questions %>
+<div class="container">
+
+  <div class="text-center mt-3">
+    <h1>Ton nid-éal...</h1>
   </div>
 
-  <%= render "form", question: @question %>
+  <div class="text-center mt-3">
+    <p>
+      Tu trouveras ici tous tes packages favoris. Tu peux les personnaliser et indiquer qu'ils ont été acheté pour mettre à jour ton budget.
+    </p>
+  </div>
+
+  <div >
+    <h3 class="budget-favoris"> Ton budget: € </h3>
+  </div>
+
+  <%= render "packages/chambre_packages", package_chambre: @package_chambre %>
+
+  <%= render "packages/salon_packages", package_salon: @package_salon %>
+
+  <%= render "packages/salle_de_bain_packages", package_sdb: @package_sdb %>
+
+  <%= render "packages/cuisine_packages", package_cuisine: @package_cuisine %>
+
 </div>

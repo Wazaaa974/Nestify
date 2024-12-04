@@ -5,6 +5,9 @@ class PackagesController < ApplicationController
       @chambre = "Chambre"
       @room_chambre = Room.find_by(name: "Bedroom")
       @package_chambre = Package.where("budget BETWEEN ? AND ?", package_params[:budget_chambre_min].to_i, package_params[:budget_chambre_max].to_i).where(room_id: @room_chambre.id)
+      @package_chambre.each do |proposal|
+        Proposal.create!(user_id: current_user.id, package_id: proposal.id, favorite: false)
+      end
       @package_chambre = "Oula... Il n'y a pas de résultats :(" if @package_chambre.empty?
     else
       @chambre = "nul"
@@ -44,6 +47,7 @@ class PackagesController < ApplicationController
 
   def show
     @package = Package.find(params[:id])
+    @proposal = Proposal.find_by(user: current_user, package: @package)
       @sum = 0
       @package.products.each do |product|
         @sum += product.price

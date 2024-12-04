@@ -1,10 +1,35 @@
+/* Personnalisation des flèches */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-
+  background-image: none; /* Supprime les icônes par défaut */
+  font-size: 25px; /* Taille des flèches ajustée */
+  color: black; /* Couleur noire pour rester visible */
+  width: 24px; /* Largeur réduite */
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* Ajout des flèches minimalistes */
+.carousel-control-prev-icon::after,
+.carousel-control-next-icon::after {
+  font-family: "Arial", sans-serif; /* Police propre pour les flèches */
+  font-size: 25px; /* Taille des flèches */
+  color: black; /* Flèches noires */
+}
 
-.carousel-control-prev-icon:hover,
-.carousel-control-next-icon:hover {
+.carousel-control-prev-icon::after {
+  content: '‹'; /* Flèche gauche minimaliste */
+}
 
+.carousel-control-next-icon::after {
+  content: '›'; /* Flèche droite minimaliste */
+}
+
+/* Animation au survol */
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+  transform: scale(1.1); /* Agrandissement subtil */
+  transition: transform 0.2s ease-in-out; /* Animation fluide */
 }
