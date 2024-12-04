@@ -1,11 +1,12 @@
 .chatbot {
   background: white;
-  margin-top: 9px;
-  height: calc(100vh - 75px);
+  margin-top: 0;
+  height: calc(100vh - 110px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex-grow: 1;
+  padding-top: 0;
 
   h1 {
     border-bottom: 1px solid $light-grey;
@@ -22,32 +23,60 @@
   .question {
     display: flex;
     flex-direction: column;
-  }
-
-  .user-question,
-  .ai-answer {
-    border-radius: 1rem;
     margin-bottom: 1rem;
-    padding: 0.5rem;
-    max-width: 70%;
-    width: fit-content;
-    word-wrap: break-word;
   }
 
-  .user-question {
-    align-self: flex-start;
+  .message {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+  }
+
+  .user-message .user-question {
     background: $blue;
     color: white;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    box-shadow: 5px 5px 5px black
   }
 
-  .ai-answer {
-    align-self: flex-end;
+  .ai-message .ai-answer {
     background: $light-grey;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    box-shadow: 5px 5px 5px black;
+  }
+
+  .ai-message,
+  .user-message {
+    display: flex;
+    align-items: center;
+  }
+
+  .ai-message {
+    align-self: flex-start;
+  }
+
+  .user-message {
+    align-self: flex-end;
   }
 
   #new_question {
     border-top: 1px solid white;
-    padding: 1rem;
+padding-top: 0%;
+    bottom: 50;
+    left: 0;
+    width: 100%;
+    background: white;
+    z-index: 1000;
 
     .form-group {
       margin-bottom: 0;

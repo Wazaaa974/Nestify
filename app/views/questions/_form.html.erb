@@ -1,9 +1,7 @@
 <%= simple_form_for question, html: { data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f| %>
   <div class="input-group mb-3 w-100">
-    <div class="form-floating">
-      <%= f.input :user_question, label: false, wrapper: false %>
-      <%= f.label :user_question, "Pose ta question à Nesti" %>
-    </div>
+    <%= f.input :user_question, label: false, wrapper: false, placeholder: "Pose ta question à Nesty", input_html: { class: "form-control" } %>
     <%= f.submit "Ask", id: "new-question-button", class: "btn btn-primary" %>
   </div>
 <% end %>
+
