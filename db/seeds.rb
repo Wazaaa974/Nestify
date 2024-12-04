@@ -292,7 +292,7 @@ lampe = ProductCategory.create!(name: "lampe")
 tapis_salon = ProductCategory.create!(name: "tapis salon")
 
 # Salle de bain
-meuble_vasque = ProductCategory.create!(name: "meuble vasque")
+miroir_salle_de_bain = ProductCategory.create!(name: "miroir salle de bain")
 armoire_toilette = ProductCategory.create!(name: "armoire de toilette")
 porte_serviette = ProductCategory.create!(name: "porte-serviette")
 panier_linge = ProductCategory.create!(name: "panier à linge")
@@ -428,35 +428,35 @@ ROOM_STYLES_PRODUCTS = {
     moderne: [
       { product_category: table_a_manger.name, style: modern.name },
       { product_category: chaises.name, style: modern.name },
-      { product_category: vaisselles.name, style: modern.name },
+      { product_category: vaisselle.name, style: modern.name },
       { product_category: ustensiles.name, style: modern.name },
       { product_category: desserte.name, style: modern.name }
     ],
     industriel: [
       { product_category: table_a_manger.name, style: industriel.name },
       { product_category: chaises.name, style: industriel.name },
-      { product_category: vaisselles.name, style: industriel.name },
+      { product_category: vaisselle.name, style: industriel.name },
       { product_category: ustensiles.name, style: industriel.name },
       { product_category: desserte.name, style: industriel.name }
     ],
     vintage: [
       { product_category: table_a_manger.name, style: vintage.name },
       { product_category: chaises.name, style: vintage.name },
-      { product_category: vaisselles.name, style: vintage.name },
+      { product_category: vaisselle.name, style: vintage.name },
       { product_category: ustensiles.name, style: vintage.name },
       { product_category: desserte.name, style: vintage.name }
     ],
     scandinave: [
       { product_category: table_a_manger.name, style: scandinave.name },
       { product_category: chaises.name, style: scandinave.name },
-      { product_category: vaisselles.name, style: scandinave.name },
+      { product_category: vaisselle.name, style: scandinave.name },
       { product_category: ustensiles.name, style: scandinave.name },
       { product_category: desserte.name, style: scandinave.name }
     ],
     boheme: [
       { product_category: table_a_manger.name, style: boheme.name },
       { product_category: chaises.name, style: boheme.name },
-      { product_category: vaisselles.name, style: boheme.name },
+      { product_category: vaisselle.name, style: boheme.name },
       { product_category: ustensiles.name, style: boheme.name },
       { product_category: desserte.name, style: boheme.name }
     ]
@@ -469,3 +469,15 @@ ROOM_STYLES_PRODUCTS = {
 
 #methode pour parser et creer des instances de produits
 GetProductsService.new(ROOM_STYLES_PRODUCTS).parse_json_data
+
+room_test = [salon, chambre, salle_de_bain, cuisine]
+style_test = [moderne, industriel, vintage, scandinave, boheme]
+
+# room_test.each do |room|
+#   style_test.each do |style|
+#     Package.new(name: xxx, min:0, max:0, room_id: Room.find_by(name: room), style_id: Style.find_by(name: style), description: xx)
+
+#   end
+# end
+
+puts "Seed finalisee avec succes"
