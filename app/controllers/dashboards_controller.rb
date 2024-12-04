@@ -11,7 +11,7 @@ class DashboardsController < ApplicationController
     @package_salon = @current_user_favorites.where(room: @room_salon)
     if @package_salon.empty?
       @package_salon = "Oula... Il n'y a pas de résultats :("
-    endzit
+    end
 
     @room_sdb = Room.find_by(name: "Bathroom")
     @package_sdb = @current_user_favorites.where(room: @room_sdb)
@@ -25,10 +25,5 @@ class DashboardsController < ApplicationController
       @package_cuisine = "Oula... Il n'y a pas de résultats :("
     end
 
-    # @favorite_packages = .find(params[:id])
-    # @sum = 0
-    # @package.products.each do |product|
-    #   @sum += product.price
-    # end
   end
 end
