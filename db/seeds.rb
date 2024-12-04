@@ -299,82 +299,169 @@ panier_linge = ProductCategory.create!(name: "panier à linge")
 tapis_bain = ProductCategory.create!(name: "tapis de bain")
 
 
+# Cuisine
+table_a_manger = ProductCategory.create!(name: "Table a manger")
+chaises = ProductCategory.create!(name: "chaises")
+vaisselle = ProductCategory.create!(name: "vaisselle")
+ustensiles = ProductCategory.create!(name: "ustensiles")
+desserte = ProductCategory.create!(name: "desserte")
+
+
 ROOM_STYLES_PRODUCTS = {
- salon: {
-   moderne: [
-     { product_category: canape.name, style: modern.name },
-     { product_category: fauteuil.name, style: modern.name },
-     { product_category: table_basse.name, style: modern.name },
-     { product_category: tableau.name, style: modern.name },
-     { product_category: lampe.name, style: modern.name },
-     { product_category: tapis_salon.name, style: modern.name }
-      ]},
-  #  industriel: [
-  #    { product_category: canape, style: classic },
-  #    { product_category: fauteuil, style: classic },
-  #    { product_category: table_basse, style: classic },
-  #    { product_category: tableau, style: classic },
-  #    { product_category: lampe, style: classic },
-  #    { product_category: tapis_salon, style: classic }
-  #  ],
-  #  vintage: [
-  #    { product_category: canape, style: contemporain },
-  #    { product_category: fauteuil, style: contemporain },
-  #    { product_category: table_basse, style: contemporain },
-  #    { product_category: tableau, style: contemporain },
-  #    { product_category: lampe, style: contemporain },
-  #    { product_category: tapis_salon, style: contemporain }
-  #  ]
-#  },
-#  chambre: {
-#    moderne: [
-#      { product_category: lit, style: modern },
-#      { product_category: table_chevet, style: modern },
-#      { product_category: armoire, style: modern },
-#      { product_category: tapis, style: modern },
-#      { product_category: miroir_chambre, style: modern }
-#    ],
-#    industriel: [
-#      { product_category: lit, style: classic },
-#      { product_category: table_chevet, style: classic },
-#      { product_category: armoire, style: classic },
-#      { product_category: tapis, style: classic },
-#      { product_category: miroir_chambre, style: classic }
-#    ],
-#    vintage: [
-#      { product_category: lit, style: contemporain },
-#      { product_category: table_chevet, style: contemporain },
-#      { product_category: armoire, style: contemporain },
-#      { product_category: tapis, style: contemporain },
-#      { product_category: miroir_chambre, style: contemporain }
-#    ]
-#  },
-#  salle_de_bain: {
-#    moderne: [
-#      { product_category: miroir_salle_de_bain, style: modern },
-#      { product_category: armoire_toilette, style: modern },
-#      { product_category: porte_serviette, style: modern },
-#      { product_category: panier_linge, style: modern },
-#      { product_category: tapis_bain, style: modern }
-#    ],
-#    industriel: [
-#      { product_category: miroir_salle_de_bain, style: classic },
-#      { product_category: armoire_toilette, style: classic },
-#      { product_category: porte_serviette, style: classic },
-#      { product_category: panier_linge, style: classic },
-#      { product_category: tapis_bain, style: classic }
-#    ],
-#    vintage: [
-#      { product_category: miroir_salle_de_bain, style: contemporain },
-#      { product_category: armoire_toilette, style: contemporain },
-#      { product_category: porte_serviette, style: contemporain },
-#      { product_category: panier_linge, style: contemporain },
-#      { product_category: tapis_bain, style: contemporain }
-#    ]
-#  }
+  salon: {
+    moderne: [
+      { product_category: canape.name, style: modern.name },
+      { product_category: fauteuil.name, style: modern.name },
+      { product_category: table_basse.name, style: modern.name },
+      { product_category: tableau.name, style: modern.name },
+      { product_category: lampe.name, style: modern.name },
+      { product_category: tapis_salon.name, style: modern.name }
+    ],
+    industriel: [
+      { product_category: canape.name, style: industriel.name },
+      { product_category: fauteuil.name, style: industriel.name },
+      { product_category: table_basse.name, style: industriel.name },
+      { product_category: tableau.name, style: industriel.name },
+      { product_category: lampe.name, style: industriel.name },
+      { product_category: tapis_salon.name, style: industriel.name }
+    ],
+    vintage: [
+      { product_category: canape.name, style: vintage.name },
+      { product_category: fauteuil.name, style: vintage.name },
+      { product_category: table_basse.name, style: vintage.name },
+      { product_category: tableau.name, style: vintage.name },
+      { product_category: lampe.name, style: vintage.name },
+      { product_category: tapis_salon.name, style: vintage.name }
+    ],
+    scandinave: [
+      { product_category: canape.name, style: scandinave.name },
+      { product_category: fauteuil.name, style: scandinave.name },
+      { product_category: table_basse.name, style: scandinave.name },
+      { product_category: tableau.name, style: scandinave.name },
+      { product_category: lampe.name, style: scandinave.name },
+      { product_category: tapis_salon.name, style: scandinave.name }
+    ],
+    boheme: [
+      { product_category: canape.name, style: boheme.name },
+      { product_category: fauteuil.name, style: boheme.name },
+      { product_category: table_basse.name, style: boheme.name },
+      { product_category: tableau.name, style: boheme.name },
+      { product_category: lampe.name, style: boheme.name },
+      { product_category: tapis_salon.name, style: boheme.name }
+    ]
+  },
+  chambre: {
+    moderne: [
+      { product_category: lit.name, style: modern.name },
+      { product_category: table_chevet.name, style: modern.name },
+      { product_category: armoire.name, style: modern.name },
+      { product_category: tapis.name, style: modern.name },
+      { product_category: miroir_chambre.name, style: modern.name }
+    ],
+    industriel: [
+      { product_category: lit.name, style: industriel.name },
+      { product_category: table_chevet.name, style: industriel.name },
+      { product_category: armoire.name, style: industriel.name },
+      { product_category: tapis.name, style: industriel.name },
+      { product_category: miroir_chambre.name, style: industriel.name }
+    ],
+    vintage: [
+      { product_category: lit.name, style: vintage.name },
+      { product_category: table_chevet.name, style: vintage.name },
+      { product_category: armoire.name, style: vintage.name },
+      { product_category: tapis.name, style: vintage.name },
+      { product_category: miroir_chambre.name, style: vintage.name }
+    ],
+    scandinave: [
+      { product_category: lit.name, style: scandinave.name },
+      { product_category: table_chevet.name, style: scandinave.name },
+      { product_category: armoire.name, style: scandinave.name },
+      { product_category: tapis.name, style: scandinave.name },
+      { product_category: miroir_chambre.name, style: scandinave.name }
+    ],
+    boheme: [
+      { product_category: lit.name, style: boheme.name },
+      { product_category: table_chevet.name, style: boheme.name },
+      { product_category: armoire.name, style: boheme.name },
+      { product_category: tapis.name, style: boheme.name },
+      { product_category: miroir_chambre.name, style: boheme.name }
+    ]
+  },
+  salle_de_bain: {
+    moderne: [
+      { product_category: miroir_salle_de_bain.name, style: modern.name },
+      { product_category: armoire_toilette.name, style: modern.name },
+      { product_category: porte_serviette.name, style: modern.name },
+      { product_category: panier_linge.name, style: modern.name },
+      { product_category: tapis_bain.name, style: modern.name }
+    ],
+    industriel: [
+      { product_category: miroir_salle_de_bain.name, style: industriel.name },
+      { product_category: armoire_toilette.name, style: industriel.name },
+      { product_category: porte_serviette.name, style: industriel.name },
+      { product_category: panier_linge.name, style: industriel.name },
+      { product_category: tapis_bain.name, style: industriel.name }
+    ],
+    vintage: [
+      { product_category: miroir_salle_de_bain.name, style: vintage.name },
+      { product_category: armoire_toilette.name, style: vintage.name },
+      { product_category: porte_serviette.name, style: vintage.name },
+      { product_category: panier_linge.name, style: vintage.name },
+      { product_category: tapis_bain.name, style: vintage.name }
+    ],
+    scandinave: [
+      { product_category: miroir_salle_de_bain.name, style: scandinave.name },
+      { product_category: armoire_toilette.name, style: scandinave.name },
+      { product_category: porte_serviette.name, style: scandinave.name },
+      { product_category: panier_linge.name, style: scandinave.name },
+      { product_category: tapis_bain.name, style: scandinave.name }
+    ],
+    boheme: [
+      { product_category: miroir_salle_de_bain.name, style: boheme.name },
+      { product_category: armoire_toilette.name, style: boheme.name },
+      { product_category: porte_serviette.name, style: boheme.name },
+      { product_category: panier_linge.name, style: boheme.name },
+      { product_category: tapis_bain.name, style: boheme.name }
+    ]
+  },
+  cuisine: {
+    moderne: [
+      { product_category: table_a_manger.name, style: modern.name },
+      { product_category: chaises.name, style: modern.name },
+      { product_category: vaisselles.name, style: modern.name },
+      { product_category: ustensiles.name, style: modern.name },
+      { product_category: desserte.name, style: modern.name }
+    ],
+    industriel: [
+      { product_category: table_a_manger.name, style: industriel.name },
+      { product_category: chaises.name, style: industriel.name },
+      { product_category: vaisselles.name, style: industriel.name },
+      { product_category: ustensiles.name, style: industriel.name },
+      { product_category: desserte.name, style: industriel.name }
+    ],
+    vintage: [
+      { product_category: table_a_manger.name, style: vintage.name },
+      { product_category: chaises.name, style: vintage.name },
+      { product_category: vaisselles.name, style: vintage.name },
+      { product_category: ustensiles.name, style: vintage.name },
+      { product_category: desserte.name, style: vintage.name }
+    ],
+    scandinave: [
+      { product_category: table_a_manger.name, style: scandinave.name },
+      { product_category: chaises.name, style: scandinave.name },
+      { product_category: vaisselles.name, style: scandinave.name },
+      { product_category: ustensiles.name, style: scandinave.name },
+      { product_category: desserte.name, style: scandinave.name }
+    ],
+    boheme: [
+      { product_category: table_a_manger.name, style: boheme.name },
+      { product_category: chaises.name, style: boheme.name },
+      { product_category: vaisselles.name, style: boheme.name },
+      { product_category: ustensiles.name, style: boheme.name },
+      { product_category: desserte.name, style: boheme.name }
+    ]
+  }
 }
-
-
 
  #methode pour faire le call api
 # GetProductsService.new(ROOM_STYLES_PRODUCTS).call

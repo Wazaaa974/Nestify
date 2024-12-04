@@ -76,7 +76,7 @@ class GetProductsService
   end
 
   def search_by_keyword(search)
-    url = URI("https://real-time-product-search.p.rapidapi.com/search-v2?q=#{search}&country=fr&language=en&page=1&limit=10&sort_by=BEST_MATCH&product_condition=ANY&stores=Ikea%2C%20Maisons%20du%20Monde")
+    url = URI("https://real-time-product-search.p.rapidapi.com/search-v2?q=#{search}&country=fr&language=en&page=1&limit=3&sort_by=BEST_MATCH&product_condition=ANY&stores=Ikea%2C%20Maisons%20du%20Monde")
 
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
