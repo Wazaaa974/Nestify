@@ -34,8 +34,10 @@
                   </div>
 
                   <!-- Trash Icon -->
-                  <div class="checkbox-container">
+                  <div>
+                    <%= link_to dashboards_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
                     <i class="fa-solid fa-trash trash-dashboard"></i>
+                    <% end %>
                   </div>
                 </div>
                 </div>
