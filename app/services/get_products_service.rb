@@ -26,10 +26,13 @@ class GetProductsService
           product_hash["product_infos"]["products"].each do |product_data|
             next if Product.find_by(google_shopping_id: product_data['product_id']).present?
 
-            product = Product.new(
+            price = product_data.dig("offer", "price")
+            formatted_price = price&.gsub(/[^\d.]/, "")&.to_f || 0
+
+            product = Product.create!(
                         name: product_data["product_title"],
                         description: product_data["product_description"],
-                        price: product_data.dig("offer", "price")&.gsub("$", "")&.to_f || 0,
+                        price: formatted_price,
                         url: product_data["offer"]["offer_page_url"],
                         shop: product_data["offer"]["store_name"],
                         google_shopping_id: product_data['product_id'],
@@ -37,7 +40,6 @@ class GetProductsService
                         style: style,
                         room: room
                       )
-
             if product.save
               photo_url = product_data["product_photos"].last
               downloaded_photo = URI.open(photo_url)
@@ -46,6 +48,7 @@ class GetProductsService
                 filename: "#{product.name.parameterize}.jpg",
                 content_type: 'image/jpeg'
               )
+              puts "Product created: #{product.name} - #{product.price} €"
             end
           end
         end
@@ -76,7 +79,7 @@ class GetProductsService
   end
 
   def search_by_keyword(search)
-    url = URI("https://real-time-product-search.p.rapidapi.com/search-v2?q=#{search}&country=fr&language=en&page=1&limit=10&sort_by=BEST_MATCH&product_condition=ANY&stores=Ikea%2C%20Maisons%20du%20Monde")
+    url = URI("https://real-time-product-search.p.rapidapi.com/search-v2?q=#{search}&country=fr&language=en&page=1&limit=3&sort_by=BEST_MATCH&product_condition=ANY&stores=Ikea%2C%20Maisons%20du%20Monde")
 
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
