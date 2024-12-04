@@ -15,8 +15,8 @@ Rails.application.routes.draw do
       patch :replace_product_package
   end
 
-  resources :dashboards, only: [:index]
+  resources :dashboards, only: [:index, :destroy]
   resources :user_packages, only: [:index, :new, :create, :show, :edit, :destroy]
   resources :questions, only: [:index, :create]
-  resources :proposals, only: [:update]
+  resources :proposals, only: [:update, :destroy]
 end
