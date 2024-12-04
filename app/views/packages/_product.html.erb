@@ -1,9 +1,9 @@
  <div id="product-<%= product.id %>" class="card-product">
     <%= turbo_stream_from "product-#{product.id}" %>
         <div class="card-product-image">
-          <%# <%= cl_image_tag product.photo.key, class: "main-image" %>
+          <%= cl_image_tag product.photo.key, class: "main-image" %>
           <%# <% raise %>
-          <img src="https://medias.maisonsdumonde.com/image/upload/ar_1:1,c_fill,f_auto,q_auto,w_354/v1/img/lit-180x200-beige-1000-8-6-187212_3.jpg"/>
+          <%# <img src="https://medias.maisonsdumonde.com/image/upload/ar_1:1,c_fill,f_auto,q_auto,w_354/v1/img/lit-180x200-beige-1000-8-6-187212_3.jpg"/> %>
         </div>
           <div class="card-product-infos">
             <%= link_to package_path(package, product_id: product.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
@@ -11,7 +11,15 @@
             <% end %>
             <div class="price"> <%= sprintf('%.2f',product.price) %>€ </div>
             <h2 class="product-name"> <%= product.name.first(30) ? product.name.first(29) + "..." : product.name %> </h2>
-            <p class="text-description"> <%= product.description.first(70) ? product.description.first(69) + "..." : product.description %> <a href=<%= product.url %>>Voir plus</a></p>
+            <p class="text-description">
+              <% if product.description.present? %>
+                <%= product.description.first(70) ? product.description.first(69) + "..." : product.description %>
+                <a href="<%= product.url %>">Voir plus</a>
+              <% else %>
+                Ce produit est exceptionnel !!
+                <a href="<%= product.url %>">Voir plus</a>
+              <% end %>
+            </p>
             <p class="shop-name mt-3"> <strong> <%= product.shop %> </strong></p>
           <%# bouton remplacer/update ajouter lien %>
             <%= link_to package_replace_product_package_path(package, product_id: product.id), data: {turbo_method: :patch}, id: "replace-product", class: "replace-product-link" do %>

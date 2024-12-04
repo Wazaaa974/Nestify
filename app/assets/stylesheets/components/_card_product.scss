@@ -88,35 +88,35 @@
   position: relative;
 }
 
-.btn-show {
-  position: absolute;
-  left: 310px;
-  top: 322px;
-  background-color: $yellow;
-  border: none;
-  padding: 10px 15px;
-  font-size: 13px;
-  font-weight: 500;
-  border-radius: 25px; // Coins arrondis
-  cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // Ombre noire fixe
-  text-decoration: none;
+// .btn-show {
+//   position: absolute;
+//   left: 310px;
+//   top: 322px;
+//   background-color: $yellow;
+//   border: none;
+//   padding: 10px 15px;
+//   font-size: 13px;
+//   font-weight: 500;
+//   border-radius: 25px; // Coins arrondis
+//   cursor: pointer;
+//   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // Ombre noire fixe
+//   text-decoration: none;
 
 
-  .heart-icon {
-    color: #ffffff;
-    transition: color 0.3s ease;
-  }
+//   .heart-icon {
+//     color: #ffffff;
+//     transition: color 0.3s ease;
+//   }
 
-  &.favorite {
-    background-color: white;
-    border-color: var(--bs-btn-hover-border-color);
+//   &.favorite {
+//     background-color: white;
+//     border-color: var(--bs-btn-hover-border-color);
 
-    .heart-icon {
-      color: $yellow;
-    }
-  }
-}
+//     .heart-icon {
+//       color: $yellow;
+//     }
+//   }
+// }
 
 .btn-show:hover {
   background-color: white;
@@ -166,52 +166,107 @@
   padding-right: 60px;
 }
 
-.btn-retour{
-  position: absolute;
+// .btn-retour{
+//   // position: absolute;
+//   color: white;
+//   // left: 13px;
+//   // top: 314px;
+//   background-color: $blue;
+//   border: none;
+//   font-size: 13px;
+//   font-weight: 500;
+//   border-radius: 25px; // Coins arrondis
+//   cursor: pointer;
+//   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // Ombre noire fixe
+//   text-decoration: none;
+//   // display: flex;
+//   justify-content: center;
+//   // align-items: center;
+//   height: 20px; /* Ajustez la hauteur selon vos besoins */
+//   line-height: normal; /* Empêche le texte de se décaler */
+// }
+
+// .btn-retour:hover {
+//   background-color: white;
+//   color: $blue;
+// }
+
+// .btn-dashboard{
+//   // position: absolute;
+//   color: white;
+//   // left: 140px;
+//   // top: 314px;
+//   background-color: $blue;
+//   border: none;
+//   font-size: 13px;
+//   font-weight: 500;
+//   border-radius: 25px; // Coins arrondis
+//   cursor: pointer;
+//   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // Ombre noire fixe
+//   text-decoration: none;
+//   // display: flex;
+//   justify-content: center;
+//   // align-items: center;
+//   height: 20px; /* Ajustez la hauteur selon vos besoins */
+//   line-height: normal; /* Empêche le texte de se décaler */
+// }
+
+// .btn-dashboard:hover {
+//   background-color: white;
+//   color: $blue;
+// }
+
+.button-container {
+  display: flex; /* Enables Flexbox */
+  justify-content: center; /* Centers buttons horizontally */
+  align-items: center; /* Ensures vertical alignment */
+  gap: 16px; /* Adds space between buttons */
+}
+
+.btn-retour, .btn-dashboard, .btn-show {
+  text-align: center; /* Center-align text inside buttons */
   color: white;
-  left: 13px;
-  top: 314px;
-  background-color: $blue;
+  background-color: $blue; /* Default background color for buttons */
   border: none;
   font-size: 13px;
   font-weight: 500;
-  border-radius: 25px; // Coins arrondis
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // Ombre noire fixe
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Drop shadow */
   text-decoration: none;
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 20px; /* Ajustez la hauteur selon vos besoins */
-  line-height: normal; /* Empêche le texte de se décaler */
-}
-
-.btn-retour:hover {
-  background-color: white;
-  color: $blue;
-}
-
-.btn-dashboard{
-  position: absolute;
-  color: white;
-  left: 140px;
-  top: 314px;
-  background-color: $blue;
-  border: none;
-  font-size: 13px;
-  font-weight: 500;
-  border-radius: 25px; // Coins arrondis
-  cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // Ombre noire fixe
-  text-decoration: none;
-  display: flex;
   justify-content: center;
-  align-items: center;
-  height: 20px; /* Ajustez la hauteur selon vos besoins */
-  line-height: normal; /* Empêche le texte de se décaler */
 }
 
-.btn-dashboard:hover {
+.btn-retour, .btn-dashboard {
+  width: 150px; /* Set equal width for rectangular buttons */
+  height: 40px; /* Uniform height for rectangular buttons */
+  border-radius: 25px; /* Rounded corners */
+}
+
+.btn-retour:hover, .btn-dashboard:hover {
   background-color: white;
-  color: $blue;
+  color: $blue; /* Hover styles for rectangular buttons */
+}
+
+.btn-show {
+  background-color: $yellow; /* Unique background color */
+  color: #ffffff; /* Default text color */
+  border-radius: 50%; /* Circular button */
+  width: 40px; /* Set width for circular button */
+  height: 40px; /* Set height for circular button */
+}
+
+.btn-show.favorite {
+  background-color: white; /* Change background if marked as favorite */
+  border: 1px solid $yellow;
+}
+
+.btn-show .heart-icon {
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.btn-show.favorite .heart-icon {
+  color: $yellow; /* Change icon color for favorite state */
 }

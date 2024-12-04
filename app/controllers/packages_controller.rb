@@ -16,6 +16,9 @@ class PackagesController < ApplicationController
       @salon = "Salon"
       @room_salon = Room.find_by(name: "Living Room")
       @package_salon = Package.where("budget BETWEEN ? AND ?", package_params[:budget_salon_min].to_i, package_params[:budget_salon_max].to_i).where(room_id: @room_salon.id)
+      @package_salon.each do |proposal|
+        Proposal.create!(user_id: current_user.id, package_id: proposal.id, favorite: false)
+      end
       @package_salon = "Oula... Il n'y a pas de résultats :(" if @package_salon.empty?
     else
       @salon = "nul"
@@ -24,6 +27,9 @@ class PackagesController < ApplicationController
       @salle_de_bain = "Salle de bain"
       @room_sdb = Room.find_by(name: "Bathroom")
       @package_sdb = Package.where("budget BETWEEN ? AND ?", package_params[:budget_sdb_min].to_i, package_params[:budget_sdb_max].to_i).where(room_id: @room_sdb.id)
+      @package_sdb.each do |proposal|
+        Proposal.create!(user_id: current_user.id, package_id: proposal.id, favorite: false)
+      end
       @package_sdb = "Oula... Il n'y a pas de résultats :(" if @package_sdb.empty?
     else
       @package_sdb = "nul"
@@ -32,6 +38,9 @@ class PackagesController < ApplicationController
       @cuisine = "Cuisine"
       @room_cuisine = Room.find_by(name: "Kitchen")
       @package_cuisine = Package.where("budget BETWEEN ? AND ?", package_params[:budget_cuisine_min].to_i, package_params[:budget_cuisine_max].to_i).where(room_id: @room_cuisine.id)
+      @package_cuisine.each do |proposal|
+        Proposal.create!(user_id: current_user.id, package_id: proposal.id, favorite: false)
+      end
       @package_cuisine = "Oula... Il n'y a pas de résultats :(" if @package_cuisine.empty?
     else
       @package_cuisine = "nul"
