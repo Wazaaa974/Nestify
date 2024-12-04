@@ -24,12 +24,12 @@ class DashboardsController < ApplicationController
     if @package_cuisine.empty?
       @package_cuisine = "Oula... Il n'y a pas de résultats :("
     end
+  end
 
-    # @favorite_packages = .find(params[:id])
-    # @sum = 0
-    # @package.products.each do |product|
-    #   @sum += product.price
-    # end
+  def destroy
+    @proposal_to_destroy = Proposal.find_by(params[:id])
+    # No need for app/views/restaurants/destroy.html.erb
+    redirect_to dashboards_path, status: :see_other if @proposal_to_destroy
   end
 end
 

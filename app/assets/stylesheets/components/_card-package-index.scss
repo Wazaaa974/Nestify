@@ -109,3 +109,14 @@
   width: 100%;
   height: 200px;
 }
+
+.trash-dashboard {
+  font-size: 20px;
+  color: $dark-grey;
+}
+
+.trash-container {
+  align-self: flex-end; /* Align the trash icon to the right */
+  cursor: pointer; /* Pointer cursor for better UX */
+  margin-top : 7px;
+}
