@@ -1,5 +1,10 @@
 require "csv"
 
+user = User.create(email: "test@example.com", password: "password")
+# user.avatar.attach(io: File.open("path/to/avatar.jpg"), filename: "avatar.jpg")
+puts "Chatbot avatar utilisé : freepik-export-2024110222550weBX.png (placé dans app/assets/images/)"
+
+puts "Destruction current database"
 
 
 puts "Destroying current database records..."
@@ -224,9 +229,6 @@ ROOM_STYLES_PRODUCTS = {
 GetProductsService.new(ROOM_STYLES_PRODUCTS).parse_json_data
 
 
-
-
-
 puts "Creating seeds..."
 
 
@@ -268,3 +270,4 @@ styles.each do |style|
 end
 
 puts "Seeding completed successfully!"
+

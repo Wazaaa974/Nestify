@@ -1,0 +1,46 @@
+<div class="mb-3">
+      <h1 class="mt-4">Salon</h1>
+    </div>
+
+    <hr class="custom-hr">
+
+    <div id="salonCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <% if package_salon.is_a?(String) %>
+          <p class="mt-2"><%= package_salon %></p>
+        <% else %>
+          <% package_salon.each_with_index do |package, index| %>
+            <div class="carousel-item <%= 'active' if index == 0 %>">
+              <div class="card mx-auto style-package-index" style="max-width: 300px;">
+                <img
+                  src="https://medias.maisonsdumonde.com/image/upload/ar_1:1,c_fill,f_auto,q_auto,w_354/v1/img/lit-180x200-beige-1000-8-6-187212_3.jpg"
+                  alt="Nid douillet"
+                  class="card-img-top picture-card-index"
+                />
+                <div class="card-body-index d-flex flex-column">
+                  <h5 class="card-title-index"><%= package.name %></h5>
+                  <p class="card-text-index"><%= package.description %></p>
+                  <div class="price-index mb-2">
+                    <strong>Prix : <%= package.budget %>€</strong>
+                  </div>
+                  <%= link_to package_path(package.id), class: "btn rounded-shadow-button mt-3" do %>
+                    Voir le package
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+           <button class="carousel-control-prev black-arrows" type="button" data-bs-target="#salonCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Précédent</span>
+      </button>
+      <button class="carousel-control-next black-arrows" type="button" data-bs-target="#salonCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Suivant</span>
+      </button>
+        <% end %>
+      </div>
+
+      <!-- Carousel Controls -->
+
+    </div>

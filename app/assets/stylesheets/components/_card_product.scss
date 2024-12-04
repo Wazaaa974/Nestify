@@ -107,6 +107,15 @@
     color: #ffffff;
     transition: color 0.3s ease;
   }
+
+  &.favorite {
+    background-color: white;
+    border-color: var(--bs-btn-hover-border-color);
+
+    .heart-icon {
+      color: $yellow;
+    }
+  }
 }
 
 .btn-show:hover {

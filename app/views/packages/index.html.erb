@@ -1,209 +1,33 @@
 <div class="container">
 
   <div class="text-center mt-3">
-    <h1>Votre sélection de cocons</h1>
+    <h1>La sélection de cocons</h1>
   </div>
 
   <div class="text-center mt-3">
     <p>
-      Vous trouverez ci-dessous tous les packages de décoration générés pour vous. Explorez-les et choisissez celui qui correspond le mieux à vos envies !
+      Tu trouveras ici tous les packages de décoration générés pour toi. Explore-les et choisis celui qui correspond le mieux à tes envies !
     </p>
   </div>
 
   <!-- Chambre Section -->
   <% if params[:chambre] == "1" %>
-    <div class="mb-3">
-      <h1 class="mt-4">Chambre</h1>
-    </div>
-
-    <hr class="custom-hr">
-
-    <div id="chambreCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <% if @package_chambre.is_a?(String) %>
-          <p class="mt-2"><%= @package_chambre %></p>
-        <% else %>
-          <% @package_chambre.each_with_index do |package, index| %>
-            <div class="carousel-item <%= 'active' if index == 0 %>">
-              <div class="card mx-auto style-package-index" style="max-width: 300px;">
-                <img
-                  src="https://medias.maisonsdumonde.com/image/upload/ar_1:1,c_fill,f_auto,q_auto,w_354/v1/img/lit-180x200-beige-1000-8-6-187212_3.jpg"
-                  alt="Nid douillet"
-                  class="card-img-top picture-card-index"
-                />
-                <div class="card-body-index d-flex flex-column">
-                  <h5 class="card-title-index"><%= package.name %></h5>
-                  <p class="card-text-index"><%= package.description %></p>
-                  <div class="price-index mb-2">
-                    <strong>Prix : <%= package.budget %>€</strong>
-                  </div>
-                  <%= link_to package_path(package.id), class: "btn rounded-shadow-button mt-3" do %>
-                    Voir le package
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-
-      <!-- Carousel Controls -->
-      <button class="carousel-control-prev black-arrows" type="button" data-bs-target="#chambreCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Précédent</span>
-      </button>
-      <button class="carousel-control-next black-arrows" type="button" data-bs-target="#chambreCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Suivant</span>
-      </button>
-    </div>
+      <%= render "packages/chambre_packages", package_chambre: @package_chambre %>
   <% end %>
 
   <!-- Salon Section -->
   <% if params[:salon] == "1" %>
-    <div class="mb-3">
-      <h1 class="mt-4">Salon</h1>
-    </div>
-
-    <hr class="custom-hr">
-
-    <div id="salonCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <% if @package_salon.is_a?(String) %>
-          <p class="mt-2"><%= @package_salon %></p>
-        <% else %>
-          <% @package_salon.each_with_index do |package, index| %>
-            <div class="carousel-item <%= 'active' if index == 0 %>">
-              <div class="card mx-auto style-package-index" style="max-width: 300px;">
-                <img
-                  src="https://medias.maisonsdumonde.com/image/upload/ar_1:1,c_fill,f_auto,q_auto,w_354/v1/img/lit-180x200-beige-1000-8-6-187212_3.jpg"
-                  alt="Nid douillet"
-                  class="card-img-top picture-card-index"
-                />
-                <div class="card-body-index d-flex flex-column">
-                  <h5 class="card-title-index"><%= package.name %></h5>
-                  <p class="card-text-index"><%= package.description %></p>
-                  <div class="price-index mb-2">
-                    <strong>Prix : <%= package.budget %>€</strong>
-                  </div>
-                  <%= link_to package_path(package.id), class: "btn rounded-shadow-button mt-3" do %>
-                    Voir le package
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-
-      <!-- Carousel Controls -->
-      <button class="carousel-control-prev black-arrows" type="button" data-bs-target="#salonCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Précédent</span>
-      </button>
-      <button class="carousel-control-next black-arrows" type="button" data-bs-target="#salonCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Suivant</span>
-      </button>
-    </div>
+     <%= render "packages/salon_packages", package_salon: @package_salon %>
   <% end %>
 
 <!-- Sdb Section -->
   <% if params[:salle_de_bain] == "1" %>
-    <div class="mb-3">
-      <h1 class="mt-4">Salle de bain</h1>
-    </div>
-
-    <hr class="custom-hr">
-
-    <div id="sdbCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <% if @package_sdb.is_a?(String) %>
-          <p class="mt-2"><%= @package_sdb %></p>
-        <% else %>
-          <% @package_sdb.each_with_index do |package, index| %>
-            <div class="carousel-item <%= 'active' if index == 0 %>">
-              <div class="card mx-auto style-package-index" style="max-width: 300px;">
-                <img
-                  src="https://medias.maisonsdumonde.com/image/upload/ar_1:1,c_fill,f_auto,q_auto,w_354/v1/img/lit-180x200-beige-1000-8-6-187212_3.jpg"
-                  alt="Nid douillet"
-                  class="card-img-top picture-card-index"
-                />
-                <div class="card-body-index d-flex flex-column">
-                  <h5 class="card-title-index"><%= package.name %></h5>
-                  <p class="card-text-index"><%= package.description %></p>
-                  <div class="price-index mb-2">
-                    <strong>Prix : <%= package.budget %>€</strong>
-                  </div>
-                  <%= link_to package_path(package.id), class: "btn rounded-shadow-button mt-3" do %>
-                    Voir le package
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-
-      <!-- Carousel Controls -->
-      <button class="carousel-control-prev black-arrows" type="button" data-bs-target="#sdbCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Précédent</span>
-      </button>
-      <button class="carousel-control-next black-arrows" type="button" data-bs-target="#sdbCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Suivant</span>
-      </button>
-    </div>
+    <%= render "packages/salle_de_bain_packages", package_sdb: @package_sdb %>
   <% end %>
 
 <!-- Cuisine Section -->
   <% if params[:cuisine] == "1" %>
-    <div class="mb-3">
-      <h1 class="mt-4">Cuisine</h1>
-    </div>
-
-    <hr class="custom-hr">
-
-    <div id="cuisineCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <% if @package_cuisine.is_a?(String) %>
-          <p class="mt-2"><%= @package_cuisine %></p>
-        <% else %>
-          <% @package_cuisine.each_with_index do |package, index| %>
-            <div class="carousel-item <%= 'active' if index == 0 %>">
-              <div class="card mx-auto style-package-index" style="max-width: 300px;">
-                <img
-                  src="https://medias.maisonsdumonde.com/image/upload/ar_1:1,c_fill,f_auto,q_auto,w_354/v1/img/lit-180x200-beige-1000-8-6-187212_3.jpg"
-                  alt="Nid douillet"
-                  class="card-img-top picture-card-index"
-                />
-                <div class="card-body-index d-flex flex-column">
-                  <h5 class="card-title-index"><%= package.name %></h5>
-                  <p class="card-text-index"><%= package.description %></p>
-                  <div class="price-index mb-2">
-                    <strong>Prix : <%= package.budget %>€</strong>
-                  </div>
-                  <%= link_to package_path(package.id), class: "btn rounded-shadow-button mt-3" do %>
-                    Voir le package
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-
-      <!-- Carousel Controls -->
-      <button class="carousel-control-prev black-arrows" type="button" data-bs-target="#cuisineCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Précédent</span>
-      </button>
-      <button class="carousel-control-next black-arrows" type="button" data-bs-target="#cuisineCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Suivant</span>
-      </button>
-    </div>
+    <%= render "packages/cuisine_packages", package_cuisine: @package_cuisine %>
   <% end %>
 
 </div>
