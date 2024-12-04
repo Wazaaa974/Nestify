@@ -53,12 +53,13 @@
   text-wrap: wrap;
 }
 
-.fa-trash {
+  .trash-product {
   position: absolute;
   top: 9px;
   right: 10px;
   font-size: 17px;
 }
+
 
 .fa-arrows-rotate{
   position: absolute;
@@ -68,16 +69,17 @@
 }
 
 .card-product-infos {
-  .fa-trash,
+  .trash-product,
   .fa-arrows-rotate {
     color: #c1c1c1; // Couleur par défaut
     transition: color 0.3s ease; // Ajout d'une transition fluide
     cursor: pointer; // Curseur pointeur pour indiquer que c'est cliquable
   }
 
-  .fa-trash:hover {
+  .trash-product:hover {
     color: $blue; // Rouge (par exemple pour la suppression)
   }
+
 
   .fa-arrows-rotate:hover {
     color: $blue; // Bleu (par exemple pour l'action de remplacement)
