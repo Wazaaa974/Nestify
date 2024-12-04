@@ -1,6 +1,6 @@
 {
-  "salon": {
-    "moderne": [
+  "Living Room": {
+    "modern": [
       {
         "product_category": "canape",
         "style": "modern",
@@ -2975,8 +2975,8 @@
       }
     ]
   },
-  "chambre": {
-    "moderne": [
+  "Bedroom": {
+    "modern": [
       {
         "product_category": "lit",
         "style": "modern",
@@ -5698,8 +5698,8 @@
       }
     ]
   },
-  "salle_de_bain": {
-    "moderne": [
+  "Bathroom": {
+    "modern": [
       {
         "product_category": "miroir salle de bain",
         "style": "modern",
@@ -8485,8 +8485,8 @@
       }
     ]
   },
-  "cuisine": {
-    "moderne": [
+  "Kitchen": {
+    "modern": [
       {
         "product_category": "Table a manger",
         "style": "modern",

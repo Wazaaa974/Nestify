@@ -1,285 +1,38 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-
 require "csv"
 
-puts "Destruction current database"
 
+
+puts "Destroying current database records..."
+# Uncomment these lines if needed to clear your database
 ProductPackage.destroy_all
 Product.destroy_all
 Proposal.destroy_all
 Package.destroy_all
+ProductCategory.destroy_all
 Style.destroy_all
 Room.destroy_all
-User.destroy_all
+# User.destroy_all
 
-puts "Seed creation"
-
-# Users
-user1 = User.create!(
-  email: "thomas.alonso93@gmail.com",
-  username: "Wazaaa",
-  age: 31,
-  first_name: "Thomas",
-  last_name: "Alonso",
-  password: "azerty"
-)
-
-user2 = User.create!(
-  email: "jane.doe@example.com",
-  username: "JaneDoe",
-  age: 28,
-  first_name: "Jane",
-  last_name: "Doe",
-  password: "password123"
-)
 
 # Styles
-modern = Style.create!(name: "modern")
-# classic = Style.create!(name: "classic")
-# contemporain = Style.create!(name: "contemporain")
-industriel = Style.create!(name: "industriel")
-vintage = Style.create!(name: "vintage")
-# classic_chic = Style.create!(name: "classic_chic")
-# bord_de_mer = Style.create!(name: "bord_de_mer")
-# tropical = Style.create!(name: "tropical")
-# campagne = Style.create!(name: "campagne")
-# minimaliste = Style.create!(name: "minimaliste")
-scandinave = Style.create!(name: "scandinave")
-boheme = Style.create!(name: "boheme")
-# zen_asiatique = Style.create!(name: "zen_asiatique")
-# antique = Style.create!(name: "antique")
-# baroque = Style.create!(name: "baroque")
-
-# Rooms
-living_room = Room.create!(name: "Living Room")
-bedroom = Room.create!(name: "Bedroom")
-bathroom = Room.create!(name: "Bathroom")
-kitchen = Room.create!(name: "Kitchen")
-
-# Product Categories
-lit = ProductCategory.create!(name: "lit")
-table_chevet = ProductCategory.create!(name: "table_chevet")
-table_basse = ProductCategory.create!(name: "table_basse")
-armoire = ProductCategory.create!(name: "armoire")
-tapis = ProductCategory.create!(name: "tapis")
-miroir = ProductCategory.create!(name: "miroir")
-lampe = ProductCategory.create!(name: "lampe")
-fauteuil = ProductCategory.create!(name: "fauteuil")
-tableau = ProductCategory.create!(name: "teableau")
-decor = ProductCategory.create!(name: "Decor")
-canape = ProductCategory.create!(name: "canape")
-
-# puts "#{row['name']} #{row['description']} #{row['price']}"
-
-# Products
-filepath = "lit_chambre_style.csv"
-CSV.foreach(filepath, headers: :first_row, col_sep: ";") do |row|
-  style = Style.find_by(name: row['style'])
-  style = modern if style.nil?
-  Product.create!(
-  name: "#{row['name']}",
-  description: "#{row['description']}",
-  price: row['price'].to_f,
-  url: "#{row['url']}",
-  shop: "#{row['shop']}",
-  product_category_id: lit.id,
-  style_id: style.id,
-  room_id: bedroom.id
-)
-end
-
-# sofa = Product.create!(
-#   name: "Comfy Sofa",
-#   description: "A modern and comfortable sofa.",
-#   price: 499.99,
-#   url: "http://example.com/sofa",
-#   shop: "Furniture Store",
-#   product_category_id: decor.id,
-#   style_id: modern.id,
-#   room_id: living_room.id
-# )
-
-# lamp = Product.create!(
-#   name: "Stylish Lamp",
-#   description: "A stylish lamp for your bedroom.",
-#   price: 79.99,
-#   url: "http://example.com/lamp",
-#   shop: "Lighting Store",
-#   product_category_id: decor.id,
-#   style_id: classic.id,
-#   room_id: bedroom.id
-# )
-
-
-filepath = "table_chambre_style.csv"
-CSV.foreach(filepath, headers: :first_row, col_sep: ';') do |row|
-  style = Style.find_by(name: row['style'])
-  style = modern if style.nil?
-  Product.create!(
-  name: "#{row['name']}",
-  description: "#{row['description']}",
-  price: row['price'].to_f,
-  url: "#{row['url']}",
-  shop: "#{row['shop']}",
-  product_category_id: table_chevet.id,
-  style_id: style.id,
-  room_id: bedroom.id
-)
-end
-
-filepath = "armoire_chambre_style.csv"
-CSV.foreach(filepath, headers: :first_row, col_sep: ';') do |row|
-  style = Style.find_by(name: row['style'])
-  style = modern if style.nil?
-  Product.create!(
-  name: "#{row['name']}",
-  description: "#{row['description']}",
-  price: row['price'].to_f,
-  url: "#{row['url']}",
-  shop: "#{row['shop']}",
-  product_category_id: armoire.id,
-  style_id: style.id,
-  room_id: bedroom.id
-)
+styles = ["modern", "industriel", "vintage", "scandinave", "boheme"].map do |style_name|
+  Style.find_or_create_by!(name: style_name)
 end
 
 
-filepath = "tapis_chambre_style.csv"
-CSV.foreach(filepath, headers: :first_row, col_sep: ';') do |row|
-  style = Style.find_by(name: row['style'])
-  style = modern if style.nil?
-  Product.create!(
-  name: "#{row['name']}",
-  description: "#{row['description']}",
-  price: row['price'].to_f,
-  url: "#{row['url']}",
-  shop: "#{row['shop']}",
-  product_category_id: tapis.id,
-  style_id: style.id,
-  room_id: bedroom.id
-)
-end
-
-filepath = "miroir_chambre_style.csv"
-CSV.foreach(filepath, headers: :first_row, col_sep: ';') do |row|
-  style = Style.find_by(name: row['style'])
-  style = modern if style.nil?
-  Product.create!(
-  name: "#{row['name']}",
-  description: "#{row['description']}",
-  price: row['price'].to_f,
-  url: "#{row['url']}",
-  shop: "#{row['shop']}",
-  product_category_id: miroir.id,
-  style_id: style.id,
-  room_id: bedroom.id
-)
-end
-
-
-# Packages
-package_modern = Package.create!(
-  name: "Modern Bedroom Package",
-  description: "Une jolie chambre moderne pour faire des singeries",
-  min: 800.0,
-  max: 1200.0,
-  room_id: bedroom.id,
-  style_id: modern.id
-)
-
-package_vintage = Package.create!(
-  name: "Vintage Bedroom Package",
-  description: "Une jolie chambre pour faire des singeries en vintage",
-  min: 800.0,
-  max: 1200.0,
-  room_id: bedroom.id,
-  style_id: vintage.id
-)
-
-package_modern_salon = Package.create!(
-  name: "Modern Living room Package",
-  description: "Une jolie chambre moderne pour faire des singeries",
-  min: 800.0,
-  max: 1200.0,
-  room_id: living_room.id,
-  style_id: modern.id
-)
-
-
-
-lit_moderne = Product.find_by(style: modern, room: bedroom, product_category: lit)
-table_chevet_moderne = Product.find_by(style: modern, room: bedroom, product_category: table_chevet)
-armoire_moderne = Product.find_by(style: modern, room: bedroom, product_category: armoire)
-tapis_moderne = Product.find_by(style: modern, room: bedroom, product_category: tapis)
-miroir_moderne = Product.find_by(style: modern, room: bedroom, product_category: miroir)
-
-
-
-lit_vintage = Product.find_by(style: vintage, room: bedroom, product_category: lit)
-table_chevet_vintage = Product.find_by(style: vintage, room: bedroom, product_category: table_chevet)
-armoire_vintage = Product.find_by(style: vintage, room: bedroom, product_category: armoire)
-tapis_vintage = Product.find_by(style: vintage, room: bedroom, product_category: tapis)
-miroir_vintage = Product.find_by(style: vintage, room: bedroom, product_category: miroir)
-
-
-
-# canape_moderne = Product.find_by(style: modern, room: living_room, product_category: canape)
-# table_basse_moderne = Product.find_by(style: modern, room: living_room, product_category: table_basse)
-# fauteuil_moderne = Product.find_by(style: modern, room: living_room, product_category: fauteuil)
-# tableau_moderne = Product.find_by(style: modern, room: living_room, product_category: tableau)
-# lampe_moderne = Product.find_by(style: modern, room: living_room, product_category: lampe)
-
-
-
-# Product Packages
-product_package_modern_lit = ProductPackage.create!(product: lit_moderne , package_id: package_modern.id)
-product_package_modern_table_chevet = ProductPackage.create!(product: table_chevet_moderne, package_id: package_modern.id)
-product_package_modern_armoire = ProductPackage.create!(product: armoire_moderne, package_id: package_modern.id)
-product_package_modern_tapis = ProductPackage.create!(product: tapis_moderne, package_id: package_modern.id)
-product_package_modern_miroir = ProductPackage.create!(product: miroir_moderne, package_id: package_modern.id)
-
-product_package_vintage_lit = ProductPackage.create!(product: lit_vintage , package_id: package_vintage.id)
-product_package_vintage_table_chevet = ProductPackage.create!(product: table_chevet_vintage, package_id: package_vintage.id)
-product_package_vintage_armoire = ProductPackage.create!(product: armoire_vintage, package_id: package_vintage.id)
-# product_package_vintage_tapis = ProductPackage.create!(product: tapis_vintage, package_id: package_vintage.id)
-product_package_vintage_miroir = ProductPackage.create!(product: miroir_vintage, package_id: package_vintage.id)
-
-# product_package_modern_canape = ProductPackage.create!(product: canape_moderne , package_id: package_modern_salon.id)
-# product_package_modern_table_basse = ProductPackage.create!(product: table_basse_moderne, package_id: package_modern_salon.d)
-# product_package_modern_fauteuil = ProductPackage.create!(product: fauteuil_moderne, package_id: package_modern_salon.id)
-# product_package_modern_tableau = ProductPackage.create!(product: tableau_moderne, package_id: package_modern_salon.id)
-# product_package_modern_lampe = ProductPackage.create!(product: lampe_moderne, package_id: package_modern_salon.id)
-
-
-# Favorites
-proposal1 = Proposal.create!(user_id: user1.id, package_id: package_modern.id, favorite: true)
-proposal2 = Proposal.create!(user_id: user2.id, package_id: package_vintage.id, favorite: true)
-
-
-# Rooms
-living_room = Room.create!(name: "salon")
-bedroom = Room.create!(name: "chambre")
+modern = Style.find_by(name: "modern")
+industriel = Style.find_by(name: "industriel")
+vintage = Style.find_by(name: "vintage")
+scandinave = Style.find_by(name: "scandinave")
+boheme = Style.find_by(name: "boheme")
 
 
 
 
-# ---------------------------- Code implemente par Romain ----------------------------
-
-# Product Categories
-
-# Chambre
 lit = ProductCategory.create!(name: "lit")
 table_chevet = ProductCategory.create!(name: "table chevet")
 armoire = ProductCategory.create!(name: "armoire")
-tapis_chambre = ProductCategory.create!(name: "tapis chambre")
+tapis = ProductCategory.create!(name: "tapis")
 miroir_chambre = ProductCategory.create!(name: "miroir chambre")
 
 
@@ -306,10 +59,14 @@ vaisselle = ProductCategory.create!(name: "vaisselle")
 ustensiles = ProductCategory.create!(name: "ustensiles")
 desserte = ProductCategory.create!(name: "desserte")
 
+#room
+rooms = ["Living Room", "Bedroom", "Bathroom", "Kitchen"].map do |room_name|
+  Room.find_or_create_by!(name: room_name)
+end
 
 ROOM_STYLES_PRODUCTS = {
-  salon: {
-    moderne: [
+  living_room: {
+    modern: [
       { product_category: canape.name, style: modern.name },
       { product_category: fauteuil.name, style: modern.name },
       { product_category: table_basse.name, style: modern.name },
@@ -350,8 +107,8 @@ ROOM_STYLES_PRODUCTS = {
       { product_category: tapis_salon.name, style: boheme.name }
     ]
   },
-  chambre: {
-    moderne: [
+  bedroom: {
+    modern: [
       { product_category: lit.name, style: modern.name },
       { product_category: table_chevet.name, style: modern.name },
       { product_category: armoire.name, style: modern.name },
@@ -387,8 +144,8 @@ ROOM_STYLES_PRODUCTS = {
       { product_category: miroir_chambre.name, style: boheme.name }
     ]
   },
-  salle_de_bain: {
-    moderne: [
+  bathroom: {
+    modern: [
       { product_category: miroir_salle_de_bain.name, style: modern.name },
       { product_category: armoire_toilette.name, style: modern.name },
       { product_category: porte_serviette.name, style: modern.name },
@@ -424,8 +181,8 @@ ROOM_STYLES_PRODUCTS = {
       { product_category: tapis_bain.name, style: boheme.name }
     ]
   },
-  cuisine: {
-    moderne: [
+  kitchen: {
+    modern: [
       { product_category: table_a_manger.name, style: modern.name },
       { product_category: chaises.name, style: modern.name },
       { product_category: vaisselle.name, style: modern.name },
@@ -463,21 +220,51 @@ ROOM_STYLES_PRODUCTS = {
   }
 }
 
- #methode pour faire le call api
-# GetProductsService.new(ROOM_STYLES_PRODUCTS).call
 
-
-#methode pour parser et creer des instances de produits
 GetProductsService.new(ROOM_STYLES_PRODUCTS).parse_json_data
 
-room_test = [salon, chambre, salle_de_bain, cuisine]
-style_test = [moderne, industriel, vintage, scandinave, boheme]
 
-# room_test.each do |room|
-#   style_test.each do |style|
-#     Package.new(name: xxx, min:0, max:0, room_id: Room.find_by(name: room), style_id: Style.find_by(name: style), description: xx)
 
-#   end
-# end
 
-puts "Seed finalisee avec succes"
+
+puts "Creating seeds..."
+
+
+#  Product Categories
+# product_categories = [
+#   "lit", "table chevet", "armoire", "tapis chambre", "miroir chambre",
+#   "canape", "fauteuil", "table basse", "tableau", "lampe", "tapis salon",
+#   "miroir salle de bain", "armoire de toilette", "porte-serviette", "panier à linge", "tapis de bain",
+#   "table a manger", "chaises", "vaisselle", "ustensiles", "desserte"
+# ].map { |category_name| ProductCategory.find_or_create_by!(name: category_name) }
+
+
+product_categories_bedroom = ["lit", "table chevet", "armoire", "tapis chambre", "miroir chambre"]
+product_categories_living_room = ["canape", "fauteuil", "table basse", "tableau", "lampe", "tapis salon"]
+product_categories_bathroom = ["miroir salle de bain", "armoire de toilette", "porte-serviette", "panier à linge", "tapis de bain"]
+product_categories_kitchen = ["table a manger", "chaises", "vaisselle", "ustensiles", "desserte"]
+
+product_categories_all = [product_categories_living_room, product_categories_bedroom, product_categories_bathroom, product_categories_kitchen]
+
+
+styles.each do |style|
+  rooms.each do |room|
+    package = Package.create!(
+      name: "Package #{style.name.capitalize}",
+      description: "A #{style.name} style package for the #{room.name}.",
+      min: rand(50..100),
+      max: rand(101..200),
+      room: room,
+      style: style
+    )
+    product_categories_all.each do |product_categories_room|
+      product_categories_room.each do |category|
+        product_category = ProductCategory.where(name: category).first
+        product = Product.where(product_category: product_category, room: room)&.sample
+        ProductPackage.create!(product: product , package: package) unless product.nil?
+      end
+    end
+  end
+end
+
+puts "Seeding completed successfully!"

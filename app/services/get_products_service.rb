@@ -26,7 +26,7 @@ class GetProductsService
           product_hash["product_infos"]["products"].each do |product_data|
             next if Product.find_by(google_shopping_id: product_data['product_id']).present?
 
-            product = Product.new(
+            product = Product.create!(
                         name: product_data["product_title"],
                         description: product_data["product_description"],
                         price: product_data.dig("offer", "price")&.gsub("$", "")&.to_f || 0,
@@ -37,16 +37,15 @@ class GetProductsService
                         style: style,
                         room: room
                       )
-
-            if product.save
-              photo_url = product_data["product_photos"].last
-              downloaded_photo = URI.open(photo_url)
-              product.photo.attach(
-                io: downloaded_photo,
-                filename: "#{product.name.parameterize}.jpg",
-                content_type: 'image/jpeg'
-              )
-            end
+            product.save
+            #   photo_url = product_data["product_photos"].last
+            #   downloaded_photo = URI.open(photo_url)
+            #   product.photo.attach(
+            #     io: downloaded_photo,
+            #     filename: "#{product.name.parameterize}.jpg",
+            #     content_type: 'image/jpeg'
+            #   )
+            # end
           end
         end
       end
