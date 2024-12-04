@@ -9,7 +9,7 @@
             <%= link_to package_path(package, product_id: product.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
             <i class="fa-solid fa-trash trash-product"> </i>
             <% end %>
-            <div class="price"> <%= sprintf('%.2f',product.price) %>€ </div>
+            <div class="price"> <%= product.price.round %>€ </div>
             <h2 class="product-name"> <%= product.name.first(30) ? product.name.first(29) + "..." : product.name %> </h2>
             <p class="text-description">
               <% if product.description.present? %>

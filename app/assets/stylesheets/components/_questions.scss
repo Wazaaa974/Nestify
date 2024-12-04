@@ -45,14 +45,14 @@
     color: white;
     padding: 0.5rem;
     border-radius: 1rem;
-    box-shadow: 5px 5px 5px black
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
   }
 
   .ai-message .ai-answer {
     background: $light-grey;
     padding: 0.5rem;
     border-radius: 1rem;
-    box-shadow: 5px 5px 5px black;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
   }
 
   .ai-message,
@@ -71,7 +71,7 @@
 
   #new_question {
     border-top: 1px solid white;
-padding-top: 0%;
+    padding-top: 0%;
     bottom: 50;
     left: 0;
     width: 100%;
