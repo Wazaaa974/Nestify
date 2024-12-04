@@ -7,11 +7,11 @@ class DashboardsController < ApplicationController
       @package_chambre = "Oula... Il n'y a pas de résultats :("
     end
 
-    @room_salon = Room.find_by(name: "Living room")
+    @room_salon = Room.find_by(name: "Living Room")
     @package_salon = @current_user_favorites.where(room: @room_salon)
     if @package_salon.empty?
       @package_salon = "Oula... Il n'y a pas de résultats :("
-    end
+    endzit
 
     @room_sdb = Room.find_by(name: "Bathroom")
     @package_sdb = @current_user_favorites.where(room: @room_sdb)
@@ -21,7 +21,7 @@ class DashboardsController < ApplicationController
 
     @room_cuisine = Room.find_by(name: "Kitchen")
     @package_cuisine = @current_user_favorites.where(room: @room_cuisine)
-    if @package_cuisine.present?
+    if @package_cuisine.empty?
       @package_cuisine = "Oula... Il n'y a pas de résultats :("
     end
 
