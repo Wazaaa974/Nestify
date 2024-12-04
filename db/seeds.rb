@@ -10,6 +10,10 @@
 
 require "csv"
 
+user = User.create(email: "test@example.com", password: "password")
+user.avatar.attach(io: File.open("path/to/avatar.jpg"), filename: "avatar.jpg")
+puts "Chatbot avatar utilisé : freepik-export-2024110222550weBX.png (placé dans app/assets/images/)"
+
 puts "Destruction current database"
 
 ProductPackage.destroy_all
