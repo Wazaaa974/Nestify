@@ -1,0 +1,3 @@
+  <%= link_to proposal_path(proposal), data: {turbo_method: :patch}, id: "proposal-#{proposal.id}", class: "btn btn-show #{'favorite' if proposal.favorite}" do %>
+    <i class="footer-picto fa-solid fa-heart heart-icon"></i>
+    <% end %>
