@@ -22,6 +22,7 @@
                   <%= link_to package_path(package.id), class: "btn rounded-shadow-button mt-2 mb-4" do %>
                     Voir le pack
                   <% end %>
+                  <% if dashboard %>
                   <div class="d-flex justify-content-between align-items-center">
                   <!-- Checkbox and Label -->
                   <% proposal = Proposal.find_by(package: package, user: current_user) %>
@@ -37,6 +38,7 @@
                     <% end %>
                   </div>
                 </div>
+                <% end %>
                 </div>
               </div>
             </div>
