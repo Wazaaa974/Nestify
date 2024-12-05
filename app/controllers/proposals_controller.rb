@@ -15,4 +15,8 @@ class ProposalsController < ApplicationController
       end
     end
   end
+
+  def destroy
+    raise
+  end
 end

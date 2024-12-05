@@ -24,6 +24,7 @@
                   <% end %>
                   <div class="d-flex justify-content-between align-items-center">
                   <!-- Checkbox and Label -->
+                  <% proposal = Proposal.find_by(package: package, user: current_user) %>
                   <div class="d-flex align-items-center gap-2">
                     <input type="checkbox" id="card-checkbox-<%= package.id %>" class="card-checkbox" />
                     <label for="card-checkbox-<%= package.id %>" class="mb-0">Acheté</label>
@@ -31,7 +32,7 @@
 
                   <!-- Trash Icon -->
                   <div>
-                    <%= link_to dashboards_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+                    <%= link_to proposal_path(proposal), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
                     <i class="fa-solid fa-trash trash-dashboard"></i>
                     <% end %>
                   </div>
