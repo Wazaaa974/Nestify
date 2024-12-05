@@ -25,14 +25,13 @@ User.destroy_all
 
 # Users
 user1 = User.create!(
-  email: "thomas.alonso.ensic@gmail.com",
+  email: "thomas.alonso93@gmail.com",
   username: "Wazaaa",
   age: 31,
   first_name: "Thomas",
   last_name: "Alonso",
   budget: 5000,
-  password: "azerty",
-  budget: 3000
+  password: "azerty"
 )
 
 
@@ -281,7 +280,7 @@ product_categories_all = [product_categories_living_room, product_categories_bed
 styles.each do |style|
   rooms.each do |room|
     package = Package.create!(
-      name: "Package #{style.name.capitalize}",
+      name: "Pack #{style.name.capitalize}",
       description: "A #{style.name} style package for the #{room.name}.",
       min: rand(50..100),
       max: rand(101..200),
