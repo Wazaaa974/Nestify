@@ -31,7 +31,7 @@ export default class extends Controller {
       if (this.proposalValue.length > 0) {
         window.Swal.fire({
           title: this.proposalValue,
-          // timer: 2000,
+          timer: 3000,
           timerProgressBar: true,
           imageUrl: this.birdValue,
           imageWidth: 200,
