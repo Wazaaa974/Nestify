@@ -17,9 +17,9 @@
                   <h5 class="card-title-index"><%= package.name %></h5>
                   <p class="card-text-index"><%= package.description %></p>
                   <div class="price-index mb-2">
-                    <strong>Prix : <%= package.budget.round %>€</strong>
+                    <h6>Prix : <%= package.budget.round %>€ </h6>
                   </div>
-                  <%= link_to package_path(package.id), class: "btn rounded-shadow-button mt-3" do %>
+                  <%= link_to package_path(package.id), class: "btn rounded-shadow-button mt-2 mb-4" do %>
                     Voir le pack
                   <% end %>
                     <% if dashboard %>
