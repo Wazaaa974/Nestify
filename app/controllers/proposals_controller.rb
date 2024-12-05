@@ -1,7 +1,7 @@
 class ProposalsController < ApplicationController
+  before_action :set_proposal, only: [:update, :destroy]
 
   def update
-    @proposal = Proposal.find(params[:id])
     @proposal.favorite = !@proposal.favorite
     @proposal.save
     @message = @proposal.favorite ? "Ajouté dans favoris !" : "Retiré de favoris !"
@@ -17,6 +17,25 @@ class ProposalsController < ApplicationController
   end
 
   def destroy
-    raise
+    decrease_proposal_total
+    if @proposal.destroy
+      redirect_to dashboards_path, status: :see_other
+    else
+      render "dashboards/index", status: :unprocessable_entity
+    end
+  end
+
+  def decrease_proposal_total
+    User.find(current_user.id).update(budget: current_user.budget - @proposal.package.budget)
+  end
+
+  private
+
+  def proposal_params
+    params.require(:proposal).permit(:bought, :package_id, :user_id, :favorite)
+  end
+
+  def set_proposal
+    @proposal = Proposal.find(params[:id])
   end
 end

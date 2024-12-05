@@ -10,9 +10,14 @@
     </p>
   </div>
 
-  <div >
-    <h3 class="budget-favoris text-center"> Ton budget: <%= current_user.budget %> € </h3>
-  </div>
+<div class="budget-display">
+    <i class="fa-solid fa-wallet"></i>
+    <div>
+        <h3 class="no-margin">Ton budget: <%= current_user.budget.round %> €</h3>
+    </div>
+</div>
+
+
 
   <%= render "packages/chambre_packages", package_chambre: @package_chambre, dashboard: true %>
 

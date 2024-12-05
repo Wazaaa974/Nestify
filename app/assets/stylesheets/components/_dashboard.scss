@@ -1,0 +1,33 @@
+
+
+.fa-wallet{
+  font-size: 25px;
+}
+
+.budget-title-favoris{
+  background-color: white;
+  border-radius: 10px;
+  margin: 50px;
+  text-align: center;
+  padding: auto;
+  padding: 2px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // Ombre noire fixe
+}
+
+
+.budget-display {
+  display: flex; /* Arrange items horizontally */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center the entire group horizontally */
+  gap: 10px; /* Space between icon and text */
+  text-align: center; /* Ensure the text is centered */
+}
+
+.budget-display i {
+  color: #ffe7b8; /* Icon color */
+}
+
+.no-margin {
+  margin-top: 5px;
+  margin-bottom: 0px !important;
+}
