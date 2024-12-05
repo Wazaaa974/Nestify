@@ -14,14 +14,12 @@
     <h3 class="budget-favoris text-center"> Ton budget: <%= current_user.budget %> € </h3>
   </div>
 
-<%# <%=current_user.budget.round - current_user.proposals.favorite.first.package.budget.round%>
+  <%= render "packages/chambre_packages", package_chambre: @package_chambre, dashboard: true %>
 
-  <%= render "packages/chambre_packages", package_chambre: @package_chambre %>
+  <%= render "packages/salon_packages", package_salon: @package_salon, dashboard: true %>
 
-  <%= render "packages/salon_packages", package_salon: @package_salon %>
+  <%= render "packages/salle_de_bain_packages", package_sdb: @package_sdb, dashboard: true %>
 
-  <%= render "packages/salle_de_bain_packages", package_sdb: @package_sdb %>
-
-  <%= render "packages/cuisine_packages", package_cuisine: @package_cuisine %>
+  <%= render "packages/cuisine_packages", package_cuisine: @package_cuisine, dashboard: true %>
 
 </div>
