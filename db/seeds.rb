@@ -281,9 +281,9 @@ styles.each do |style|
   rooms.each do |room|
     package = Package.create!(
       name: "Pack #{style.name.capitalize}",
-      description: "A #{style.name} style package for the #{room.name}.",
+      description: "Un style #{style.name} pour une expérience déco design et confort.",
       min: rand(50..100),
-      max: rand(101..200),
+      max: rand(101..200),\
       room: room,
       style: style
     )
