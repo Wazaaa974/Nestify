@@ -12,22 +12,22 @@
 
   <!-- Chambre Section -->
   <% if params[:chambre] == "1" %>
-      <%= render "packages/chambre_packages", package_chambre: @package_chambre, dashboard: nil %>
+      <%= render "packages/chambre_packages", package_chambre: @package_chambre, dashboard: nil, params: @params%>
   <% end %>
 
   <!-- Salon Section -->
   <% if params[:salon] == "1" %>
-     <%= render "packages/salon_packages", package_salon: @package_salon, dashboard: nil %>
+     <%= render "packages/salon_packages", package_salon: @package_salon, dashboard: nil, params: @params %>
   <% end %>
 
 <!-- Sdb Section -->
   <% if params[:salle_de_bain] == "1" %>
-    <%= render "packages/salle_de_bain_packages", package_sdb: @package_sdb, dashboard: nil %>
+    <%= render "packages/salle_de_bain_packages", package_sdb: @package_sdb, dashboard: nil, params: @params %>
   <% end %>
 
 <!-- Cuisine Section -->
   <% if params[:cuisine] == "1" %>
-    <%= render "packages/cuisine_packages", package_cuisine: @package_cuisine, dashboard: nil %>
+    <%= render "packages/cuisine_packages", package_cuisine: @package_cuisine, dashboard: nil, params: @params %>
   <% end %>
 
 </div>

@@ -19,7 +19,8 @@
                   <div class="price-index mb-2">
                     <h6>Prix : <%= package.budget.round %>€ </h6>
                   </div>
-                  <%= link_to package_path(package.id), class: "btn rounded-shadow-button mt-2 mb-4" do %>
+                  <% path = dashboard ? proposal_path(package) : package_path(package, params: params)  %>
+                  <%= link_to path, class: "btn rounded-shadow-button mt-2 mb-4" do %>
                     Voir le pack
                   <% end %>
                   <% if dashboard %>

@@ -1,5 +1,9 @@
 class ProposalsController < ApplicationController
 
+  def show
+    @proposal = Proposal.find(params[:id])
+  end
+
   def update
     @proposal = Proposal.find(params[:id])
     @proposal.favorite = !@proposal.favorite
