@@ -18,5 +18,5 @@ Rails.application.routes.draw do
   resources :dashboards, only: [:index, :destroy]
   resources :user_packages, only: [:index, :new, :create, :show, :edit, :destroy]
   resources :questions, only: [:index, :create]
-  resources :proposals, only: [:update, :destroy]
+  resources :proposals, only: [:update, :destroy, :show]
 end

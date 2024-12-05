@@ -1,6 +1,10 @@
 class ProposalsController < ApplicationController
   before_action :set_proposal, only: [:update, :destroy]
 
+  def show
+    @proposal = Proposal.find(params[:id])
+  end
+
   def update
     @proposal.favorite = !@proposal.favorite
     @proposal.save
