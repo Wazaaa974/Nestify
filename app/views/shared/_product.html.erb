@@ -6,7 +6,7 @@
           <%# <img src="https://medias.maisonsdumonde.com/image/upload/ar_1:1,c_fill,f_auto,q_auto,w_354/v1/img/lit-180x200-beige-1000-8-6-187212_3.jpg"/> %>
         </div>
           <div class="card-product-infos">
-            <%unless fav == true %>
+            <%if fav %>
               <%= link_to package_path(package, product_id: product.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
               <i class="fa-solid fa-trash trash-product"> </i>
               <% end %>
@@ -24,9 +24,9 @@
             </p>
             <p class="shop-name mt-3"> <strong> <%= product.shop %> </strong></p>
           <%# bouton remplacer/update ajouter lien %>
-          <%unless fav == true %>
+          <% if fav == true %>
             <%= link_to package_replace_product_package_path(package, product_id: product.id), data: {turbo_method: :patch}, id: "replace-product", class: "replace-product-link" do %>
-            <i class="fa-solid fa-arrows-rotate"></i>
+              <i class="fa-solid fa-arrows-rotate"></i>
             <% end %>
            <% end %>
           </div>
