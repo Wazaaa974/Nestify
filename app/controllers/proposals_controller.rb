@@ -19,6 +19,7 @@ class ProposalsController < ApplicationController
   def destroy
     decrease_proposal_total
     if @proposal.destroy
+      flash[:proposal] = "Génial, ton nid va être chouette !"
       redirect_to dashboards_path, status: :see_other
     else
       render "dashboards/index", status: :unprocessable_entity
