@@ -6,9 +6,9 @@ class Product < ApplicationRecord
 
   has_one_attached :photo
   has_neighbors :embedding
-  # after_create :set_embedding
+  after_create :set_embedding
 
-  private
+   private
 
   def set_embedding
     client = OpenAI::Client.new
