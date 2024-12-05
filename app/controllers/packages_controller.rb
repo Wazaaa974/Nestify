@@ -94,7 +94,7 @@ class PackagesController < ApplicationController
       @package.products.each do |product|
         @sum += product.price
       end
-      flash.now[:success] = "Produit remplacé avec succès."
+      flash.now[:notice] = "Produit remplacé avec succès."
         respond_to do |format|
           format.html { redirect_to package_path(@package), notice: "Produit remplacé avec succès." }
           format.turbo_stream do
@@ -123,7 +123,7 @@ class PackagesController < ApplicationController
     @package = Package.find(params[:id])
     @product_package = ProductPackage.find_by(package: @package, product_id: params[:product_id])
     @proposal = Proposal.find_by(package: @package, user: current_user)
-    redirect_to proposal_path(@proposal), status: :see_other if @product_package.destroy
+    redirect_to proposal_path(@proposal), status: :see_other, proposal: "Le produit a été supprimé." if @product_package.destroy
   end
 
   def build_package(min, max, room_user)

@@ -7,7 +7,7 @@
         </div>
           <div class="card-product-infos">
             <%if fav %>
-              <%= link_to package_path(package, product_id: product.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+              <%= link_to package_path(package, product_id: product.id), data: {turbo_method: :delete} do %>
               <i class="fa-solid fa-trash trash-product"> </i>
               <% end %>
             <% end %>
