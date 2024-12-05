@@ -9,13 +9,13 @@
       Tu trouveras ici tous tes packages favoris. Tu peux les personnaliser et indiquer qu'ils ont été acheté pour mettre à jour ton budget.
     </p>
   </div>
+  <div class= "card-budget">
+    <div class="budget-display">
+          <i class="fa-solid fa-wallet"></i>
+          <h3 class= "no-margin">Ton budget : <%= current_user.budget.round %> €</h3>
+      </div>
+  </div>
 
-<div class="budget-display">
-    <i class="fa-solid fa-wallet"></i>
-    <div>
-        <h3 class="no-margin">Ton budget: <%= current_user.budget.round %> €</h3>
-    </div>
-</div>
 
 
 

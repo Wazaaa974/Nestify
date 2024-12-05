@@ -1,33 +1,77 @@
 
 
-.fa-wallet{
-  font-size: 25px;
-}
+// .fa-wallet{
+//   font-size: 20px;
+//   text-align: center;
+// }
 
-.budget-title-favoris{
-  background-color: white;
-  border-radius: 10px;
-  margin: 50px;
-  text-align: center;
-  padding: auto;
-  padding: 2px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // Ombre noire fixe
-}
+// // .budget-title-favoris{
+// //   background-color: white;
+// //   border-radius: 10px;
+// //   margin: 50px;
+// //   text-align: center;
+// //   padding: auto;
+// //   padding: 2px;
+// //   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // Ombre noire fixe
+// // }
 
+
+// .budget-display {
+//   display: flex; /* Arrange items horizontally */
+//   align-items: center; /* Center items vertically */
+//   justify-content: center; /* Center the entire group horizontally */
+//   gap: 8px; /* Space between icon and text */
+//   text-align: center; /* Ensure the text is centered */
+//   margin-top: 30px !important;
+//   margin-bottom: 35px !important;
+// }
+
+// .budget-display i {
+//   color: white;/* Icon color */
+
+
+// }
+
+// .no-margin{
+//   margin-bottom: 0px !important;
+//   color: white;
+// }
+
+// .card-budget{
+//   background-color: $blue;
+//   border-radius: 10px;
+//   margin-right: 20px;
+//   margin-left: 20px;
+//   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+// }
+
+.card-budget {
+  background-color: $blue; /* Dégradé bleu */
+  border-radius: 25px; /* Coins arrondis */
+  padding: 10px; /* Espace intérieur */
+  padding-right: 5px;
+  padding-left: 5px;
+  margin: 9% auto; /* Centré et espacé */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Ombre douce */
+  max-width: 290px; /* Limite la largeur */
+  text-align: center; /* Centre le contenu */
+}
 
 .budget-display {
-  display: flex; /* Arrange items horizontally */
-  align-items: center; /* Center items vertically */
-  justify-content: center; /* Center the entire group horizontally */
-  gap: 10px; /* Space between icon and text */
-  text-align: center; /* Ensure the text is centered */
+  display: flex;
+  align-items: center; /* Centre verticalement */
+  justify-content: center; /* Centre horizontalement */
+  gap: 12px; /* Espacement entre l'icône et le texte */
 }
 
 .budget-display i {
-  color: #ffe7b8; /* Icon color */
+  font-size: 20px; /* Taille de l'icône */
+  color: #fff; /* Couleur de l'icône */
 }
 
 .no-margin {
-  margin-top: 5px;
-  margin-bottom: 0px !important;
+  margin: 0; /* Supprime les marges */
+  color: #fff; /* Texte blanc */
+  font-size: 1.1rem; /* Texte plus grand */
+  font-weight: 500; /* Texte en gras */
 }
