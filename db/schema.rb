@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_12_05_092049) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_05_114825) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "vector"
@@ -96,6 +96,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_12_05_092049) do
     t.boolean "favorite"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "bought"
     t.index ["package_id"], name: "index_proposals_on_package_id"
     t.index ["user_id"], name: "index_proposals_on_user_id"
   end

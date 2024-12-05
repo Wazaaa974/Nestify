@@ -26,11 +26,12 @@
                    <% if dashboard %>
                     <div class="d-flex justify-content-between align-items-center">
                       <!-- Checkbox and Label -->
-                        <div class="d-flex align-items-center gap-2">
-                          <input type="checkbox" id="card-checkbox-<%= package.id %>" class="card-checkbox" />
-                          <label for="card-checkbox-<%= package.id %>" class="mb-0">Acheté</label>
-                        </div>
-
+                        <% proposal = Proposal.find_by(package: package, user: current_user) %>
+                          <%= simple_form_for proposal, url: proposal_path(proposal), method: :delete, html: { data: { controller: "budget" } } do |f| %>
+                          <div class="d-flex align-items-center gap-2">
+                            <%= f.input :bought, as: :boolean, label: "Acheté", input_html: { id: "card-checkbox-#{package.id}", class: "card-checkbox ", data: { action: "change->budget#destroy" } } %>
+                          </div>
+                        <% end %>
                       <!-- Trash Icon -->
                         <div>
                             <%= link_to dashboards_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
