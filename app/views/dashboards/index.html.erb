@@ -6,13 +6,15 @@
 
   <div class="text-center mt-3">
     <p>
-      Tu trouveras ici tous tes packs favoris. Tu peux les personnaliser et indiquer qu'ils ont été acheté pour mettre à jour ton budget.
+      Tu trouveras ici tous tes packages favoris. Tu peux les personnaliser et indiquer qu'ils ont été acheté pour mettre à jour ton budget.
     </p>
   </div>
 
   <div >
-    <h3 class="budget-favoris text-center"> Ton budget: € </h3>
+    <h3 class="budget-favoris text-center"> Ton budget:  € </h3>
   </div>
+
+<%# <%=current_user.budget.round - current_user.proposals.favorite.first.package.budget.round%>
 
   <%= render "packages/chambre_packages", package_chambre: @package_chambre %>
 
