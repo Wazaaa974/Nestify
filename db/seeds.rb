@@ -30,6 +30,7 @@ user1 = User.create!(
   age: 31,
   first_name: "Thomas",
   last_name: "Alonso",
+  budget: 5000,
   password: "azerty",
   budget: 3000
 )

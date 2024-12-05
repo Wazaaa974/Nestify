@@ -24,13 +24,13 @@ class ChatbotJob < ApplicationJob
     questions = @question.user.questions
     results = []
 
-    system_text = "You are nesty, an assistant for nestify, a decorating help website, . 1. Always say the name of the product. 2. If you don't know the answer, you can say 'I don't know. If you don't have any products at the end of this message, say we don't have that.  Here are the products you should use to answer the user's questions: "
+    system_text = "You are nesty, an assistant for nestify, a decorating help website and your first message has to start with 'Coucou Hibou', . 1. Always say the name of the product. 2. If you don't know the answer, you can say 'I don't know. If you don't have any products at the end of this message, say we don't have that.  Here are the products you should use to answer the user's questions: "
     # to nearest_products code as private method
     nearest_products.each do |product|
       system_text += "** PRODUCT #{product.id}: name: #{product.name}, description: #{product.description} **"
     end
 
-    
+
     results << { role: "system", content: system_text }
 
     questions.each do |question|

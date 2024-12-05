@@ -99,7 +99,7 @@ class PackagesController < ApplicationController
           format.html { redirect_to package_path(@package), notice: "Produit remplacé avec succès." }
           format.turbo_stream do
             render turbo_stream: [
-              turbo_stream.replace("product-#{@product_to_replace.id}", partial: "shared/product", locals: { product: @replacement_product, package: @package }),
+              turbo_stream.replace("product-#{@product_to_replace.id}", partial: "shared/product", locals: { product: @replacement_product, package: @package, fav: true}),
               turbo_stream.update("package-#{@package.id}-budget", "Budget total : #{@sum.round}€", locals: { sum: @sum }),
               turbo_stream.prepend("flashes", partial: "shared/flashes", locals: { notice: "Produit remplacé avec succès !" })
             ]
