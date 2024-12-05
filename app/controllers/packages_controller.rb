@@ -11,7 +11,7 @@ class PackagesController < ApplicationController
       @package_chambre.each do |proposal|
         Proposal.find_or_create_by!(user_id: current_user.id, package_id: proposal.id, favorite: false)
       end
-      @package_chambre = "Oula... Il n'y a pas de résultats :(" if @package_chambre.empty?
+      @package_chambre = "Cui cui... Il n'y a pas de résultats :(" if @package_chambre.empty?
     else
       @chambre = "nul"
     end
@@ -22,7 +22,7 @@ class PackagesController < ApplicationController
       @package_salon.each do |proposal|
         Proposal.find_or_create_by!(user_id: current_user.id, package_id: proposal.id, favorite: false)
       end
-      @package_salon = "Oula... Il n'y a pas de résultats :(" if @package_salon.empty?
+      @package_salon = "Cui cui... Il n'y a pas de résultats :(" if @package_salon.empty?
     else
       @salon = "nul"
     end
@@ -33,7 +33,7 @@ class PackagesController < ApplicationController
       @package_sdb.each do |proposal|
         Proposal.find_or_create_by!(user_id: current_user.id, package_id: proposal.id, favorite: false)
       end
-      @package_sdb = "Oula... Il n'y a pas de résultats :(" if @package_sdb.empty?
+      @package_sdb = "Cui cui... Il n'y a pas de résultats :(" if @package_sdb.empty?
     else
       @package_sdb = "nul"
     end
@@ -44,7 +44,7 @@ class PackagesController < ApplicationController
       @package_cuisine.each do |proposal|
         Proposal.find_or_create_by!(user_id: current_user.id, package_id: proposal.id, favorite: false)
       end
-      @package_cuisine = "Oula... Il n'y a pas de résultats :(" if @package_cuisine.empty?
+      @package_cuisine = "Cui cui... Il n'y a pas de résultats :(" if @package_cuisine.empty?
     else
       @package_cuisine = "nul"
     end

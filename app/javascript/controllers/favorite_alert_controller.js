@@ -13,7 +13,7 @@ export default class extends Controller {
       timerProgressBar: true,
       imageUrl: this.birdValue,
       imageWidth: 200,
-      imageHeight: 140,
+      imageHeight: 130,
       imageAlt: "Custom image",
       showConfirmButton: false,
     });
