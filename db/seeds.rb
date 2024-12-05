@@ -249,6 +249,8 @@ product_categories_kitchen = ["table a manger", "chaises", "vaisselle", "ustensi
 product_categories_all = [product_categories_living_room, product_categories_bedroom, product_categories_bathroom, product_categories_kitchen]
 
 
+#Creation de package
+
 styles.each do |style|
   rooms.each do |room|
     package = Package.create!(
@@ -270,4 +272,3 @@ styles.each do |style|
 end
 
 puts "Seeding completed successfully!"
-
