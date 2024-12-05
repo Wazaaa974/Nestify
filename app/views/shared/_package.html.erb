@@ -10,21 +10,21 @@
 
 <%if fav == true %>
 
-<div class="button-container d-flex justify-content-center gap-3 mt-1 mb-3">
+<div class="button-container d-flex justify-content-space gap-3 mt-4 mb-4">
   <%= link_to path, class: "btn btn-retour" do %>
     Les packs
   <% end %>
 
 
-  <%= link_to dashboards_path, class: "btn btn-dashboard" do %>
-    Favoris
-  <% end %>
+  <%# <%= link_to dashboards_path, class: "btn btn-dashboard" do %>
+    <%# Favoris %>
+  <%# <% end %>
 
   <%= render 'shared/favorite_button', proposal: proposal %>
 </div>
 <% else %>
 
-<div class="button-container d-flex justify-content-space gap-3 mt-1 mb-3">
+<div class="button-container d-flex justify-content-space gap-3 mt-4 mb-4">
   <%= link_to path, class: "btn btn-retour" do %>
     Mes packs favoris
   <% end %>
