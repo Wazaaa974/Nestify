@@ -12,7 +12,7 @@
 
 <div class="button-container d-flex justify-content-space gap-3 mt-4 mb-4">
   <%= link_to path, class: "btn btn-retour" do %>
-    Les packs
+    Mes packs favoris
   <% end %>
 
 
@@ -26,7 +26,7 @@
 
 <div class="button-container d-flex justify-content-space gap-3 mt-4 mb-4">
   <%= link_to path, class: "btn btn-retour" do %>
-    Mes packs favoris
+    Les packs
   <% end %>
 
   <%= render 'shared/favorite_button', proposal: proposal %>
@@ -46,15 +46,9 @@
 <hr class = "custom-hr">
 
 <div id = "packages" >
-  <%if fav == true %>
-    <% package.products.each do |product| %>
-      <%= render "shared/product", product: product, package: package, fav: true %>
-    <% end %>
-  <% else %>
-    <% package.products.each do |product| %>
-      <%= render "shared/product", product: product, package: package, fav: nil %>
-    <% end %>
-   <% end %>
+  <% package.products.each do |product| %>
+    <%= render "shared/product", product: product, package: package, fav: fav %>
+  <% end %>
 </div>
 
 <div class= "d-flex justify-content-center align-items-center">
