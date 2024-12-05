@@ -28,7 +28,7 @@
                   <div class="d-flex justify-content-between align-items-center">
                   <!-- Checkbox and Label -->
                   <% proposal = Proposal.find_by(package: package, user: current_user) %>
-                    <%= simple_form_for proposal, url: proposal_path(proposal), method: :delete, html: { data: { controller: "budget" } } do |f| %>
+                    <%= simple_form_for proposal, url: proposal_path(proposal), method: :delete, html: { data: { controller: "budget", budget_bird_value: image_path("freepik-export-20241102225506weBX.png") } } do |f| %>
                     <div class="d-flex align-items-center gap-2">
                       <%= f.input :bought, as: :boolean, label: "Acheté", input_html: { id: "card-checkbox-#{package.id}", class: "card-checkbox ", data: { action: "change->budget#destroy" } } %>
                     </div>
