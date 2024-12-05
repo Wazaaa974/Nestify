@@ -16,10 +16,10 @@
             <p class="text-description">
               <% if product.description.present? %>
                 <%= product.description.first(70) ? product.description.first(69) + "..." : product.description %>
-                <a href="<%= product.url %>">Voir plus</a>
+                <a href="<%= product.url %>" target="_blank">Voir plus</a>
               <% else %>
                 Ce produit est exceptionnel !!
-                <a href="<%= product.url %>">Voir plus</a>
+                <a href="<%= product.url %>" target="_blank">Voir plus</a>
               <% end %>
             </p>
             <p class="shop-name mt-3"> <strong> <%= product.shop %> </strong></p>
