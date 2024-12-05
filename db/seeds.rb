@@ -25,7 +25,7 @@ User.destroy_all
 
 # Users
 user1 = User.create!(
-  email: "thomas.alonso93@gmail.com",
+  email: "thomas.alonso.ensic@gmail.com",
   username: "Wazaaa",
   age: 31,
   first_name: "Thomas",
@@ -35,15 +35,15 @@ user1 = User.create!(
 )
 
 
-user2 = User.create!(
-  email: "sim.ju@live.fr",
-  username: "Julie",
-  age: 31,
-  first_name: "Julie",
-  last_name: "Simon",
-  password: "azerty",
-  budget: 3000
-)
+# user2 = User.create!(
+#   email: "sim.ju@live.fr",
+#   username: "Julie",
+#   age: 31,
+#   first_name: "Julie",
+#   last_name: "Simon",
+#   password: "azerty",
+#   budget: 3000
+# )
 
 # Styles
 styles = ["modern", "industriel", "vintage", "scandinave", "boheme"].map do |style_name|
