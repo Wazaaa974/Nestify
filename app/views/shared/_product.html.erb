@@ -12,7 +12,7 @@
               <% end %>
             <% end %>
             <div class="price"> <%= product.price.round %>€ </div>
-            <h2 class="product-name"> <%= product.name.first(30) ? product.name.first(29) + "..." : product.name %> </h2>
+            <h2 class="product-name"> <%= product.name.first(27) ? product.name.first(26) + "..." : product.name %> </h2>
             <p class="text-description">
               <% if product.description.present? %>
                 <%= product.description.first(70) ? product.description.first(69) + "..." : product.description %>
