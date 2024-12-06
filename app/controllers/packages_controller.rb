@@ -88,6 +88,7 @@ class PackagesController < ApplicationController
 
     if @replacement_product
       # Remplacer le produit dans le package
+      @package.update(budget: @package.budget - @product_to_replace.price)
       @package.products.delete(@product_to_replace)
       @package.products << @replacement_product
       @sum = 0
