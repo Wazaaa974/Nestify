@@ -2,7 +2,7 @@ class PackagesController < ApplicationController
   def index
     @packages = Package.all
     # params = params[:params_package] if params[:params_package]
-    # package_params =
+    # package_params = test
     @params = params&.to_unsafe_h.except(:commit, :controller, :action)
     if params[:chambre] == "1"
       @chambre = "Chambre"
