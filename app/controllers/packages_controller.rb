@@ -4,13 +4,14 @@ class PackagesController < ApplicationController
     # params = params[:params_package] if params[:params_package]
     # package_params =
     @params = params&.to_unsafe_h.except(:commit, :controller, :action)
+    current_user.budget = 0
     if params[:chambre] == "1"
-      current_user.budget = 0
+      @a = 0
       @chambre = "Chambre"
       @room_chambre = Room.find_by(name: "Bedroom")
       @package_chambre = Package.where("budget BETWEEN ? AND ?", @params[:package][:budget_chambre_min].to_i, @params[:package][:budget_chambre_max].to_i).where(room_id: @room_chambre.id)
-      current_user.budget += params[:package][:budget_chambre_max].to_i
-      current_user.save
+      @a += params[:package][:budget_chambre_max].to_i
+
       @package_chambre.each do |proposal|
         Proposal.find_or_create_by!(user_id: current_user.id, package_id: proposal.id, favorite: false)
       end
@@ -19,12 +20,12 @@ class PackagesController < ApplicationController
       @chambre = "nul"
     end
     if @params[:salon] == "1"
-      current_user.budget = 0
+      @b = 0
       @salon = "Salon"
       @room_salon = Room.find_by(name: "Living Room")
       @package_salon = Package.where("budget BETWEEN ? AND ?", @params[:package][:budget_salon_min].to_i, @params[:package][:budget_salon_max].to_i).where(room_id: @room_salon.id)
-      current_user.budget += params[:package][:budget_salon_max].to_i
-      current_user.save
+      @b += params[:package][:budget_salon_max].to_i
+
       @package_salon.each do |proposal|
         Proposal.find_or_create_by!(user_id: current_user.id, package_id: proposal.id, favorite: false)
       end
@@ -33,12 +34,12 @@ class PackagesController < ApplicationController
       @salon = "nul"
     end
     if @params[:salle_de_bain] == "1"
-      current_user.budget = 0
+      @c = 0
       @salle_de_bain = "Salle de bain"
       @room_sdb = Room.find_by(name: "Bathroom")
       @package_sdb = Package.where("budget BETWEEN ? AND ?", @params[:package][:budget_sdb_min].to_i, @params[:package][:budget_sdb_max].to_i).where(room_id: @room_sdb.id)
-      current_user.budget += params[:package][:budget_salle_de_bain_max].to_i
-      current_user.save
+      @c += params[:package][:budget_salle_de_bain_max].to_i
+
       @package_sdb.each do |proposal|
         Proposal.find_or_create_by!(user_id: current_user.id, package_id: proposal.id, favorite: false)
       end
@@ -47,13 +48,13 @@ class PackagesController < ApplicationController
       @package_sdb = "nul"
     end
     if @params[:cuisine] == "1"
-      current_user.budget = 0
+      @d = 0
       @cuisine = "Cuisine"
       @room_cuisine = Room.find_by(name: "Kitchen")
       @package_cuisine = Package.where("budget BETWEEN ? AND ?", @params[:package][:budget_cuisine_min].to_i, @params[:package][:budget_cuisine_max].to_i).where(room_id: @room_cuisine.id)
       # user = User.find(current_user.id)
-      current_user.budget += params[:package][:budget_cuisine_max].to_i
-      current_user.save
+      @d += params[:package][:budget_cuisine_max].to_i
+
       @package_cuisine.each do |proposal|
         Proposal.find_or_create_by!(user_id: current_user.id, package_id: proposal.id, favorite: false)
       end
