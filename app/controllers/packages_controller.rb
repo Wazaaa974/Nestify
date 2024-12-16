@@ -5,9 +5,12 @@ class PackagesController < ApplicationController
     # package_params =
     @params = params&.to_unsafe_h.except(:commit, :controller, :action)
     if params[:chambre] == "1"
+      current_user.budget = 0
       @chambre = "Chambre"
       @room_chambre = Room.find_by(name: "Bedroom")
       @package_chambre = Package.where("budget BETWEEN ? AND ?", @params[:package][:budget_chambre_min].to_i, @params[:package][:budget_chambre_max].to_i).where(room_id: @room_chambre.id)
+      current_user.budget += params[:package][:budget_chambre_max].to_i
+      current_user.save
       @package_chambre.each do |proposal|
         Proposal.find_or_create_by!(user_id: current_user.id, package_id: proposal.id, favorite: false)
       end
@@ -16,9 +19,12 @@ class PackagesController < ApplicationController
       @chambre = "nul"
     end
     if @params[:salon] == "1"
+      current_user.budget = 0
       @salon = "Salon"
       @room_salon = Room.find_by(name: "Living Room")
       @package_salon = Package.where("budget BETWEEN ? AND ?", @params[:package][:budget_salon_min].to_i, @params[:package][:budget_salon_max].to_i).where(room_id: @room_salon.id)
+      current_user.budget += params[:package][:budget_salon_max].to_i
+      current_user.save
       @package_salon.each do |proposal|
         Proposal.find_or_create_by!(user_id: current_user.id, package_id: proposal.id, favorite: false)
       end
@@ -27,9 +33,12 @@ class PackagesController < ApplicationController
       @salon = "nul"
     end
     if @params[:salle_de_bain] == "1"
+      current_user.budget = 0
       @salle_de_bain = "Salle de bain"
       @room_sdb = Room.find_by(name: "Bathroom")
       @package_sdb = Package.where("budget BETWEEN ? AND ?", @params[:package][:budget_sdb_min].to_i, @params[:package][:budget_sdb_max].to_i).where(room_id: @room_sdb.id)
+      current_user.budget += params[:package][:budget_salle_de_bain_max].to_i
+      current_user.save
       @package_sdb.each do |proposal|
         Proposal.find_or_create_by!(user_id: current_user.id, package_id: proposal.id, favorite: false)
       end
