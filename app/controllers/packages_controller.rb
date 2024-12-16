@@ -38,9 +38,13 @@ class PackagesController < ApplicationController
       @package_sdb = "nul"
     end
     if @params[:cuisine] == "1"
+      current_user.budget = 0
       @cuisine = "Cuisine"
       @room_cuisine = Room.find_by(name: "Kitchen")
       @package_cuisine = Package.where("budget BETWEEN ? AND ?", @params[:package][:budget_cuisine_min].to_i, @params[:package][:budget_cuisine_max].to_i).where(room_id: @room_cuisine.id)
+      # user = User.find(current_user.id)
+      current_user.budget += params[:package][:budget_cuisine_max].to_i
+      current_user.save
       @package_cuisine.each do |proposal|
         Proposal.find_or_create_by!(user_id: current_user.id, package_id: proposal.id, favorite: false)
       end

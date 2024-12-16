@@ -24,6 +24,7 @@ class DashboardsController < ApplicationController
     if @package_cuisine.empty?
       @package_cuisine = "Cui cui... Il n'y a pas de résultats :("
     end
+    @user = User.find(current_user.id)
   end
 
   def destroy

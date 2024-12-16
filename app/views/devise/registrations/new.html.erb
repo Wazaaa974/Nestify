@@ -11,10 +11,10 @@
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
     <%= f.input :photo, as: :file %>
-    <%= f.input :budget,
+    <%# <%= f.input :budget,
                 required: true,
                 autofocus: true,
-                hint: "Ton budget déco en euros"%>
+                hint: "Ton budget déco en euros"%> 
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
