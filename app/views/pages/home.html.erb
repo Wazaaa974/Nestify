@@ -19,7 +19,7 @@
 </div>
 
 <%# images doubles en colonnes %>
-<div class="container position-relative">
+<div class="container">
   <div class="mb-4 mt-3 row row-cols-2 g-3 ">
     <div class="col">
       <div class="images-home">
@@ -34,35 +34,39 @@
       </div>
     </div>
   </div>
-  <p class= "text-center" style="position: relative; top: 2px;"> <strong>"Nestify: votre assistant déco personnel"</strong></p>
-  <div class="rectangle">
-    <div class="carre" style="background-color:blue;"></div>
   </div>
-</div>
+  <div class ="position-relative">
+    <p class= "text-center nestify-assistant" style="position: relative; top: 2px;"> <strong>"Nestify: votre assistant déco personnel"</strong></p>
+    <div class="rectangle">
+    </div>
+  </div>
+
 
 
 <div class="container">
   <h1 class= "text-center padding-title"> Le concept </h1>
     <div class="text-center">
-    <i class="fa-solid fa-clock mt-2 fs-4" style="color: #92cad7;"></i>
+    <i class="fa-solid fa-clock mt-2 logos-concept" style="color: #92cad7;"></i>
       <p>Gagnez du temps dans votre recherche d’aménagement.</p>
-    <i class="fa-solid fa-wallet fs-4" style="color: #ffe7b8;"></i>
+    <i class="fa-solid fa-wallet logos-concept" style="color: #ffe7b8;"></i>
       <p>Respectez votre budget sans compromis sur le style.</p>
-    <i class="fa-solid fa-heart fs-4" style="color: #8abecb;"></i>
+    <i class="fa-solid fa-heart logos-concept" style="color: #8abecb;"></i>
       <p>Enregistrez vos coups de coeur et personnalisez à l’infini.</p>
-   <i class="fa-solid fa-comments fs-4" style="color: #ffe7b8;"></i>
+   <i class="fa-solid fa-comments logos-concept " style="color: #ffe7b8;"></i>
     <p>Bénéficiez de recommandations personnalisées grâce à Nesty, qui comprend vos envies.</p>
   </div>
 </div>
 
-<div class="container mt-4 position-relative">
+<div class="container mt-4">
   <div class="images-trois-home mb-1" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= Cloudinary::Utils.cloudinary_url("timothy-buck-psrloDbaZc8-unsplash_ma9il9") %>')">
     </div>
-  <h1 class= "text-center mt-4"> Les packs tendances </h1>
+  <h1 class="text-center mt-4"> Les packs tendances </h1>
+  </div>
+  <div class="position-relative">
     <div class="rectangle-yellow">
-      <div class="carre" style="background-color:yellow;"></div>
     </div>
-</div>
+  </div>
+
 
 <%# packages en colonnes %>
 <div class="container mt-4">

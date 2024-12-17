@@ -1,0 +1,22 @@
+/* General Mobile Styles - Already Applied */
+.banner {
+  height: 100vh; /* Full mobile viewport */
+  background-size: cover;
+  background-position: center;
+}
+
+/* iPad (Tablets) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .banner {
+      height: 80vh; /* Smaller height for tablets */
+  }
+
+}
+
+/* Desktop (MacBook Air and larger screens) */
+@media (min-width: 1025px) {
+  .banner {
+      height: 70vh; /* Shorter banners on desktop */
+  }
+
+}
