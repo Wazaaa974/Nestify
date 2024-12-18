@@ -43,9 +43,6 @@
       width: 255px;
   }
 
-  .comments-category p {
-      font-size: 1rem; /* Adjust font size for readability */
-  }
   .images-trois-home{
     background-size: cover;
     background-position: center;
@@ -74,40 +71,13 @@
   }
 
   .padding-title {
-    padding-top: 60px;
+    padding-top: 85px;
   }
 
-  .container-comments {
-    max-width: 100%;
-    padding-left: 0;
-    padding-right: 0;
+  .padding-title-concept {
+    padding-bottom: 20px;
+    padding-top: 70px;
   }
-
-  /* Center the h1 specifically */
-  .container-comments h1 {
-    text-align: center;
-    width: 100%;
-    margin-bottom: 2rem; /* Space below the title */
-  }
-
-  /* Flex layout only for the comments */
-  .comments {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2rem; /* Add space between comments */
-  }
-
-  .comments-category {
-    width: 30%; /* Set the width of each comment box */
-    text-align: center; /* Ensure content inside is centered */
-  }
-
-  .rectangle-yellow .carre {
-    width: 100px; /* Adjust decorative elements */
-    height: 100px;
-  }
-
 
   .images-trois-home{
     background-size: cover;
@@ -121,6 +91,6 @@
     font-weight: bold;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
     border-radius: 10px;
-    margin-top: 50px;
+    margin-top: 70px;
   }
 }

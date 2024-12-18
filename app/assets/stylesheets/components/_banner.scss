@@ -1,8 +1,13 @@
 /* General Mobile Styles - Already Applied */
 .banner {
-  height: 100vh; /* Full mobile viewport */
+  background-image: url('brina-blum-nWX4pKwzLoE-unsplash.jpg');
   background-size: cover;
   background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height: 100vh;
 }
 
 /* iPad (Tablets) */
@@ -16,7 +21,9 @@
 /* Desktop (MacBook Air and larger screens) */
 @media (min-width: 1025px) {
   .banner {
-      height: 70vh; /* Shorter banners on desktop */
+    background-image: url('s-group-official-10wiineWd_s-unsplash.jpg');
+    background-position: center; /* Centers the image */
+    box-shadow: 0 0 15px rgba(0,0,0,0.2); /* Keeps the shadow */
+    height: 70vh; /* Sets the height for desktops */
   }
-
 }

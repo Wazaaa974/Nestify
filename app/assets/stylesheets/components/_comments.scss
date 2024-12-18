@@ -18,9 +18,6 @@
   justify-content: center;
   text-align: center;
   box-shadow: rgba(65, 65, 65, 0.1) 0px 3px 6px, rgba(102, 102, 102, 0.2) 0px 3px 6px;
-  // p {
-  //   margin-top: revert;
-  //   margin-bottom: revert;
 }
 
 .comments {
@@ -41,4 +38,42 @@
   left: 10px;
   font-size: 24px;
   color: $blue; /* Couleur primaire */
+}
+
+
+@media (min-width: 1025px) {
+  .comments-category {
+    background-size: cover;
+    background-color: white;
+    background-position: center;
+    color: $dark-grey;
+    border-radius: 10px;
+    height: 200px;
+    width: 220px;
+    display: flex; /* Enable Flexbox */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    text-align: center; /* Center-align text */
+    box-shadow: rgba(65, 65, 65, 0.1) 0px 3px 6px, rgba(102, 102, 102, 0.2) 0px 3px 6px;
+  }
+    .comments {
+      display: flex; /* Activate Flexbox */
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically (if needed) */
+      flex-wrap: wrap; /* Wrap items to the next line if needed */
+      gap: 20px; /* Add spacing between items */
+      padding: 10px; /* Optional padding for the container */
+    }
+
+    .text-reviews {
+      font-size: 18px; /* Update font size for desktop */
+      display: flex; /* Ensure Flexbox for alignment */
+      align-items: center; /* Center vertically */
+      justify-content: center; /* Center horizontally */
+      text-align: center; /* Ensure proper text alignment */
+      width: 90%; /* Ensure text fills the container */
+      height: 80%; /* Ensure text is vertically aligned within the container */
+    }
+
+
 }
