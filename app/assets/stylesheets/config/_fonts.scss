@@ -33,3 +33,12 @@ h2, h3, h4, h5 {
 h6 {
   font-weight: 600 !important;
 }
+
+
+@media (min-width: 1025px) {
+  p {
+    font-weight: 200 !important; // Light weight
+    font-size: 25px;
+  }
+
+}
