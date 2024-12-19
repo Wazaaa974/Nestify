@@ -2,7 +2,6 @@
   background-size: cover;
   background-color: white;
   background-position: center;
-  // height: 180px;
   color: $dark-grey;
   font-size: 16px;
   border-radius: 10px;
@@ -50,19 +49,23 @@
     border-radius: 10px;
     height: 200px;
     width: 220px;
+    display: inline-block;
     display: flex; /* Enable Flexbox */
     align-items: center; /* Center content vertically */
     justify-content: center; /* Center content horizontally */
     text-align: center; /* Center-align text */
     box-shadow: rgba(65, 65, 65, 0.1) 0px 3px 6px, rgba(102, 102, 102, 0.2) 0px 3px 6px;
   }
+
     .comments {
       display: flex; /* Activate Flexbox */
       justify-content: center; /* Center horizontally */
       align-items: center; /* Center vertically (if needed) */
-      flex-wrap: wrap; /* Wrap items to the next line if needed */
-      gap: 20px; /* Add spacing between items */
+      gap: 5px; /* Add spacing between items */
       padding: 10px; /* Optional padding for the container */
+      overflow-x: auto; /* Scroll horizontal activé */
+      white-space: nowrap;
+      min-width: 100%;
     }
 
     .text-reviews {
