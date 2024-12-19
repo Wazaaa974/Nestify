@@ -11,18 +11,25 @@
   width: 40px;
 }
 
+.user-avatar {
+  height: 2.3em;
+  width: 2.3rem;
+  border-radius: 50%;
+  text-decoration: none;
+}
+
 .navbar-logo {
- width: 70px;
-}
+  width: 70px;
+ }
 
-.navbar-center {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10; /* Pour garantir qu'il reste visible si nécessaire */
-}
+ .navbar-center {
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+   z-index: 10; /* Pour garantir qu'il reste visible si nécessaire */
+ }
 
-.navbar.sticky-top {
+ .navbar.sticky-top {
   top: 0;
   /* S'assurer que la navbar est bien fixée en haut */
   z-index: 1030;
@@ -30,6 +37,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   /* Ombre pour l'effet sticky */
 }
+
 
 /* Pour s'assurer que l'input et le bouton de recherche sont bien alignés */
 
@@ -79,35 +87,4 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.navbar-toggler {
-  border: none; /* Supprime la bordure */
-  outline: none; /* Optionnel : supprime les contours lors de la sélection */
-  box-shadow: none; /* Supprime les ombres éventuelles */
-}
-
-.navbar-toggler:focus {
-  border: none; /* Retirer la bordure sur le focus */
-  outline: none; /* Retirer l'effet de focus visible */
-  box-shadow: none; /* Retirer l'ombre portée sur le focus */
-}
-
-.fa-user {
-  font-size: 23px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: $dark-grey;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-.fa-user:hover  {
-  color: $blue;
-  transform: scale(1.1);
-}
-.user-avatar {
-  height: 2.3em;
-  width: 2.3rem;
-  border-radius: 50%;
-  text-decoration: none;
 }

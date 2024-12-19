@@ -1,34 +1,39 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top">
-  <div class="container-fluid d-flex justify-content-between align-items-center">
-    <!-- Icone à gauche -->
- <div id="navbar-avatar" class="avatar-container">
-  <% if user_signed_in? %>
-    <!-- Si l'utilisateur est connecté -->
-    <%= link_to edit_user_registration_path, class: "avatar-link" do %>
-      <% if current_user.photo.attached? %>
-        <%= cl_image_tag current_user.photo.key, class: "user-avatar", transformation: { dpr:"auto", responsive: true, width:"auto", crop:"scale", gravity: :face} %>
-      <% else %>
-        <%= image_tag "pngtree-a-otter-on-tire-with-green-background-png-image_13046574.png", class: "avatar" %>
-        <%# <i class="fa-solid fa-user-circle fa-user" ></i> %>
-      <% end %>
-    <% end %>
-  <% else %>
-    <!-- Si l'utilisateur n'est pas connecté -->
-    <%= link_to new_user_session_path, class: "avatar-link" do %>
-      <i class="fa-solid fa-user fa-user"></i>
-    <% end %>
-  <% end %>
-</div>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item dropdown">
+            <% if current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle user-avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= image_tag "pngtree-a-otter-on-tire-with-green-background-png-image_13046574.png", class: "avatar dropdown-toggle user-avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to "Mon profil", edit_user_registration_path, class: "dropdown-item" %>
+              <%= link_to "Me deconnecter", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Me connecter", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
 
 
-    <!-- Logo centré -->
-    <div class="navbar-center mx-auto">
+     <div class="navbar-center mx-auto">
       <%= link_to root_path do %>
         <img src="<%= asset_path('Nestify.png') %>" alt="Nestify Logo" class="navbar-logo">
       <% end %>
     </div>
 
-      <!-- Loupe et barre de recherche -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+<!-- Loupe et barre de recherche -->
     <div class="d-flex align-items-center">
       <!-- Icône de loupe -->
       <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#searchBar" aria-expanded="false" aria-controls="searchBar">
@@ -44,26 +49,6 @@
       </div>
     </div>
 
-    <!-- Contenu collapsible -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", root_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Dashboard", dashboards_path, class: "nav-link" %>
-          </li>
-         <li class="nav-item">
-            <%= link_to "Se deconnecter",destroy_user_session_path, method: :delete, class: "nav-link" %>
-          </li>
-          <%= button_to 'Sign Out', destroy_user_session_path, method: :delete %>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
+
   </div>
 </div>
