@@ -11,6 +11,20 @@
   width: 40px;
 }
 
+.fa-user {
+  font-size: 23px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $dark-grey;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.fa-user:hover  {
+  color: $blue;
+  transform: scale(1.1);
+}
+
+
 .user-avatar {
   height: 2.3em;
   width: 2.3rem;
