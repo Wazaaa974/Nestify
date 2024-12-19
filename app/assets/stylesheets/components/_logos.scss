@@ -1,0 +1,13 @@
+.logos-concept{
+  font-size: 20px; /* Positionne le rectangle par rapport au conteneur parent */
+}
+
+
+/* Desktop (MacBook Air and larger screens) */
+@media (min-width: 1025px) {
+  .logos-concept{
+  font-size: 35px;
+  margin-top: 5px;
+}
+
+}

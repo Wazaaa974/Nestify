@@ -1,13 +1,7 @@
 <%# banner %>
 
-<div class="banner d-flex justify-content-center align-items-center" style="
-    background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= Cloudinary::Utils.cloudinary_url("brina-blum-nWX4pKwzLoE-unsplash_lc6xfb") %>');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    height: 100vh;">
-    <h1 class="text-center text-white">"Your style, your nest, effortlessly."</h1>
+<div class="banner d-flex justify-content-center align-items-center">
+  <h1 class="text-center text-white">"Your style, your nest, effortlessly."</h1>
 </div>
 
 <%# bouton %>
@@ -19,68 +13,72 @@
 </div>
 
 <%# images doubles en colonnes %>
-<div class="container position-relative">
+<div class="container">
   <div class="mb-4 mt-3 row row-cols-2 g-3 ">
     <div class="col">
       <div class="images-home">
-          <div class="images-home-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= Cloudinary::Utils.cloudinary_url("kyle-nieber-CYAzazB9RQ4-unsplash_m57rzq") %>')">
+          <div class="images-home-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= asset_path("kyle-nieber-CYAzazB9RQ4-unsplash.jpg") %>')">
           </div>
         </div>
       </div>
     <div class="col">
       <div class="images-home">
-        <div class="images-home-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= Cloudinary::Utils.cloudinary_url("steph-wilson-MhsCRIaVQW0-unsplash_xvh7fx") %>')">
+        <div class="images-home-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= asset_path("steph-wilson-MhsCRIaVQW0-unsplash.jpg") %>')">
         </div>
       </div>
     </div>
   </div>
-  <p class= "text-center" style="position: relative; top: 2px;"> <strong>"Nestify: votre assistant déco personnel"</strong></p>
-  <div class="rectangle">
-    <div class="carre" style="background-color:blue;"></div>
   </div>
-</div>
+  <div class ="position-relative">
+    <p class= "text-center nestify-assistant" style="position: relative; top: 2px;"> <strong>"Nestify: votre assistant déco personnel"</strong></p>
+    <div class="rectangle">
+    </div>
+  </div>
+
 
 
 <div class="container">
-  <h1 class= "text-center padding-title"> Le concept </h1>
+  <h1 class= "text-center padding-title-concept"> Le concept </h1>
     <div class="text-center">
-    <i class="fa-solid fa-clock mt-2 fs-4" style="color: #92cad7;"></i>
+    <i class="fa-solid fa-clock mt-2 logos-concept" style="color: #92cad7;"></i>
       <p>Gagnez du temps dans votre recherche d’aménagement.</p>
-    <i class="fa-solid fa-wallet fs-4" style="color: #ffe7b8;"></i>
+    <i class="fa-solid fa-wallet logos-concept" style="color: #ffe7b8;"></i>
       <p>Respectez votre budget sans compromis sur le style.</p>
-    <i class="fa-solid fa-heart fs-4" style="color: #8abecb;"></i>
+    <i class="fa-solid fa-heart logos-concept" style="color: #8abecb;"></i>
       <p>Enregistrez vos coups de coeur et personnalisez à l’infini.</p>
-   <i class="fa-solid fa-comments fs-4" style="color: #ffe7b8;"></i>
+   <i class="fa-solid fa-comments logos-concept " style="color: #ffe7b8;"></i>
     <p>Bénéficiez de recommandations personnalisées grâce à Nesty, qui comprend vos envies.</p>
   </div>
 </div>
 
-<div class="container mt-4 position-relative">
-  <div class="images-trois-home mb-1" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= Cloudinary::Utils.cloudinary_url("timothy-buck-psrloDbaZc8-unsplash_ma9il9") %>')">
+<div class="container mt-4">
+  <div class="images-trois-home mb-1" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= asset_path("timothy-buck-psrloDbaZc8-unsplash.jpg") %>')">
     </div>
-  <h1 class= "text-center mt-4"> Les packs tendances </h1>
+  <h1 class="text-center text-packs-tendances mt-4"> Les packs tendances </h1>
+  </div>
+  <div class="position-relative">
     <div class="rectangle-yellow">
-      <div class="carre" style="background-color:yellow;"></div>
     </div>
-</div>
+  </div>
+
 
 <%# packages en colonnes %>
 <div class="container mt-4">
   <div class="images-packages">
   <div class= "images-packages-grid">
-    <div class="images-packages-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= Cloudinary::Utils.cloudinary_url("spacejoy-AAy5l4-oFuw-unsplash_mfyrqk") %>')">
+    <div class="images-packages-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= asset_path("spacejoy-AAy5l4-oFuw-unsplash.jpg") %>')">
     </div>
 
-    <div class="images-packages-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= Cloudinary::Utils.cloudinary_url("spacejoy-IH7wPsjwomc-unsplash_r6tmdy") %>')">
+    <div class="images-packages-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= asset_path("spacejoy-IH7wPsjwomc-unsplash.jpg") %>')">
     </div>
 
-    <div class="images-packages-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= Cloudinary::Utils.cloudinary_url("spacejoy-YI2YkyaREHk-unsplash_yh5gh2") %>')">
+    <div class="images-packages-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= asset_path("spacejoy-YI2YkyaREHk-unsplash.jpg") %>')">
     </div>
 
-    <div class="images-packages-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= Cloudinary::Utils.cloudinary_url("spacejoy-YqFz7UMm8qE-unsplash_emvhrg") %>')">
+    <div class="images-packages-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= asset_path("spacejoy-YqFz7UMm8qE-unsplash.jpg") %>')">
     </div>
 
-    <div class="images-packages-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= Cloudinary::Utils.cloudinary_url("spacejoy-TKFskJy8PQ8-unsplash_hakyrc") %>')">
+    <div class="images-packages-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= asset_path("spacejoy-TKFskJy8PQ8-unsplash.jpg") %>')">
     </div>
     </div>
        <%# <p class= "text-center mt-1"> <strong> Le package salon Vintage Chic </strong> </p> %>
@@ -91,19 +89,19 @@
 <div class="container mt-4">
   <div class="images-packages">
     <div class= "images-packages-grid">
-      <div class="images-packages-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= Cloudinary::Utils.cloudinary_url("evan-wise-zevKQbUrcbw-unsplash_rbba9s") %>')">
+      <div class="images-packages-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= asset_path("evan-wise-zevKQbUrcbw-unsplash.jpg") %>')">
       </div>
 
-      <div class="images-packages-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= Cloudinary::Utils.cloudinary_url("minh-pham-7pCFUybP_P8-unsplash_jz00mg") %>')">
+      <div class="images-packages-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= asset_path("minh-pham-7pCFUybP_P8-unsplash.jpg") %>')">
       </div>
 
-      <div class="images-packages-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= Cloudinary::Utils.cloudinary_url("radoslav-bali-rtWu9kJ6TC0-unsplash_smmntj") %>')">
+      <div class="images-packages-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= asset_path("radoslav-bali-rtWu9kJ6TC0-unsplash.jpg") %>')">
       </div>
 
-      <div class="images-packages-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= Cloudinary::Utils.cloudinary_url("zane-persaud-V8CSUtCP04E-unsplash_oelkre") %>')">
+      <div class="images-packages-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= asset_path("zane-persaud-V8CSUtCP04E-unsplash.jpg") %>')">
       </div>
 
-      <div class="images-packages-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= Cloudinary::Utils.cloudinary_url("sven-brandsma-5PA3hf84iB0-unsplash_lbet3d") %>')">
+      <div class="images-packages-category" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= asset_path("sven-brandsma-5PA3hf84iB0-unsplash.jpg") %>')">
 
       </div>
     </div>
@@ -119,28 +117,28 @@
          <div class="quote-icon mb-2">
           <i class="fas fa-quote-left text-primary"></i>
         </div>
-        <p class= "mt-4"> <strong>  Nestify a fait de ma maison un vrai petit cocoon ! - Romain  </strong> </p>
+        <p class= "mt-4 text-reviews"> <strong>  Nestify a fait de ma maison un vrai petit cocoon ! - Romain  </strong> </p>
       </div>
 
       <div class="comments-category position-relative">
          <div class="quote-icon mb-2">
           <i class="fas fa-quote-left text-primary"></i>
         </div>
-        <p class= "mt-4"> <strong>  Un super service et de vrais conseils, je recommande. - Julie  </strong></p>
+        <p class= "mt-4 text-reviews"> <strong>  Un super service et de vrais conseils, je recommande. - Julie  </strong></p>
       </div>
 
       <div class="comments-category position-relative">
          <div class="quote-icon mb-2">
           <i class="fas fa-quote-left text-primary"></i>
         </div>
-        <p class= "mt-4"> <strong>  Génial, la déco chez moi est trop belle. Merci Nestify ! - Morgane  </strong> </p>
+        <p class= "mt-4 text-reviews"> <strong>  Génial, la déco chez moi est trop belle. Merci Nestify ! - Morgane  </strong> </p>
       </div>
 
       <div class="comments-category position-relative">
          <div class="quote-icon mb-2">
           <i class="fas fa-quote-left text-primary"></i>
         </div>
-        <p class= "mt-4"> <strong>  Une solution au top.
+        <p class= "mt-4 text-reviews"> <strong>  Une solution au top.
         J'ai gagné un temps considérable ! - Xavier </strong></p>
       </div>
 
@@ -148,7 +146,7 @@
            <div class="quote-icon mb-2">
           <i class="fas fa-quote-left text-primary"></i>
         </div>
-          <p class= "mt-4"> <strong>  Parfait ! - Thomas </strong>  </p>
+          <p class= "mt-4 text-reviews"> <strong>  Parfait ! - Thomas </strong>  </p>
       </div>
     </div>
   </div>
