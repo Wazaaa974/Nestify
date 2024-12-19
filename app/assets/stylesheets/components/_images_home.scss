@@ -39,14 +39,6 @@
   margin-top: 15px;
 }
 
-/* iPad (Tablets) */
-@media (min-width: 768px) and (max-width: 1024px) {
-
-  .images-home-category {
-      height: 300px; /* Slightly larger images */
-      width: 255px;
-  }
-
   .images-trois-home{
     background-size: cover;
     background-position: center;
@@ -61,7 +53,7 @@
     border-radius: 10px;
     margin-top: 35px;
   }
-}
+
 
 /* Desktop (MacBook Air and larger screens) */
 @media (min-width: 1025px) {
