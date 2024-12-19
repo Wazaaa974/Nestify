@@ -1,3 +1,13 @@
+
+.banner {
+
+  @media (min-width: 992px) {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+}
+
 /* General Mobile Styles - Already Applied */
 .banner {
   background-image: url('brina-blum-nWX4pKwzLoE-unsplash.jpg');
@@ -24,6 +34,6 @@
     background-image: url('s-group-official-10wiineWd_s-unsplash.jpg');
     background-position: center; /* Centers the image */
     box-shadow: 0 0 15px rgba(0,0,0,0.2); /* Keeps the shadow */
-    height: 70vh; /* Sets the height for desktops */
+    height: 100vh; /* Sets the height for desktops */
   }
 }
