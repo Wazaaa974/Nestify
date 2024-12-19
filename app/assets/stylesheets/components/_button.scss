@@ -64,24 +64,6 @@ color: $blue;
   border-color: $blue !important;
 }
 
-//  .btn-validate {
-
-//   background-color: $blue;
-//   color:  $dark-grey;
-//   border-radius: 25px; // Coins arrondis
-//   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // Ombre noire fixe
-//   color: white;
-
-//  }
-//  .btn-valider {
-
-//   background-color: $blue;
-//   color:  $dark-grey;
-//   border-radius: 25px; // Coins arrondis
-//   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // Ombre noire fixe
-//   color: white;
-//  }
-
 
  .btn-valider {
   background-color: $blue;
@@ -117,4 +99,31 @@ color: $blue;
   .btn-validate:hover {
     background-color: white;
     color: $blue;
+    }
+
+
+    @media (min-width: 1025px) {
+
+    .rounded-shadow-button {
+      background-color: $blue;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 20px;
+      font-weight: 500;
+      border-radius: 25px; // Coins arrondis
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // Ombre noire fixe
+      text-decoration: none;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding-top: 15px;
+      padding-bottom: 15px;
+
+      }
+    .fa-feather-pointed {
+      color: #ffffff;
+      transition: color 0.3s ease;
+      font-size: 20px;
+      }
     }
