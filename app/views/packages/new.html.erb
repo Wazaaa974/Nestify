@@ -27,7 +27,7 @@
     </div>
 
     <!-- Deuxième Carte -->
-    <div class="card-package mb-4 position-relative rounded shadow second-card d-none" data-package-form-target="secondQuestion">
+    <div class="card-package position-relative rounded shadow second-card d-none" data-package-form-target="secondQuestion">
       <div class="card-image-2">
         <div class="text-on-image text-center position-relative">
           <h1 class="card-title"> Les pièces</h1>
@@ -35,7 +35,7 @@
         </div>
       </div>
       <div class="card-body-2">
-        <ul class="list-group list-group-flush">
+        <ul class="list-group list-group-flush margin-card-2">
           <li class="list-group-item">
             <%= f.check_box :salon, { class: "form-check-input me-2", data: { action: "change->package-form#displaySliderSalon" } }, '1', '0' %>
             <%= f.label :salon, "Salon", class: "form-check-label" %>
@@ -60,18 +60,17 @@
     </div>
 
     <!-- Troisième Carte -->
-    <div class="card-package mb-4 position-relative rounded shadow third-card d-none" data-package-form-target="thirdQuestion">
+    <div class="card-package-3 mb-4 position-relative rounded shadow third-card d-none" data-package-form-target="thirdQuestion">
       <div class="card-image-3" >
         <div class="text-on-image text-center position-relative">
-          <h1 class="card-title">Ton budget</h1>
+          <h1 class="card-title-3">Ton budget</h1>
           <h2 class="card-subtitle">Quel est le budget que tu veux allouer à ton projet déco ?</h2>
         </div>
       </div>
-      <div class="card-body mx-15">
+      <div class="card-body-3 mx-15">
 
-
-    <div id="slider-container-chambre" data-package-form-target="sliderSalon" class = "d-none">
-      <div class="wrapper">
+        <div id="slider-container-chambre" data-package-form-target="sliderSalon" class = "d-none">
+         <div class="wrapper">
         <h5>Budget Salon</h5>
         <div class="values">
           <span id="range-salon-1">0</span>

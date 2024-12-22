@@ -10,19 +10,36 @@
   align-items: center;
   padding: 15px;
 }
+.card-package-3 {
+  width: 100%; /* Taille de la card */
+  height: 100%;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre noire */
+  overflow: hidden; /* Contenu reste dans les bords arrondis */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
 
 .card-body {
   background: white;
   padding: 1rem;
   border-radius: 0 0 15px 15px;
-  margin-top: 15px;
 }
 
 .card-body-2 {
   background: white;
   padding: 1rem;
   border-radius: 0 0 15px 15px;
-  margin-top: 15px;
+}
+
+.card-body-3 {
+  background: white;
+  border-radius: 0 0 15px 15px;
+  margin-top: 25px;
+  padding-bottom: 20px;
 }
 
 /* Texte sur l'image */
@@ -34,6 +51,12 @@
 }
 
 .card-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-top: 60px;
+}
+
+.card-title-3 {
   font-size: 1.8rem;
   font-weight: bold;
   margin-top: 60px;
@@ -93,6 +116,10 @@
   overflow: hidden;
 }
 
+.margin-card-2{
+  margin-bottom: 18px;
+}
+
 .card-image-3{
   border-radius: 10px;
   position: absolute;
@@ -125,7 +152,7 @@
 @media (min-width: 1025px) {
   .card-package {
     width: 100%; /* Taille de la card */
-    height: 570px;
+    height: 790px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre noire */
@@ -133,7 +160,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 15px;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .card-image{
     border-radius: 10px;
@@ -141,7 +170,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 300px;
+    height: 530px;
     pointer-events: none;
     background-image: url('radoslav-bali-rtWu9kJ6TC0-unsplash.jpg');
     background-size: cover;
@@ -157,7 +186,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 300px;
+    height: 525px;
     pointer-events: none;
     background-image: url('cameron-smith-CTxNVSiWZBw-unsplash.jpg');
     background-size: cover;
@@ -173,7 +202,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 300px;
+    height: 530px;
     pointer-events: none;
     background-image: url('bailey-alexander-cYeCxtKpTTQ-unsplash.jpg');
     background-size: cover;
@@ -194,7 +223,13 @@
 .card-title {
   font-size: 1.8rem;
   font-weight: bold;
-  margin-top: 115px;
+  margin-top: 230px;
+}
+
+.card-title-3 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-top: 230px;
 }
 
 .card-subtitle {
@@ -207,14 +242,35 @@
   background: white;
   padding: 1rem;
   border-radius: 0 0 15px 15px;
-  margin-top: 15px;
 }
 
 .card-body-2 {
   background: white;
   padding: 0;
   border-radius: 0 0 15px 15px;
-  margin-top: 5px;
+  margin-top: 15px;
+}
+
+.card-body-3 {
+  background: white;
+  border-radius: 0 0 15px 15px;
+  margin-top: 25px;
+  padding-bottom: 20px;
+}
+
+.card-package-3 {
+  width: 100%; /* Taille de la card */
+  height: auto;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre noire */
+  overflow: hidden; /* Contenu reste dans les bords arrondis */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
   }

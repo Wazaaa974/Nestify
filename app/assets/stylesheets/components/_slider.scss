@@ -158,3 +158,76 @@ bottom: -14px;
 left: 0;
 right: 0;
 }
+
+@media (min-width: 1025px) {
+
+  .slider-chambre-track{
+    width: 100%; //problème quand on met 100%
+    height: 5px;
+   //  background-color: $light-grey;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    border-radius: 5px;
+    left: 0;
+   }
+
+
+   .slider-salon-track{
+     width: 100%; //problème quand on met 100%
+     height: 5px;
+    //  background-color: $light-grey;
+     position: absolute;
+     margin: auto;
+     top: 0;
+     bottom: 0;
+     border-radius: 5px;
+     left: 0;
+    }
+
+    .slider-sdb-track{
+      width: 100%; //problème quand on met 100%
+      height: 5px;
+     //  background-color: $light-grey;
+      position: absolute;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+      border-radius: 5px;
+      left: 0;
+     }
+
+
+     .slider-cuisine-track{
+      width: 100%; //problème quand on met 100%
+      height: 5px;
+     //  background-color: $light-grey;
+      position: absolute;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+      border-radius: 5px;
+      left: 0;
+     }
+
+     .values{
+      background-color: $yellow;
+      width: 20%;
+      position: relative;
+      margin: auto;
+      padding: 10px 4px;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: 300;
+      font-size: 16px;
+      color: $dark-grey;
+    }
+
+    .wrapper-container {
+      position: relative;
+      width: 60%;
+      height: 50px;
+      border-radius: 10px;
+    }
+}
