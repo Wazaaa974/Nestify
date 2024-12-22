@@ -5,15 +5,7 @@
 
     <!-- Première Carte -->
     <div class="card-package mb-4 position-relative rounded shadow" data-package-form-target="firstQuestion">
-      <div class="card-image blurred-image" style="background-image:url('<%= asset_path("radoslav-bali-rtWu9kJ6TC0-unsplash.jpg") %>'); background-size: cover; background-position: center; height: 250px; border-radius: 10px; position: relative; overflow: hidden;">
-          <div style="position: absolute;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              background-color: rgba(255, 255, 255, 0.5);
-              pointer-events: none;">
-          </div>
+      <div class="card-image">
         <div class="text-on-image text-center">
           <h1 class="card-title">Tes goûts</h1>
           <h2 class="card-subtitle">Comment te définis-tu en matière de décoration et ameublement ?</h2>
@@ -36,21 +28,13 @@
 
     <!-- Deuxième Carte -->
     <div class="card-package mb-4 position-relative rounded shadow second-card d-none" data-package-form-target="secondQuestion">
-      <div class="card-image blurred-image" style="background-image:url('<%= asset_path("cameron-smith-CTxNVSiWZBw-unsplash.jpg") %>'); background-size: cover; background-position: center; height: 250px; border-radius: 1Opx;position: relative;overflow: hidden;">
-          <div style="position: absolute;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              background-color: rgba(255, 255, 255, 0.5);
-              pointer-events: none;">
-          </div>
+      <div class="card-image-2">
         <div class="text-on-image text-center position-relative">
           <h1 class="card-title"> Les pièces</h1>
           <h2 class="card-subtitle">Quelle pièce veux-tu meubler et décorer ?</h2>
         </div>
       </div>
-      <div class="card-body">
+      <div class="card-body-2">
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
             <%= f.check_box :salon, { class: "form-check-input me-2", data: { action: "change->package-form#displaySliderSalon" } }, '1', '0' %>
@@ -69,23 +53,15 @@
             <%= f.label :cuisine, "Cuisine", class: "form-check-label" %>
           </li>
         </ul>
-        <div class="text-center mt-3">
-         <span class="btn btn-valider mt-3" data-action="click->package-form#displayThirdQuestion"<%=data-action="click->package-form#displaySliderSalon" if params[:salon] == '1'%>>Valider</span>
+        <div class="text-center">
+         <span class="btn btn-valider" data-action="click->package-form#displayThirdQuestion"<%=data-action="click->package-form#displaySliderSalon" if params[:salon] == '1'%>>Valider</span>
         </div>
       </div>
     </div>
 
     <!-- Troisième Carte -->
     <div class="card-package mb-4 position-relative rounded shadow third-card d-none" data-package-form-target="thirdQuestion">
-      <div class="card-image blurred-image" style="background-image:url('<%= asset_path("bailey-alexander-cYeCxtKpTTQ-unsplash.jpg") %>'); background-size: cover; background-position: center; height: 250px; border-radius: 10px;position: relative; overflow: hidden;">
-          <div style="position: absolute;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              background-color: rgba(255, 255, 255, 0.5);
-              pointer-events: none;">
-          </div>
+      <div class="card-image-3" >
         <div class="text-on-image text-center position-relative">
           <h1 class="card-title">Ton budget</h1>
           <h2 class="card-subtitle">Quel est le budget que tu veux allouer à ton projet déco ?</h2>
