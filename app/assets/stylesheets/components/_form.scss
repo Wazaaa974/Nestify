@@ -27,14 +27,19 @@
   background: white;
   padding: 1rem;
   border-radius: 0 0 15px 15px;
-  margin-top: 15px;
 }
 
 .card-body-2 {
   background: white;
   padding: 1rem;
   border-radius: 0 0 15px 15px;
-  margin-top: 15px;
+}
+
+.card-body-3 {
+  background: white;
+  border-radius: 0 0 15px 15px;
+  margin-top: 25px;
+  padding-bottom: 20px;
 }
 
 /* Texte sur l'image */
@@ -109,6 +114,10 @@
   border-radius: 10px;
   position: relative;
   overflow: hidden;
+}
+
+.margin-card-2{
+  margin-bottom: 18px;
 }
 
 .card-image-3{
@@ -217,6 +226,12 @@
   margin-top: 230px;
 }
 
+.card-title-3 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-top: 230px;
+}
+
 .card-subtitle {
   font-size: 1.2rem;
   margin-top: 0.5rem;
@@ -239,13 +254,13 @@
 .card-body-3 {
   background: white;
   border-radius: 0 0 15px 15px;
-  margin-top: 15px;
+  margin-top: 25px;
   padding-bottom: 20px;
 }
 
 .card-package-3 {
   width: 100%; /* Taille de la card */
-  height: 1120px;
+  height: auto;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre noire */
@@ -257,12 +272,5 @@
   padding-left: 15px;
   padding-right: 15px;
 }
-
-.card-title-3 {
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-top: 205px;
-}
-
 
   }
