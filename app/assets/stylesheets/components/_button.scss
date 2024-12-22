@@ -126,4 +126,19 @@ color: $blue;
       transition: color 0.3s ease;
       font-size: 20px;
       }
+
+      .btn-valider {
+        background-color: $blue;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: 500;
+        border-radius: 25px; // Coins arrondis
+        cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // Ombre noire fixe
+        text-decoration: none;
+        margin-top: 10px;
+      }
+
     }
