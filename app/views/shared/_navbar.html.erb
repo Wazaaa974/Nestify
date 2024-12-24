@@ -1,30 +1,4 @@
-<<<<<<< HEAD
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top">
-  <div class="container-fluid">
-     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item dropdown">
-            <% if current_user.photo.attached? %>
-              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle user-avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <% else %>
-              <%= image_tag "pngtree-a-otter-on-tire-with-green-background-png-image_13046574.png", class: "avatar dropdown-toggle user-avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <% end %>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to "Mon profil", edit_user_registration_path, class: "dropdown-item" %>
-              <%= link_to "Me deconnecter", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-             <%= link_to new_user_session_path, class: "avatar-link" do %>
-             <i class="fa-solid fa-user fa-user"></i>
-             <% end %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-=======
+
 <div class="navbar navbar-light navbar-lewagon">
   <div class="container-fluid d-flex align-items-center justify-content-between">
     <!-- Icon on the left -->
@@ -41,7 +15,6 @@
             <%= link_to "Me deconnecter", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
           </div>
         </li>
->>>>>>> 3f7b1b6484bede8f6a94e2d262050ed1b12cb1f2
 
       <% else %>
         <li class="nav-item">
