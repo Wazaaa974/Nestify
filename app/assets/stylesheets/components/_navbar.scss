@@ -53,6 +53,14 @@
 }
 
 
+.navbar-nav .dropdown-menu {
+  position: absolute !important;
+  top: calc(100% + 5px); /* Adjust spacing as needed */
+  left: 0;
+  z-index: 1055;
+}
+
+
 /* Pour s'assurer que l'input et le bouton de recherche sont bien alignés */
 
 #searchBar input {
