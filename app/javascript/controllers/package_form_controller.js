@@ -108,3 +108,4 @@ export default class extends Controller {
 }
 
 // Remove window.onload as Stimulus takes care of initializing behaviors
+
