@@ -1,48 +1,44 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item dropdown">
-            <% if current_user.photo.attached? %>
-              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle user-avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <% else %>
-              <%= image_tag "pngtree-a-otter-on-tire-with-green-background-png-image_13046574.png", class: "avatar dropdown-toggle user-avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <% end %>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to "Mon profil", edit_user_registration_path, class: "dropdown-item" %>
-              <%= link_to "Me deconnecter", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-             <%= link_to new_user_session_path, class: "avatar-link" do %>
-             <i class="fa-solid fa-user fa-user"></i>
-             <% end %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
+<div class="navbar navbar-light navbar-lewagon">
+  <div class="container-fluid d-flex align-items-center justify-content-between">
+    <!-- Icon on the left -->
+    <ul class="navbar-nav me-auto d-flex align-items-center">
+      <% if user_signed_in? %>
+        <li class="nav-item dropdown">
+          <% if current_user.photo.attached? %>
+            <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle user-avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <%= image_tag "pngtree-a-otter-on-tire-with-green-background-png-image_13046574.png", class: "avatar dropdown-toggle user-avatar", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "Mon profil", edit_user_registration_path, class: "dropdown-item" %>
+            <%= link_to "Me deconnecter", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+          </div>
+        </li>
 
+      <% else %>
+        <li class="nav-item">
+          <%= link_to new_user_session_path, class: "avatar-link" do %>
+            <i class="fa-solid fa-user fa-user"></i>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
 
-     <div class="navbar-center mx-auto">
+    <!-- Logo in the center -->
+    <div class="navbar-center mx-auto text-center">
       <%= link_to root_path do %>
         <img src="<%= asset_path('Nestify.png') %>" alt="Nestify Logo" class="navbar-logo">
       <% end %>
     </div>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-<!-- Loupe et barre de recherche -->
+    <!-- Search magnifier on the right -->
     <div class="d-flex align-items-center">
-      <!-- Icône de loupe -->
+      <!-- Magnifier icon -->
       <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#searchBar" aria-expanded="false" aria-controls="searchBar">
         <i class="fa fa-search"></i>
       </button>
 
-      <!-- Barre de recherche cachée -->
+      <!-- Hidden search bar -->
       <div class="collapse" id="searchBar">
         <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Recherche" aria-label="Search">
