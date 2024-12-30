@@ -46,4 +46,21 @@
   margin-right: 0;
   flex: 0 0 calc(100%/3);
 }
+
+.carousel-control-prev,
+.carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.carousel-control-prev {
+  left: -50px; /* Ajustez selon vos besoins */
+}
+
+.carousel-control-next {
+  right: -50px; /* Ajustez selon vos besoins */
+}
+
 }
