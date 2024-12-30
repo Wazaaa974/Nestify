@@ -34,3 +34,16 @@
   transition: transform 0.2s ease-in-out; /* Animation fluide */
 }
 
+
+/* Desktop (MacBook Air and larger screens) */
+@media (min-width: 1025px) {
+.carousel-inner {
+  display: flex;
+}
+
+.carousel-item {
+  display: block;
+  margin-right: 0;
+  flex: 0 0 calc(100%/3);
+}
+}

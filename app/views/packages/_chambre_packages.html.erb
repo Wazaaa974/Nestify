@@ -11,7 +11,7 @@
         <% else %>
           <% package_chambre.each_with_index do |package, index| %>
             <div class="carousel-item <%= 'active' if index == 0 %>">
-              <div class="card mx-auto style-package-index" style="max-width: 300px;">
+              <div class="card mx-auto style-package-index position-relative" style="max-width: 300px;">
               <%= cl_image_tag package.products.first.photo.key, class:"card-img-top picture-card-index"%>
                 <div class="card-body-index d-flex flex-column">
                   <h5 class="card-title-index"><%= package.name %></h5>
@@ -21,7 +21,7 @@
                   </div>
                   <% proposal = Proposal.find_by(user: current_user, package: package, favorite: true) %>
                   <% path = dashboard ? proposal_path(proposal) : package_path(package, params: params)  %>
-                  <%= link_to path, class: "btn rounded-shadow-button mt-2 mb-4" do %>
+                  <%= link_to path, class: "btn rounded-shadow-button-card mt-2 mb-4" do %>
                     Voir le pack
                   <% end %>
                   <% if dashboard %>
