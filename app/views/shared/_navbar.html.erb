@@ -1,5 +1,5 @@
 
-<div class="navbar navbar-light navbar-lewagon">
+<div class="navbar navbar-light navbar-lewagon sticky-top">
   <div class="container-fluid d-flex align-items-center justify-content-between">
     <!-- Icon on the left -->
     <ul class="navbar-nav me-auto d-flex align-items-center">
@@ -12,7 +12,7 @@
           <% end %>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to "Mon profil", edit_user_registration_path, class: "dropdown-item" %>
-            <%= link_to "Me deconnecter", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+            <%= link_to "Me déconnecter", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
           </div>
         </li>
 

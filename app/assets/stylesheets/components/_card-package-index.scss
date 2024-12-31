@@ -102,6 +102,7 @@
 
 .style-package-index {
   border-radius: 10px;
+  // height: 552px;
 }
 
 .picture-card-index {
@@ -119,4 +120,58 @@
   align-self: flex-end; /* Align the trash icon to the right */
   cursor: pointer; /* Pointer cursor for better UX */
   margin-top : 7px;
+}
+
+.rounded-shadow-button-card {
+  background-color: $blue;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 25px; // Coins arrondis
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // Ombre noire fixe
+  text-decoration: none;
+}
+
+.rounded-shadow-button-card:hover {
+  background-color: white;
+  color: $blue;
+  }
+
+
+/* Desktop (MacBook Air and larger screens) */
+@media (min-width: 1025px) {
+
+.rounded-shadow-button-card {
+  background-color: $blue;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 25px; // Coins arrondis
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); // Ombre noire fixe
+  text-decoration: none;
+  position: absolute;
+  bottom: 0px;
+  justify-content: center;
+  left: 35px;
+  right: 35px;
+}
+
+.rounded-shadow-button-card:hover {
+  background-color: white;
+  color: $blue;
+  }
+
+  .card-body-index {
+    background: white;
+    padding: 1rem;
+    border-top: 1px solid #ddd;
+    border-radius: 0 0 10px 10px;
+    height: 270px;
+  }
 }
