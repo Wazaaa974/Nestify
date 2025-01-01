@@ -19,6 +19,7 @@
               <div class="price-index mb-2">
                 <h6>Prix : <%= package.budget.round %>€ </h6>
               </div>
+               <% proposal = Proposal.find_by(user: current_user, package: package, favorite: true) %>
               <% path = dashboard ? proposal_path(proposal) : package_path(package, params: params) %>
               <%= link_to path, class: "btn rounded-shadow-button-card mt-2 mb-4" do %>
                 Voir le pack
