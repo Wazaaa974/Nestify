@@ -2,61 +2,58 @@
       <h1 class="mt-4">Cuisine</h1>
     </div>
 
-    <hr class="custom-hr">
+    <hr class="custom-hr mt-1">
 
     <div id="cuisineCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <% if package_cuisine.is_a?(String) %>
-          <p class="mt-2"><%= package_cuisine %></p>
-        <% else %>
-          <% package_cuisine.each_with_index do |package, index| %>
-            <div class="carousel-item <%= 'active' if index == 0 %>">
-              <div class="card mx-auto style-package-index" style="max-width: 300px;">
-                <%= cl_image_tag package.products.first.photo.key, class:"card-img-top picture-card-index"%>
-                <div class="card-body-index d-flex flex-column">
-                  <h5 class="card-title-index"><%= package.name %></h5>
-                  <p class="card-text-index"><%= package.description %></p>
-                  <div class="price-index mb-2">
-                    <h6>Prix : <%= package.budget.round %>€ </h6>
+  <div id="carousel-inner-cuisine" class="carousel-inner">
+    <% if package_cuisine.is_a?(String) %>
+      <p class="mt-2"><%= package_cuisine %></p>
+    <% else %>
+      <% package_cuisine.each_with_index do |package, index| %>
+        <div class="carousel-item <%= 'active' if index == 0 %>">
+          <div class="card mx-auto style-package-index position-relative" style="max-width: 300px;">
+            <%= cl_image_tag package.products.first.photo.key, class:"card-img-top picture-card-index"%>
+            <div class="card-body-index d-flex flex-column">
+              <h5 class="card-title-index"><%= package.name %></h5>
+              <p class="card-text-index"><%= package.description %></p>
+              <div class="price-index mb-2">
+                <h6>Prix : <%= package.budget.round %>€ </h6>
+              </div>
+              <% path = dashboard ? proposal_path(proposal) : package_path(package, params: params) %>
+              <%= link_to path, class: "btn rounded-shadow-button-card mt-2 mb-4" do %>
+                Voir le pack
+              <% end %>
+              <% if dashboard %>
+              <div class="d-flex justify-content-between align-items-center">
+                <!-- Checkbox and Label -->
+                <% proposal = Proposal.find_by(package: package, user: current_user) %>
+                <%= simple_form_for proposal, url: proposal_path(proposal), method: :delete do |f| %>
+                  <div class="d-flex align-items-center gap-2">
+                    <%= f.input :bought, as: :boolean, label: "Acheté", input_html: { id: "card-checkbox-#{package.id}", class: "card-checkbox" } %>
                   </div>
-                  <% proposal = Proposal.find_by(user: current_user, package: package, favorite: true) %>
-                  <% path = dashboard ? proposal_path(proposal) : package_path(package, params: params)  %>
-                  <%= link_to path, class: "btn rounded-shadow-button-card mt-2 mb-4" do %>
-                    Voir le pack
-                  <% end %>
-                    <% if dashboard %>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <!-- Checkbox and Label -->
-                        <% proposal = Proposal.find_by(package: package, user: current_user) %>
-                        <%= simple_form_for proposal, url: proposal_path(proposal), method: :delete, html: { data: { controller: "budget", budget_bird_value: image_path("freepik-export-20241102225506weBX.png") } } do |f| %>
-                        <div class="d-flex align-items-center gap-2">
-                          <%= f.input :bought, as: :boolean, label: "Acheté", input_html: { id: "card-checkbox-#{package.id}", class: "card-checkbox ", data: { action: "change->budget#destroy" } } %>
-                        </div>
-                      <% end %>
-
-                      <!-- Trash Icon -->
-                        <div>
-                            <%= link_to dashboards_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-                            <i class="fa-solid fa-trash trash-dashboard"></i>
-                            <% end %>
-                        </div>
-                    </div>
+                <% end %>
+                <!-- Trash Icon -->
+                <div>
+                  <%= link_to proposal_path(proposal), data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr ?" } do %>
+                    <i class="fa-solid fa-trash trash-dashboard"></i>
                   <% end %>
                 </div>
               </div>
+              <% end %>
             </div>
-          <% end %>
-           <button class="carousel-control-prev black-arrows" type="button" data-bs-target="#cuisineCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Précédent</span>
-      </button>
-      <button class="carousel-control-next black-arrows" type="button" data-bs-target="#cuisineCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Suivant</span>
-      </button>
-        <% end %>
-      </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 
-      <!-- Carousel Controls -->
-
-    </div>
+  <!-- Carousel Controls -->
+  <button id="carousel-control-prev-cuisine" class="carousel-control-prev" type="button" data-bs-target="#cuisineCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Précédent</span>
+  </button>
+  <button id="carousel-control-next-cuisine" class="carousel-control-next" type="button" data-bs-target="#cuisineCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Suivant</span>
+  </button>
+</div>
