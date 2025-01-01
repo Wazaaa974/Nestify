@@ -5,7 +5,7 @@
     <hr class="custom-hr mt-1">
 
     <div id="chambreCarousel" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
+  <div id="carousel-inner-chambre" class="carousel-inner">
     <% if package_chambre.is_a?(String) %>
       <p class="mt-2"><%= package_chambre %></p>
     <% else %>
@@ -19,6 +19,7 @@
               <div class="price-index mb-2">
                 <h6>Prix : <%= package.budget.round %>€ </h6>
               </div>
+               <% proposal = Proposal.find_by(user: current_user, package: package, favorite: true) %>
               <% path = dashboard ? proposal_path(proposal) : package_path(package, params: params) %>
               <%= link_to path, class: "btn rounded-shadow-button-card mt-2 mb-4" do %>
                 Voir le pack
@@ -48,15 +49,12 @@
   </div>
 
   <!-- Carousel Controls -->
-  <button class="carousel-control-prev" type="button" data-bs-target="#chambreCarousel" data-bs-slide="prev">
+  <button id="carousel-control-prev-chambre" class="carousel-control-prev" type="button" data-bs-target="#chambreCarousel" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Précédent</span>
   </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#chambreCarousel" data-bs-slide="next">
+  <button id="carousel-control-next-chambre" class="carousel-control-next" type="button" data-bs-target="#chambreCarousel" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Suivant</span>
   </button>
 </div>
-
-
-   
