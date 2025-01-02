@@ -110,3 +110,122 @@
   align-items: center;
   justify-content: center;
 }
+
+@media (min-width: 1025px) {
+
+  .navbar-lewagon {
+    justify-content: space-between;
+    background: white;
+  }
+
+  .navbar-lewagon .navbar-collapse {
+    flex-grow: 0;
+  }
+
+  .navbar-lewagon .navbar-brand img {
+    width: 40px;
+  }
+
+  .fa-user {
+    font-size: 23px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $dark-grey;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  .fa-user:hover  {
+    color: $blue;
+    transform: scale(1.1);
+  }
+
+
+  .user-avatar {
+    height: 2.3em;
+    width: 2.3rem;
+    border-radius: 50%;
+    text-decoration: none;
+  }
+
+  .navbar-logo {
+    width: 70px;
+   }
+
+   .navbar-center {
+     position: absolute;
+     left: 50%;
+     transform: translateX(-50%);
+     z-index: 10; /* Pour garantir qu'il reste visible si nécessaire */
+   }
+
+   .navbar.sticky-top {
+    top: 0;
+    /* S'assurer que la navbar est bien fixée en haut */
+    z-index: 1030;
+    /* Au-dessus des autres éléments */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Ombre pour l'effet sticky */
+  }
+
+
+  .navbar-nav .dropdown-menu {
+    position: absolute !important;
+    top: calc(100% + 5px); /* Adjust spacing as needed */
+    left: 0;
+    z-index: 1055;
+  }
+
+
+  /* Pour s'assurer que l'input et le bouton de recherche sont bien alignés */
+
+  #searchBar input {
+    width: 200px;
+    /* Ajustez la largeur en fonction de vos préférences */
+    margin-right: 10px;
+  }
+
+  #searchBar button {
+    background-color: $blue;
+    color: white;
+    border: none;
+  }
+
+  #searchBar button:hover {
+    background-color: $blue;
+  }
+
+  .navbar .fa-search {
+    font-size: 1.5rem;
+    /* Augmente la taille de l'icône, ajustez selon votre préférence */
+    color: #333333;
+    /* Gris foncé */
+  }
+
+  .navbar .fa-search:hover {
+    color: $blue; /* Change la couleur lors du survol (hover) */
+  }
+
+  /* Positionner la barre de recherche sous le logo */
+  #searchBar {
+    position: absolute;
+    top: 55px;
+    /* Ajustez cette valeur selon la hauteur de votre navbar */
+    left: 0;
+    right: 0;
+    background-color: white;
+    z-index: 1040;
+    /* S'assurer que la barre de recherche est au-dessus du contenu */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    /* Ombre légère pour la barre de recherche */
+    padding: 10px 20px;
+  }
+
+  #searchBar form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+}
+
+
