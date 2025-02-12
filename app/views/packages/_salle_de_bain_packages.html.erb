@@ -30,7 +30,7 @@
                 <% proposal = Proposal.find_by(package: package, user: current_user) %>
                 <%= simple_form_for proposal, url: proposal_path(proposal), method: :delete do |f| %>
                   <div class="d-flex align-items-center gap-2">
-                    <%= f.input :bought, as: :boolean, label: "Acheté", input_html: { id: "card-checkbox-#{package.id}", class: "card-checkbox" } %>
+                    <%= f.input :bought, as: :boolean, label: "Acheté", input_html: { id: "card-checkbox-#{package.id}", class: "card-checkbox-dashboard" }, label_html: { class: "checkbox-label-dashboard" } %>
                   </div>
                 <% end %>
                 <!-- Trash Icon -->
