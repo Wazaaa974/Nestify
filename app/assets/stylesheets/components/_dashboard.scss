@@ -75,3 +75,20 @@
   font-size: 1.1rem; /* Texte plus grand */
   font-weight: 500; /* Texte en gras */
 }
+
+@media (min-width: 1025px) {
+
+  .card-budget {
+    background-color: $blue; /* Dégradé bleu */
+    border-radius: 25px; /* Coins arrondis */
+    padding: 10px; /* Espace intérieur */
+    padding-right: 5px;
+    padding-left: 5px;
+    margin: 30px auto;
+    // margin: 9% auto; /* Centré et espacé */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Ombre douce */
+    max-width: 290px; /* Limite la largeur */
+    text-align: center; /* Centre le contenu */
+  }
+
+}

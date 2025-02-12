@@ -9,6 +9,9 @@
     <%= javascript_importmap_tags %>
     <!-- Ajoutez ceci dans votre <head> si vous utilisez Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <%= javascript_include_tag "https://code.jquery.com/jquery-3.7.1.min.js" %>
+    <%= javascript_include_tag "application" %>
+
   </head>
   <body>
     <%= render "shared/navbar" %>

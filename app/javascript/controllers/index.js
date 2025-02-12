@@ -1,179 +1,68 @@
-// Import and register all your controllers from the importmap via controllers/**/*_controller
-import { application } from "controllers/application"
-import { eagerLoadControllersFrom } from "@hotwired/stimulus-loading"
-eagerLoadControllersFrom("controllers", application)
+import { application } from "controllers/application";
+import { eagerLoadControllersFrom } from "@hotwired/stimulus-loading";
+eagerLoadControllersFrom("controllers", application);
 
+if (window.matchMedia("(min-width:1025px)").matches) {
 
-if(window.matchMedia("(min-width:1025px)").matches){
+  // Fonction pour initialiser chaque carousel
+  function initializeCarousel(carouselId, controlPrevId, controlNextId) {
+    var $carouselInner = $(carouselId);
+    var $carouselItems = $(carouselId + ' .carousel-item');
+    var cardWidth = $carouselItems.width();
+    var scrollPosition = 0;
+    var isAnimating = false; // Variable pour empêcher les clics rapides
 
+    // Clone les premiers et derniers éléments pour créer une boucle
+    $carouselInner.append($carouselItems.clone());
+    $carouselInner.prepend($carouselItems.clone());
 
-$(document).ready(function () {
-  var $carouselInnerChambre = $('#carousel-inner-chambre');
-  var $carouselItemsChambre = $('.carousel-item');
-  var cardWidthChambre = $carouselItemsChambre.width();
-  var scrollPositionChambre = 0;
+    // Ajuste la position initiale pour éviter un saut au début
+    var initialOffset = $carouselItems.length * cardWidth;
+    $carouselInner.scrollLeft(initialOffset);
+    scrollPosition = initialOffset;
 
-  // Clone les premiers et derniers éléments pour créer une boucle
-  $carouselInnerChambre.append($carouselItemsChambre.clone());
-  $carouselInnerChambre.prepend($carouselItemsChambre.clone());
+    // Fonction pour effectuer l'animation de défilement
+    function scrollToPosition(targetPosition) {
+      isAnimating = true; // Bloque l'animation pendant qu'une animation est en cours
+      $carouselInner.animate({ scrollLeft: targetPosition }, 600, function () {
+        // Réinitialise si on dépasse la fin des clones
+        if (targetPosition >= (initialOffset + $carouselItems.length * cardWidth)) {
+          scrollPosition = initialOffset;
+          $carouselInner.scrollLeft(scrollPosition);
+        }
+        // Réinitialise si on dépasse le début des clones
+        if (targetPosition <= 0) {
+          scrollPosition = initialOffset + ($carouselItems.length - 1) * cardWidth;
+          $carouselInner.scrollLeft(scrollPosition);
+        }
+        isAnimating = false; // L'animation est terminée, on permet à un autre clic d'être pris en compte
+      });
+    }
 
-  // Ajuste la position initiale pour éviter un saut au début
-  var initialOffsetChambre = $carouselItemsChambre.length * cardWidthChambre;
-  $carouselInnerChambre.scrollLeft(initialOffsetChambre);
-  scrollPositionChambre = initialOffsetChambre;
-
-  // Bouton "next"
-  $('#carousel-control-next-chambre').on('click', function () {
-    scrollPositionChambre += cardWidthChambre;
-    $carouselInnerChambre.animate({ scrollLeft: scrollPositionChambre }, 600, function () {
-      // Réinitialise si on dépasse la fin des clones
-      if (scrollPositionChambre >= (initialOffsetChambre + $carouselItemsChambre.length * cardWidthChambre)) {
-        scrollPositionChambre = initialOffsetChambre;
-        $carouselInnerChambre.scrollLeft(scrollPositionChambre);
+    // Bouton "next"
+    $(controlNextId).on('click', function () {
+      if (!isAnimating) { // Vérifie si une animation est en cours avant de déclencher le clic
+        scrollPosition += cardWidth;
+        scrollToPosition(scrollPosition);
       }
     });
-  });
 
-  // Bouton "prev"
-  $('#carousel-control-prev-chambre').on('click', function () {
-    scrollPositionChambre -= cardWidthChambre;
-    $carouselInnerChambre.animate({ scrollLeft: scrollPositionChambre }, 600, function () {
-      // Réinitialise si on dépasse le début des clones
-      if (scrollPositionChambre <= 0) {
-        scrollPositionChambre = initialOffsetChambre + ($carouselItemsChambre.length - 1) * cardWidthChambre;
-        $carouselInnerChambre.scrollLeft(scrollPositionChambre);
+    // Bouton "prev"
+    $(controlPrevId).on('click', function () {
+      if (!isAnimating) { // Vérifie si une animation est en cours avant de déclencher le clic
+        scrollPosition -= cardWidth;
+        scrollToPosition(scrollPosition);
       }
     });
+  }
+
+  // Écoute l'événement turbo:load pour initialiser les carousels après chaque mise à jour de page
+  document.addEventListener('turbo:load', function() {
+    // Initialisation des carousels pour chaque section
+    initializeCarousel('#carousel-inner-cuisine', '#carousel-control-prev-cuisine', '#carousel-control-next-cuisine');
+    initializeCarousel('#carousel-inner-sdb', '#carousel-control-prev-sdb', '#carousel-control-next-sdb');
+    initializeCarousel('#carousel-inner-salon', '#carousel-control-prev-salon', '#carousel-control-next-salon');
+    initializeCarousel('#carousel-inner-chambre', '#carousel-control-prev-chambre', '#carousel-control-next-chambre');
   });
-});
-
- // SALON //
-
-$(document).ready(function () {
-  var $carouselInnerSalon = $('#carousel-inner-salon');
-  var $carouselItemsSalon = $('.carousel-item');
-  var cardWidthSalon = $carouselItemsSalon.width();
-  var scrollPositionSalon = 0;
-
-  // Clone les premiers et derniers éléments pour créer une boucle
-  $carouselInnerSalon.append($carouselItemsSalon.clone());
-  $carouselInnerSalon.prepend($carouselItemsSalon.clone());
-
-  // Ajuste la position initiale pour éviter un saut au début
-  var initialOffsetSalon = $carouselItemsSalon.length * cardWidthSalon;
-  $carouselInnerSalon.scrollLeft(initialOffsetSalon);
-  scrollPositionSalon = initialOffsetSalon;
-
-  // Bouton "next"
-  $('#carousel-control-next-salon').on('click', function () {
-    scrollPositionSalon += cardWidthSalon;
-    $carouselInnerSalon.animate({ scrollLeft: scrollPositionSalon }, 600, function () {
-      // Réinitialise si on dépasse la fin des clones
-      if (scrollPositionSalon >= (initialOffsetSalon + $carouselItemsSalon.length * cardWidthSalon)) {
-        scrollPositionSalon = initialOffsetSalon;
-        $carouselInnerSalon.scrollLeft(scrollPositionSalon);
-      }
-    });
-  });
-
-  // Bouton "prev"
-  $('#carousel-control-prev-salon').on('click', function () {
-    scrollPositionSalon -= cardWidthSalon;
-    $carouselInnerSalon.animate({ scrollLeft: scrollPositionSalon }, 600, function () {
-      // Réinitialise si on dépasse le début des clones
-      if (scrollPositionSalon <= 0) {
-        scrollPositionSalon = initialOffsetSalon + ($carouselItemsSalon.length - 1) * cardWidthSalon;
-        $carouselInnerSalon.scrollLeft(scrollPositionSalon);
-      }
-    });
-  });
-});
-
-// Salle de bain //
-
-$(document).ready(function () {
-  var $carouselInnerSdb = $('#carousel-inner-sdb');
-  var $carouselItemsSdb = $('.carousel-item');
-  var cardWidthSdb = $carouselItemsSdb.width();
-  var scrollPositionSdb = 0;
-
-  // Clone les premiers et derniers éléments pour créer une boucle
-  $carouselInnerSdb.append($carouselItemsSdb.clone());
-  $carouselInnerSdb.prepend($carouselItemsSdb.clone());
-
-  // Ajuste la position initiale pour éviter un saut au début
-  var initialOffsetSdb = $carouselItemsSdb.length * cardWidthSdb;
-  $carouselInnerSdb.scrollLeft(initialOffsetSdb);
-  scrollPositionSdb = initialOffsetSdb;
-
-  // Bouton "next"
-  $('#carousel-control-next-sdb').on('click', function () {
-    scrollPositionSdb += cardWidthSdb;
-    $carouselInnerSdb.animate({ scrollLeft: scrollPositionSdb }, 600, function () {
-      // Réinitialise si on dépasse la fin des clones
-      if (scrollPositionSdb >= (initialOffsetSdb + $carouselItemsSdb.length * cardWidthSdb)) {
-        scrollPositionSdb = initialOffsetSdb;
-        $carouselInnerSdb.scrollLeft(scrollPositionSdb);
-      }
-    });
-  });
-
-  // Bouton "prev"
-  $('#carousel-control-prev-sdb').on('click', function () {
-    scrollPositionSdb -= cardWidthSdb;
-    $carouselInnerSdb.animate({ scrollLeft: scrollPositionSdb }, 600, function () {
-      // Réinitialise si on dépasse le début des clones
-      if (scrollPositionSdb <= 0) {
-        scrollPositionSdb = initialOffsetSdb + ($carouselItemsSdb.length - 1) * cardWidthSdb;
-        $carouselInnerSdb.scrollLeft(scrollPositionSdb);
-      }
-    });
-  });
-});
-
-
-// Cuisine //
-
-$(document).ready(function () {
-  var $carouselInnerCuisine = $('#carousel-inner-cuisine');
-  var $carouselItemsCuisine = $('.carousel-item');
-  var cardWidthCuisine = $carouselItemsCuisine.width();
-  var scrollPositionCuisine = 0;
-
-  // Clone les premiers et derniers éléments pour créer une boucle
-  $carouselInnerCuisine.append($carouselItemsCuisine.clone());
-  $carouselInnerCuisine.prepend($carouselItemsCuisine.clone());
-
-  // Ajuste la position initiale pour éviter un saut au début
-  var initialOffsetCuisine = $carouselItemsCuisine.length * cardWidthCuisine;
-  $carouselInnerCuisine.scrollLeft(initialOffsetCuisine);
-  scrollPositionCuisine = initialOffsetCuisine;
-
-  // Bouton "next"
-  $('#carousel-control-next-cuisine').on('click', function () {
-    scrollPositionCuisine += cardWidthCuisine;
-    $carouselInnerCuisine.animate({ scrollLeft: scrollPositionCuisine }, 600, function () {
-      // Réinitialise si on dépasse la fin des clones
-      if (scrollPositionCuisine >= (initialOffsetCuisine + $carouselItemsCuisine.length * cardWidthCuisine)) {
-        scrollPositionCuisine = initialOffsetCuisine;
-        $carouselInnerCuisine.scrollLeft(scrollPositionCuisine);
-      }
-    });
-  });
-
-  // Bouton "prev"
-  $('#carousel-control-prev-cuisine').on('click', function () {
-    scrollPositionCuisine -= cardWidthCuisine;
-    $carouselInnerCuisine.animate({ scrollLeft: scrollPositionCuisine }, 600, function () {
-      // Réinitialise si on dépasse le début des clones
-      if (scrollPositionCuisine <= 0) {
-        scrollPositionCuisine = initialOffsetCuisine + ($carouselItemsCuisine.length - 1) * cardWidthCuisine;
-        $carouselInnerCuisine.scrollLeft(scrollPositionCuisine);
-      }
-    });
-  });
-});
-
-
 
 }
