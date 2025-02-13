@@ -12,16 +12,41 @@
               <% end %>
             <% end %>
             <div class="price"> <%= product.price.round %>€ </div>
-            <h2 class="product-name"> <%= product.name.first(27) ? product.name.first(26) + "..." : product.name %> </h2>
-            <p class="text-description">
-              <% if product.description.present? %>
-                <%= product.description.first(70) ? product.description.first(69) + "..." : product.description %>
-                <a href="<%= product.url %>" target="_blank">Voir plus</a>
-              <% else %>
-                Ce produit est exceptionnel !!
-                <a href="<%= product.url %>" target="_blank">Voir plus</a>
-              <% end %>
-            </p>
+            <% if request.user_agent =~ /Mobile/ %>
+  <!-- Pour les mobiles, on garde les 27 premiers caractères du nom -->
+  <h2 class="product-name">
+    <%= product.name.first(27) %>...
+  </h2>
+<% else %>
+  <!-- Pour les desktops, on garde les 50 premiers caractères du nom -->
+  <h2 class="product-name">
+    <%= product.name.first(200) %>
+  </h2>
+<% end %>
+
+           <% if request.user_agent =~ /Mobile/ %>
+  <!-- Pour les mobiles, on garde les 70 premiers caractères -->
+  <p class="text-description">
+    <% if product.description.present? %>
+      <%= product.description.first(70) %>...
+      <a href="<%= product.url %>" target="_blank">Voir plus</a>
+    <% else %>
+      Ce produit est exceptionnel !!
+      <a href="<%= product.url %>" target="_blank">Voir plus</a>
+    <% end %>
+  </p>
+<% else %>
+  <!-- Pour les desktops, on garde les 150 premiers caractères -->
+  <p class="text-description">
+    <% if product.description.present? %>
+      <%= product.description.first(400) %>...
+      <a href="<%= product.url %>" target="_blank">Voir plus</a>
+    <% else %>
+      Ce produit est exceptionnel !!
+      <a href="<%= product.url %>" target="_blank">Voir plus</a>
+    <% end %>
+  </p>
+<% end %>
             <p class="shop-name mt-3"> <strong> <%= product.shop %> </strong></p>
           <%# bouton remplacer/update ajouter lien %>
           <% if fav == true %>

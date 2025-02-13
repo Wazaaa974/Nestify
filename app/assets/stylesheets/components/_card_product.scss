@@ -165,11 +165,12 @@
 
 .text-description {
   text-wrap: wrap;
-  // text-overflow: ellipsis;
 }
 
+/* Plus de caractères sur desktop */
+
 .product-name {
-  padding-right: 60px;
+  padding-right: 63px;
 }
 
 // .btn-retour{
@@ -275,4 +276,21 @@
 
 .btn-show.favorite .heart-icon {
   color: $yellow; /* Change icon color for favorite state */
+}
+
+@media (min-width: 1025px) {
+
+  .text-description {
+    padding-right: 70px;
+    padding-left: 20px;
+  }
+
+  .shop-name {
+    padding-left: 20px;
+  }
+
+  .product-name {
+    padding-left: 20px;
+  }
+
 }

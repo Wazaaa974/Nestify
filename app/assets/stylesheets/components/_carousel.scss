@@ -62,5 +62,11 @@
 .carousel-control-next {
   right: -50px; /* Ajustez selon vos besoins */
 }
+/* Cacher les éléments clonés sur le dashboard */
+/* Cacher les clones sur le dashboard */
+#dashboard .carousel-item.carousel-clone {
+  display: none;
+}
+
 
 }
