@@ -1,60 +1,91 @@
+
 <div class="mb-3">
-      <h1 class="mt-4">Chambre</h1>
+  <h1 class="mt-4">Chambre</h1>
+</div>
+
+<hr class="custom-hr mt-1">
+
+<% if dashboard %>
+  <% if package_chambre.is_a?(String) %>
+          <p class="mt-2"><%= package_chambre %></p>
+
+  <% else %>
+    <div class="d-flex flex-wrap gap-3">
+      <% package_chambre.each do |package| %>
+        <div class="card mx-auto style-package-index position-relative" style="max-width: 300px;">
+          <%= cl_image_tag package.products.first.photo.key, class:"card-img-top picture-card-index" %>
+          <div class="card-body-index d-flex flex-column">
+            <h5 class="card-title-index"><%= package.name %></h5>
+            <p class="card-text-index"><%= package.description %></p>
+            <div class="price-index mb-2">
+              <h6>Prix : <%= package.budget.round %>€ </h6>
+            </div>
+            <% proposal = Proposal.find_by(user: current_user, package: package, favorite: true) %>
+            <%= link_to proposal_path(proposal), class: "btn rounded-shadow-button-card mt-2 mb-4" do %>
+              Voir le pack
+            <% end %>
+
+            <div class="d-flex justify-content-between align-items-center">
+              <%= simple_form_for proposal, url: proposal_path(proposal), method: :delete do |f| %>
+                <div class="d-flex align-items-center gap-2">
+                  <%= f.input :bought, as: :boolean, label: "Acheté", input_html: { class: "card-checkbox-dashboard" }, label_html: { class: "checkbox-label-dashboard" } %>
+                </div>
+              <% end %>
+              <%= simple_form_for proposal, url: proposal_path(proposal), method: :delete do |f| %>
+                  <div class="d-flex align-items-center gap-2">
+                    <%= f.input :bought, as: :boolean, label: "Acheté", input_html: { id: "card-checkbox-#{package.id}", class: "card-checkbox-dashboard" }, label_html: { class: "checkbox-label-dashboard" } %>
+                  </div>
+                <% end %>
+              <div>
+                <%= link_to proposal_path(proposal), data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr ?" } do %>
+                  <i class="fa-solid fa-trash trash-dashboard"></i>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
+  <% end %>
 
-    <hr class="custom-hr mt-1">
+<% else %>
 
-    <div id="chambreCarousel" class="carousel slide">
-  <div id="carousel-inner-chambre" class="carousel-inner">
-    <% if package_chambre.is_a?(String) %>
-      <p class="mt-2"><%= package_chambre %></p>
-    <% else %>
+
+    <div class="owl-carousel owl-theme">
       <% package_chambre.each_with_index do |package, index| %>
-        <div class="carousel-item <%= 'active' if index == 0 %>">
+        <div class="item">
           <div class="card mx-auto style-package-index position-relative" style="max-width: 300px;">
-            <%= cl_image_tag package.products.first.photo.key, class:"card-img-top picture-card-index"%>
+            <%= cl_image_tag package.products.first.photo.key, class:"card-img-top picture-card-index" %>
             <div class="card-body-index d-flex flex-column">
               <h5 class="card-title-index"><%= package.name %></h5>
               <p class="card-text-index"><%= package.description %></p>
               <div class="price-index mb-2">
                 <h6>Prix : <%= package.budget.round %>€ </h6>
               </div>
-               <% proposal = Proposal.find_by(user: current_user, package: package, favorite: true) %>
-              <% path = dashboard ? proposal_path(proposal) : package_path(package, params: params) %>
+              <% path = package_path(package, params: params) %>
               <%= link_to path, class: "btn rounded-shadow-button-card mt-2 mb-4" do %>
                 Voir le pack
-              <% end %>
-              <% if dashboard %>
-              <div class="d-flex justify-content-between align-items-center">
-                <!-- Checkbox and Label -->
-                <% proposal = Proposal.find_by(package: package, user: current_user) %>
-                <%= simple_form_for proposal, url: proposal_path(proposal), method: :delete do |f| %>
-                  <div class="d-flex align-items-center gap-2">
-                    <%= f.input :bought, as: :boolean, label: "Acheté", input_html: { id: "card-checkbox-#{package.id}", class: "card-checkbox-dashboard" }, label_html: { class: "checkbox-label-dashboard" } %>
-                  </div>
-                <% end %>
-                <!-- Trash Icon -->
-                <div>
-                  <%= link_to proposal_path(proposal), data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr ?" } do %>
-                    <i class="fa-solid fa-trash trash-dashboard"></i>
-                  <% end %>
-                </div>
-              </div>
               <% end %>
             </div>
           </div>
         </div>
       <% end %>
-    <% end %>
-  </div>
+    </div>
 
-  <!-- Carousel Controls -->
-  <button id="carousel-control-prev-chambre" class="carousel-control-prev" type="button" data-bs-target="#chambreCarousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Précédent</span>
-  </button>
-  <button id="carousel-control-next-chambre" class="carousel-control-next" type="button" data-bs-target="#chambreCarousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Suivant</span>
-  </button>
-</div>
+
+
+  <script>
+    $(document).ready(function(){
+      $('.owl-carousel').owlCarousel({
+        loop:true,
+        margin:10,
+        nav:true,
+        responsive:{
+          0:{items:1},
+          600:{items:2},
+          1000:{items:3}
+        }
+      });
+    });
+  </script>
+<% end %>
