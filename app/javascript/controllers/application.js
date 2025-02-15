@@ -9,3 +9,4 @@ window.Stimulus   = application
 window.Swal = Swal
 
 export { application }
+
