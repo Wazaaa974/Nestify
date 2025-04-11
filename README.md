@@ -58,7 +58,6 @@ Il s'agit d'une application web qui permet aux utilisateurs de créer des packs 
 - Ruby on Rails 7
 - PostgreSQL
 - Hotwire (Turbo + Stimulus)
-- TailwindCSS
 - Devise (authentification)
 - Cloudinary (gestion des images)
 - Heroku (hébergement)
